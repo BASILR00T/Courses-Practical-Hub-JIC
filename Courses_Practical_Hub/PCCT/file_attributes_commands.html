@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Attribute Commands | PC Troubleshooting Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Exo+2:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --card-bg: #121212;
+            --border-color: rgba(0, 136, 255, 0.2);
+            --glow-color: #0088ff;
+        }
+        body { background-color: var(--background-dark); color: var(--text-color); font-family: 'Roboto Mono', monospace; line-height: 1.7; padding-top: 80px; }
+        .container { max-width: 900px; margin: 2rem auto; padding: 2rem; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 0 25px var(--glow-color); }
+        h1, h2 { font-family: 'Exo 2', sans-serif; color: var(--primary-blue);  margin-bottom: 1rem; border-bottom: 2px solid var(--border-color); padding-bottom: 0.5rem; }
+        h1 { font-size: 2.5rem; text-align: center; margin-bottom: 2rem; }
+        .command-section { margin-bottom: 2.5rem; }
+        h2 { font-size: 1.8rem; }
+        p { margin-bottom: 1rem; }
+        strong { color: var(--primary-blue); }
+        code.inline { background-color: #2a2a3a; color: #f0f0f0; padding: 0.2em 0.4em; border-radius: 4px; font-weight: bold; }
+        pre { background-color: #050509; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; margin-top: 1rem; box-shadow: inset 0 0 10px rgba(0,0,0,0.5); }
+        code { font-family: 'Roboto Mono', monospace; }
+        .output { color: #a0a0a0; }
+        .user-input { color: var(--primary-blue); }
+        .comment { color: #f08080; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 8px; font-family: 'Exo 2', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 15px var(--glow-color); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 25px var(--glow-color); transform: translateY(-2px); }
+        .li-padding{
+            padding-bottom: 10px;
+        }
+        @media (max-width: 960px) { .container { margin: 1.5rem; } }
+        @media (max-width: 768px) { .container { padding: 1.5rem; } h1 { font-size: 2rem; } h2 { font-size: 1.5rem; } }
+        @media (max-width: 480px) { body { font-size: 14px; padding-top: 70px; } .container { padding: 1rem; margin: 1rem; border: none; box-shadow: none; } h1 { font-size: 1.8rem; } h2 { font-size: 1.3rem; } pre { white-space: pre-wrap; word-wrap: break-word; } .back-button { width: calc(100% - 40px); text-align: center; } }
+    </style>
+</head>
+<body>
+    <a href="PCCT.html" class="back-button">&larr; Back to Hub</a>
+    <div class="container">
+        <h1>File Attribute Commands</h1>
+        
+        <div class="command-section">
+            <h2>attrib</h2>
+            <p>Displays or changes file attributes. You can manage Read-only (R), Archive (A), System (S), and Hidden (H) attributes.</p>
+            <p><strong>Syntax:</strong></p>
+            <ul>
+                <li class="li-padding">View attributes: <code class="inline">attrib [filename]</code></li>
+                <li class="li-padding">Set an attribute: <code class="inline">attrib +[attribute] [filename]</code></li>
+                <li class="li-padding">Remove an attribute: <code class="inline">attrib -[attribute] [filename]</code></li>
+            </ul>
+
+            <p><strong>Example:</strong> Manage attributes for a file named <code class="inline">report.txt</code>.</p>
+            
+            <p>1. Check current attributes:</p>
+            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib report.txt</span>
+<span class="output">A                    C:\JIC\Docs\report.txt</span></code></pre>
+
+            <p>2. Add the Read-only attribute:</p>
+            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib +r report.txt</span></code></pre>
+
+            <p>3. Check attributes again:</p>
+            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib report.txt</span>
+<span class="output">A    R               C:\JIC\Docs\report.txt</span></code></pre>
+
+            <p>4. Add Hidden and System attributes:</p>
+            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib +h +s report.txt</span></code></pre>
+
+            <p>5. Remove the Read-only attribute (<strong class="comment">Note: This may fail if System or Hidden is set</strong>):</p>
+            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib -r report.txt</span>
+<span class="output comment">Not resetting system file - C:\JIC\Docs\report.txt</span></code></pre>
+            
+            <p>6. Remove System and Hidden first, then remove Read-only:</p>
+            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib -s -h report.txt</span>
+<span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib -r report.txt</span>
+<span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib report.txt</span>
+<span class="output">A                    C:\JIC\Docs\report.txt</span></code></pre>
+        </div>
+    </div>
+</body>
+</html>
+
