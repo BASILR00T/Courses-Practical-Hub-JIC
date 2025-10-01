@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Attribute Commands | PC Troubleshooting Hub</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>File & Directory Commands | PC Troubleshooting Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #0088ff;
@@ -15,188 +13,95 @@
             --text-muted: #a0a0a0;
             --card-bg: #121212;
             --border-color: #222;
-            --glow-color: #0088ff;
         }
-
-        body {
-            background-color: var(--background-dark);
-            color: var(--text-color);
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 5rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-        
-        .back-button { 
-            position: fixed; 
-            top: 20px; 
-            left: 20px; 
-            background-color: var(--card-bg); 
-            color: var(--primary-blue); 
-            border: 1px solid var(--border-color); 
-            padding: 0.5rem 1rem; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-family: 'Roboto', sans-serif; 
-            font-weight: bold; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); 
-            z-index: 1000; 
-        }
-        .back-button:hover { 
-            background-color: var(--primary-blue); 
-            color: var(--background-dark); 
-            box-shadow: 0 0 20px var(--glow-color); 
-            transform: translateY(-2px); 
-        }
-
-        h1, h2 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-blue);
-        }
-
-        .command-section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-        }
-        
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 1rem;
-        }
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        strong.comment {
-            color: #f08080;
-        }
-
-        code.inline {
-            background-color: #2a2a3a;
-            color: #f0f0f0;
-            padding: 0.2em 0.4em;
-            border-radius: 4px;
-            font-family: 'Roboto Mono', monospace;
-            font-weight: bold;
-        }
-
-        pre {
-            background-color: #050509;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            overflow-x: auto;
-            margin-top: 1rem;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        code {
-            font-family: 'Roboto Mono', monospace;
-        }
-
-        .output {
-            color: #a0a0a0;
-        }
-
-        .user-input {
-            color: var(--primary-blue);
-            font-weight: bold;
-        }
-        
-        .comment {
-            color: #f08080;
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 5rem 1rem 3rem 1rem; }
-            .container { padding: 1.5rem; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            .back-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px #0088ff; transform: translateY(-2px); }
+        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
+        h2, h3 { font-weight: 700; }
+        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
+        p { font-size: 1rem; color: var(--text-muted); }
+        strong.comment { color: #f08080; }
+        code { font-family: 'Fira Code', monospace;color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
+        .user-input { color: #87cefa; }
+        .output { color: #a9a9a9; }
+        .comment { color: #6a9955; }
+        ul { list-style: none; padding-left: 0; }
+        li { margin-bottom: 0.5rem; }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
     </style>
 </head>
 <body>
-    <a href="PCCT.html" class="back-button">&larr; Back to Hub</a>
+    <a href="PCCT.html" class="back-button">&larr; Back to PCCT Hub</a>
     <div class="container">
-        <h1>File Attribute Commands</h1>
-        
-        <div class="command-section">
-            <h2>attrib</h2>
-            <p>Displays or changes file attributes. You can manage Read-only (R), Archive (A), System (S), and Hidden (H) attributes.</p>
-            <p><strong>Syntax:</strong></p>
-            <ul>
-                <li>View attributes: <code class="inline">attrib [filename]</code></li>
-                <li>Set an attribute: <code class="inline">attrib +[attribute] [filename]</code></li>
-                <li>Remove an attribute: <code class="inline">attrib -[attribute] [filename]</code></li>
-            </ul>
+        <header class="header">
+            <h1>File & Directory Commands</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>Basic File & Directory Commands</h2>
+                <h3>mkdir (md)</h3>
+                <p>Creates a new directory (folder).</p>
+                <pre><code><span class="output">C:\Users\Jargon\Desktop&gt;</span><span class="user-input">mkdir MIT_Project</span></code></pre>
 
-            <p><strong>Example:</strong> Manage attributes for a file named <code class="inline">report.txt</code>.</p>
-            
-            <p>1. Check current attributes:</p>
-            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib report.txt</span>
-<span class="output">A                     C:\JIC\Docs\report.txt</span></code></pre>
+                <h3>echo</h3>
+                <p>Creates a new text file and writes content to it using the output redirection symbol (<code>&gt;</code>).</p>
+                <pre><code><span class="output">C:\Users\Jargon\Desktop\MIT_Project&gt;</span><span class="user-input">echo This is a test file. &gt; readme.txt</span>
 
-            <p>2. Add the Read-only attribute:</p>
-            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib +r report.txt</span></code></pre>
+<span class="output">C:\Users\Jargon\Desktop\MIT_Project&gt;</span><span class="user-input">type readme.txt</span>
+<span class="output">This is a test file.</span></code></pre>
 
-            <p>3. Check attributes again:</p>
-            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib report.txt</span>
-<span class="output">A    R                C:\JIC\Docs\report.txt</span></code></pre>
+                <h3>dir</h3>
+                <p>Lists files and directories. It can also be used to search for files with specific extensions.</p>
+                <p>Example: Find all Control Panel applets (<code>.cpl</code> files) in the System32 directory.</p>
+                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">dir *.cpl</span>
+<span class="output"> Volume in drive C has no label.
+ Volume Serial Number is 1A2B-3C4D
 
-            <p>4. Add Hidden and System attributes:</p>
-            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib +h +s report.txt</span></code></pre>
+ Directory of C:\WINDOWS\system32
 
-            <p>5. Remove the Read-only attribute (<strong class="comment">Note: This may fail if System or Hidden is set</strong>):</p>
-            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib -r report.txt</span>
-<span class="output comment">Not resetting system file - C:\JIC\Docs\report.txt</span></code></pre>
-            
-            <p>6. Remove System and Hidden first, then remove Read-only:</p>
-            <pre><code><span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib -s -h report.txt</span>
-<span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib -r report.txt</span>
-<span class="output">C:\JIC\Docs&gt;</span><span class="user-input">attrib report.txt</span>
-<span class="output">A                     C:\JIC\Docs\report.txt</span></code></pre>
-        </div>
+07/12/2023  09:08 PM           555,008 appwiz.cpl
+07/12/2023  09:08 PM           193,024 desk.cpl
+07/12/2023  09:08 PM           500,736 inetcpl.cpl
+               3 File(s)      1,248,768 bytes
+               0 Dir(s)  123,456,789,012 bytes free</span></code></pre>
+            </section>
+
+            <section class="section">
+                <h2>attrib</h2>
+                <p>Displays or changes file and folder attributes. You can manage Read-only (R), Archive (A), System (S), and Hidden (H) attributes.</p>
+                
+                <h3>Managing Attributes for a Single File</h3>
+                <ul>
+                    <li>View attributes: <code>attrib [filename]</code></li>
+                    <li>Set an attribute: <code>attrib +[attribute] [filename]</code> (e.g., <code>+h</code> for hidden)</li>
+                    <li>Remove an attribute: <code>attrib -[attribute] [filename]</code> (e.g., <code>-r</code> for read-only)</li>
+                </ul>
+                <p>Example: Make a file read-only and hidden.</p>
+                <pre><code><span class="output">C:\MIT_Project&gt;</span><span class="user-input">attrib +r +h readme.txt</span>
+
+<span class="output">C:\MIT_Project&gt;</span><span class="user-input">attrib readme.txt</span>
+<span class="output">A    R H      C:\MIT_Project\readme.txt</span></code></pre>
+
+                <h3>Applying Attributes to a Folder and its Contents</h3>
+                <p>You can use switches to apply attributes recursively to all files and subfolders.</p>
+                 <ul>
+                    <li><code>/s</code> : Processes matching files in the current folder and all subfolders.</li>
+                    <li><code>/d</code> : Processes folders as well.</li>
+                </ul>
+                <p>Example: Make the entire <code>MIT_Project</code> folder, and everything inside it, a hidden system folder.</p>
+                <pre><code><span class="output">C:\Users\Jargon\Desktop&gt;</span><span class="user-input">attrib +s +h MIT_Project/*.* /s /d</span>
+
+<span class="output">C:\Users\Jargon\Desktop&gt;</span><span class="user-input">attrib MIT_Project</span>
+<span class="output">A    S H      C:\Users\Jargon\Desktop\MIT_Project</span></code></pre>
+                <p><strong class="comment">Important Note:</strong> If a file or folder has the System (S) or Hidden (H) attribute set, you may not be able to change other attributes until you remove them first.</p>
+            </section>
+        </main>
     </div>
 </body>
 </html>
+

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Cisco IOS CLI | Network 2 Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px #0088ff; transform: translateY(-2px); }
+        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
+        h2, h3 { font-weight: 700; }
+        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
+        p, li { font-size: 1rem; color: var(--text-muted); }
+        code { font-family: 'Fira Code', monospace;color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
+        .user-input { color: #87cefa; }
+        .output { color: #a9a9a9; }
+        .comment { color: #6a9955; }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <a href="Network2.html" class="back-button">&larr; Back to Network 2 Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>Basic Cisco IOS CLI</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>1. Navigating CLI Modes</h2>
+                <p>Cisco IOS has a hierarchical structure. You move through different modes to perform different tasks. The prompt changes to show your current mode.</p>
+                <ul>
+                    <li><strong>User EXEC Mode</strong> (<code>Switch></code>): For basic monitoring and viewing commands.</li>
+                    <li><strong>Privileged EXEC Mode</strong> (<code>Switch#</code>): Also called "enable mode". Provides access to all monitoring commands as well as device management commands like `reload` and `copy`.</li>
+                    <li><strong>Global Configuration Mode</strong> (<code>Switch(config)#</code>): The gateway to all configuration changes.</li>
+                    <li><strong>Specific Configuration Modes</strong> (e.g., <code>Switch(config-if)#</code>): For configuring specific parts of the device, like an interface or a routing protocol.</li>
+                </ul>
+                <pre><code><span class="comment">! From User EXEC, enter Privileged EXEC mode</span>
+<span class="output">Switch></span><span class="user-input">enable</span>
+<span class="output">Switch#</span>
+
+<span class="comment">! From Privileged EXEC, enter Global Configuration mode</span>
+<span class="output">Switch#</span><span class="user-input">configure terminal</span>
+<span class="output">Enter configuration commands, one per line.  End with CNTL/Z.</span>
+<span class="output">Switch(config)#</span>
+
+<span class="comment">! Exit back one level</span>
+<span class="output">Switch(config)#</span><span class="user-input">exit</span>
+<span class="output">Switch#</span>
+
+<span class="comment">! Return directly to Privileged EXEC mode from any config mode</span>
+<span class="output">Switch(config-if)#</span><span class="user-input">end</span>
+<span class="output">Switch#</span></code></pre>
+            </section>
+            
+            <section class="section">
+                <h2>2. First Steps & Identification</h2>
+                <p>These are some of the first commands you should execute on a new device to give it a unique identity.</p>
+                <h3>Hostname</h3>
+                <p>Changes the name of the switch or router, which is reflected in the CLI prompt.</p>
+                <pre><code><span class="output">Switch(config)#</span><span class="user-input">hostname SW1</span>
+<span class="output">SW1(config)#</span></code></pre>
+
+                <h3>Banner MOTD (Message of the Day)</h3>
+                <p>Sets a banner that is displayed to anyone who connects to the device. It's often used for legal warnings.</p>
+                <pre><code><span class="comment">! The '#' is a delimiting character; the banner ends when it sees the second '#'</span>
+<span class="output">SW1(config)#</span><span class="user-input">banner motd # UNAUTHORIZED ACCESS IS PROHIBITED #</span></code></pre>
+            </section>
+
+            <section class="section">
+                <h2>3. Basic Interface Configuration</h2>
+                <p>Interfaces are the physical ports on the device. They must be configured to pass traffic.</p>
+                <pre><code><span class="comment">! Enter interface configuration mode for GigabitEthernet 0/1</span>
+<span class="output">SW1(config)#</span><span class="user-input">interface gigabitEthernet 0/1</span>
+
+<span class="comment">! Add a description to the interface (highly recommended)</span>
+<span class="output">SW1(config-if)#</span><span class="user-input">description Link to Core Router</span>
+
+<span class="comment">! On a router or Layer 3 switch, assign an IP address</span>
+<span class="output">SW1(config-if)#</span><span class="user-input">ip address 192.168.1.1 255.255.255.0</span>
+
+<span class="comment">! Enable the interface (ports are disabled by default)</span>
+<span class="output">SW1(config-if)#</span><span class="user-input">no shutdown</span>
+<span class="output">SW1(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to up
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up</span>
+
+<span class="comment">! To disable an interface</span>
+<span class="output">SW1(config-if)#</span><span class="user-input">shutdown</span></code></pre>
+            </section>
+
+            <section class="section">
+                <h2>4. Essential 'Show' Commands</h2>
+                <p>`show` commands are used in User EXEC or Privileged EXEC mode to view the device's status and configuration. They are essential for verification and troubleshooting.</p>
+                <pre><code><span class="comment">! Display the current, active configuration</span>
+<span class="output">SW1#</span><span class="user-input">show running-config</span>
+
+<span class="comment">! Display the configuration that will be loaded on reboot</span>
+<span class="output">SW1#</span><span class="user-input">show startup-config</span>
+
+<span class="comment">! A summary of all interfaces, their IP addresses, and status (very useful!)</span>
+<span class="output">SW1#</span><span class="user-input">show ip interface brief</span>
+<span class="output">Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/1     192.168.1.1     YES manual up                    up
+GigabitEthernet0/2     unassigned      YES manual administratively down down</span>
+
+<span class="comment">! Display detailed information about the IOS version and hardware</span>
+<span class="output">SW1#</span><span class="user-input">show version</span>
+<span class="output">Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 15.0(2)SE4...
+...</span></code></pre>
+            </section>
+
+            <section class="section">
+                <h2>5. Saving and Erasing the Configuration</h2>
+                <p>Changes made in global configuration mode are applied immediately to the `running-config`. To make them permanent, you must save them to the `startup-config`.</p>
+                <h3>Saving the Configuration</h3>
+                <pre><code><span class="comment">! Copies the active configuration from RAM to NVRAM</span>
+<span class="output">SW1#</span><span class="user-input">copy running-config startup-config</span>
+<span class="output">Destination filename [startup-config]?</span>
+<span class="output">Building configuration...
+[OK]</span></code></pre>
+
+                <h3>Erasing the Configuration (Factory Reset)</h3>
+                <p>To completely wipe a switch and return it to its factory default state, you must erase the startup configuration and the VLAN database, then reload.</p>
+                <pre><code><span class="comment">! Erase the startup configuration file</span>
+<span class="output">SW1#</span><span class="user-input">erase startup-config</span>
+<span class="output">Erasing the nvram filesystem will remove all configuration files! Continue? [confirm]</span>
+<span class="output">[OK]
+Erase of nvram: complete</span>
+
+<span class="comment">! Delete the VLAN database file</span>
+<span class="output">SW1#</span><span class="user-input">delete flash:vlan.dat</span>
+<span class="output">Delete filename [vlan.dat]?</span>
+<span class="output">Delete flash:/vlan.dat? [confirm]</span>
+
+<span class="comment">! Reboot the switch</span>
+<span class="output">SW1#</span><span class="user-input">reload</span>
+<span class="output">Proceed with reload? [confirm]</span></code></pre>
+            </section>
+
+            <section class="section">
+                <h2>6. Using CLI Help</h2>
+                <p>The `?` is your most powerful tool. Use it to see available commands or the options for a command you're typing.</p>
+                <pre><code><span class="comment">! See all commands that start with 'cl'</span>
+<span class="output">SW1#</span><span class="user-input">cl?</span>
+<span class="output">clear  clock</span>
+
+<span class="comment">! See the next required parameter for 'clock set'</span>
+<span class="output">SW1#</span><span class="user-input">clock set ?</span>
+<span class="output">  hh:mm:ss  Current Time</span>
+
+<span class="comment">! See what comes next</span>
+<span class="output">SW1#</span><span class="user-input">clock set 14:30:00 ?</span>
+<span class="output">  <1-31>  Day of the month
+  MONTH   Month of the year</span>
+
+<span class="comment">! Keep going until you see <cr> (carriage return)</span>
+<span class="output">SW1#</span><span class="user-input">clock set 14:30:00 1 October 2025 ?</span>
+<span class="output">  <cr></span></code></pre>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>
+

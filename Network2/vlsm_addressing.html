@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLSM & IP Addressing | Network 2 Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px #0088ff; transform: translateY(-2px); }
+        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
+        h2, h3 { font-weight: 700; }
+        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
+        p { font-size: 1rem; color: var(--text-muted); }
+        code { font-family: 'Fira Code', monospace; background-color: rgba(0, 136, 255, 0.1); color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { border: 1px solid var(--border-color); padding: 0.8rem; text-align: left; }
+        th { background-color: rgba(0, 136, 255, 0.1); color: var(--primary-blue); }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <a href="Network2.html" class="back-button">&larr; Back to Network 2 Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>VLSM & IP Addressing</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>Understanding VLSM</h2>
+                <p>Variable Length Subnet Masking (VLSM) is a technique that allows network administrators to divide an IP address space into subnets of different sizes. This is far more efficient than traditional "classful" subnetting, as it minimizes wasted IP addresses.</p>
+                <p>For example, you can use a <code>/30</code> mask (2 host IPs) for a point-to-point link between routers and a <code>/27</code> mask (30 host IPs) for a user LAN, all from the same original network block.</p>
+                
+            </section>
+            
+            <section class="section">
+                <h2>Calculating Subnets</h2>
+                <p>To use VLSM, you need to understand how to calculate the Network ID, Broadcast Address, and the range of usable host IPs for any given IP address and subnet mask.</p>
+                <h3>Subnet Mask Quick Reference</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CIDR</th>
+                            <th>Subnet Mask</th>
+                            <th>Total IPs</th>
+                            <th>Usable Hosts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>/24</code></td>
+                            <td>255.255.255.0</td>
+                            <td>256</td>
+                            <td>254</td>
+                        </tr>
+                        <tr>
+                            <td><code>/25</code></td>
+                            <td>255.255.255.128</td>
+                            <td>128</td>
+                            <td>126</td>
+                        </tr>
+                         <tr>
+                            <td><code>/26</code></td>
+                            <td>255.255.255.192</td>
+                            <td>64</td>
+                            <td>62</td>
+                        </tr>
+                         <tr>
+                            <td><code>/27</code></td>
+                            <td>255.255.255.224</td>
+                            <td>32</td>
+                            <td>30</td>
+                        </tr>
+                         <tr>
+                            <td><code>/30</code></td>
+                            <td>255.255.255.252</td>
+                            <td>4</td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>Example Calculation</h3>
+                <p>Given the IP address <code>192.168.200.139</code> with a mask of <code>255.255.255.224</code> (/27):</p>
+                <ul>
+                    <li><strong>Network Address:</strong> 192.168.200.128</li>
+                    <li><strong>Broadcast Address:</strong> 192.168.200.159</li>
+                    <li><strong>First Usable Host IP:</strong> 192.168.200.129</li>
+                    <li><strong>Last Usable Host IP:</strong> 192.168.200.158</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>Practical Example: Assigning IPs in Packet Tracer</h2>
+                <p>Assigning an IP address to a PC in Packet Tracer is a fundamental skill for testing connectivity in any lab.</p>
+                <ol>
+                    <li>Click on the PC in the Packet Tracer workspace.</li>
+                    <li>Go to the **Desktop** tab.</li>
+                    <li>Click on **IP Configuration**.</li>
+                    <li>Fill in the static IPv4 Address, Subnet Mask, and Default Gateway. The Default Gateway is the IP address of the router interface on the same network, which the PC will use to reach other networks.</li>
+                </ol>
+                
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+

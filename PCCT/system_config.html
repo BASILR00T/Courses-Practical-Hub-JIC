@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Configuration | PCCT Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px var(--glow-color); transform: translateY(-2px); }
+        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
+        h2, h3 { font-weight: 700; }
+        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
+        p, li { font-size: 1rem; color: var(--text-muted); }
+        ol { padding-left: 20px; }
+        li { margin-bottom: 0.75rem; }
+        strong { color: var(--text-color); font-weight: 700; }
+        code { font-family: 'Fira Code', monospace; background-color: rgba(0, 136, 255, 0.1); color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <a href="PCCT.html" class="back-button">&larr; Back to PCCT Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>System Configuration Tools</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>System Properties (sysdm.cpl)</h2>
+                <p>The System Properties dialog is a central hub for many advanced settings. It can be accessed quickly by running the command <code>sysdm.cpl</code>.</p>
+                <p><strong>To open System Properties:</strong> Press <code>Windows Logo + R</code>, type <code>sysdm.cpl</code>, and press Enter.</p>
+                <h3>Managing Virtual Memory</h3>
+                <p>Virtual memory (the paging file) is a space on your hard disk that Windows uses as if it were RAM. You can manage its size and location for performance tuning.</p>
+                <ol>
+                    <li>Open System Properties (<code>sysdm.cpl</code>).</li>
+                    <li>Go to the <strong>Advanced</strong> tab.</li>
+                    <li>Under the "Performance" section, click <strong>Settings...</strong>.</li>
+                    <li>In the Performance Options window, go to the <strong>Advanced</strong> tab.</li>
+                    <li>Under the "Virtual memory" section, click <strong>Change...</strong>.</li>
+                    <li>From here you can uncheck "Automatically manage..." to set a custom size or move the <code>pagefile.sys</code> to a different drive.</li>
+                </ol>
+            </section>
+            <section class="section">
+                <h2>System Restore & Restore Points (System Protection)</h2>
+                <p>System Restore allows you to revert your computer's system files and settings to an earlier point in time, which can be used to recover from system malfunctions. This feature relies on "restore points".</p>
+                 <ol>
+                    <li>Open System Properties (<code>sysdm.cpl</code>).</li>
+                    <li>Go to the <strong>System Protection</strong> tab.</li>
+                    <li><strong>Configure:</strong> Select a drive (usually C:) and click "Configure..." to turn on system protection and allocate disk space for restore points.</li>
+                    <li><strong>Create:</strong> Click "Create..." to manually create a restore point before making major changes like installing a new driver or software.</li>
+                    <li><strong>Restore:</strong> Click "System Restore..." to launch the wizard that lets you choose a restore point to revert to. This can also be launched via the command <code>rstrui.exe</code>.</li>
+                </ol>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network 2 Hub | JIC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+            --glow-color: #0088ff;
+        }
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 4rem 2rem 2rem 2rem;
+            box-sizing: border-box;
+        }
+        .container { width: 100%; max-width: 1200px; text-align: center; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px var(--glow-color); transform: translateY(-2px); }
+        .header { text-align: center; margin-bottom: 3rem; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .header h1 { font-family: 'Roboto', sans-serif; font-size: 3rem; font-weight: 700; color: var(--primary-blue); margin: 0; }
+        .header p { font-size: 1.1rem; color: var(--text-muted); max-width: 70ch; margin: 0.5rem auto 0; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; }
+        .module-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; text-decoration: none; color: var(--text-color); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; overflow: hidden; }
+        .module-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(transparent, rgba(0, 136, 255, 0.2), transparent 30%); animation: rotate 4s linear infinite; opacity: 0; transition: opacity 0.3s ease; }
+        .module-card:hover::before { opacity: 1; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .module-card:hover { transform: translateY(-5px); box-shadow: 0 0 25px var(--glow-color); border-color: var(--primary-blue); }
+        .module-card h2 { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--primary-blue); margin-top: 0; margin-bottom: 0.5rem; }
+        .module-card p { font-size: 0.9rem; color: var(--text-muted); }
+        .footer { margin-top: 5rem; margin-bottom: 1rem; text-align: center; }
+        .footer p { color: var(--text-muted); font-size: 0.9rem; }
+        .footer a { color: var(--primary-blue); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            body { padding: 5rem 1rem 3rem 1rem; }
+            .header h1 { font-size: 2.5rem; }
+            .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="back-button">&larr; Back to Main Hub</a>
+    <div class="container">
+        <div class="header">
+            <h1>Network 2 Hub</h1>
+            <p>Practical guides for Cisco IOS commands, switch and router configuration, routing protocols, and network services using Cisco Packet Tracer.</p>
+        </div>
+
+        <div class="grid-container">
+            <a href="basic_cisco_cli.html" class="module-card">
+                <h2>Basic Cisco IOS CLI</h2>
+                <p>Learn the fundamental commands and modes for navigating the Cisco CLI.</p>
+            </a>
+            <a href="basic_switch_security.html" class="module-card">
+                <h2>Basic Switch Security</h2>
+                <p>Securing console access and privileged modes with passwords and encryption.</p>
+            </a>
+            <a href="vlsm_addressing.html" class="module-card">
+                <h2>VLSM & IP Addressing</h2>
+                <p>Understand and apply Variable Length Subnet Masking for efficient IP allocation.</p>
+            </a>
+            <a href="vlans_and_trunks.html" class="module-card">
+                <h2>VLANs, Trunks, and VTP</h2>
+                <p>Configure VLANs, trunk ports, VTP, Native VLANs, and Voice VLANs.</p>
+            </a>
+             <a href="switch_port_security.html" class="module-card">
+                <h2>Switch Port Security</h2>
+                <p>Prevent unauthorized access by configuring port security on switch interfaces.</p>
+            </a>
+            <a href="etherchannel.html" class="module-card">
+                <h2>EtherChannel</h2>
+                <p>Bundle multiple physical links into a single logical link for higher bandwidth and redundancy.</p>
+            </a>
+            <a href="inter-vlan_routing.html" class="module-card">
+                <h2>Inter-VLAN Routing</h2>
+                <p>Enable communication between different VLANs using a router or a Layer 3 switch.</p>
+            </a>
+            <a href="static_routing.html" class="module-card">
+                <h2>Static & Default Routing</h2>
+                <p>Manually configure static and default routes to direct traffic between networks.</p>
+            </a>
+            <a href="dynamic_routing.html" class="module-card">
+                <h2>Dynamic Routing</h2>
+                <p>Configure RIP, OSPF, and EIGRP to allow routers to automatically learn network routes.</p>
+            </a>
+            <a href="network_services.html" class="module-card">
+                <h2>Network Services</h2>
+                <p>Configure DHCP, DNS, HTTP, FTP, and DHCP Relay on routers and servers.</p>
+            </a>
+            <a href="nat_config.html" class="module-card">
+                <h2>NAT Configuration</h2>
+                <p>Translate private IP addresses to public IPs using Static, Dynamic, and PAT (Overload).</p>
+            </a>
+            <a href="remote_access.html" class="module-card">
+                <h2>Remote Access</h2>
+                <p>Configure Telnet and the more secure SSH for remote device management.</p>
+            </a>
+        </div>
+
+        <footer class="footer">
+            <p>If there are any mistakes or wrong info, please feel free to contact me at <a href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disk Management Commands | PC Troubleshooting Hub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px #0088ff; transform: translateY(-2px); }
+        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
+        h2, h3 { font-weight: 700; }
+        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
+        p { font-size: 1rem; color: var(--text-muted); }
+        strong.comment { color: #f08080; }
+        code { font-family: 'Fira Code', monospace;  color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
+        .user-input { color: #87cefa; }
+        .output { color: #a9a9a9; }
+        .comment { color: #6a9955; }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <a href="PCCT.html" class="back-button">&larr; Back to PCCT Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>Disk Management Commands</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>Standard CMD Commands</h2>
+                <p>These commands can be run directly from the Command Prompt without entering the Diskpart utility.</p>
+                <h3>vol</h3>
+                <p>Displays the volume label and serial number for a disk.</p>
+                <pre><code><span class="output">C:\&gt;</span><span class="user-input">vol C:</span>
+<span class="output"> Volume in drive C is Windows
+ Volume Serial Number is 1A2B-3C4D</span></code></pre>
+
+                <h3>label</h3>
+                <p>Creates, changes, or deletes the volume label (name) of a disk.</p>
+                <pre><code><span class="output">C:\&gt;</span><span class="user-input">label D: Backup</span></code></pre>
+
+                <h3>format</h3>
+                <p>Prepares a storage drive for use by creating a new file system. <strong class="comment">Warning: This erases all data on the drive.</strong></p>
+                <pre><code><span class="output">C:\&gt;</span><span class="user-input">format D: /fs:ntfs /q /v:Data</span>
+<span class="output">The type of the file system is FAT32.
+New file system is NTFS.
+QuickFormatting 953869M...
+Format complete.</span></code></pre>
+            </section>
+
+            <section class="section">
+                <h2>Diskpart Utility</h2>
+                <p>A powerful utility for advanced disk management. Start it by typing <code>diskpart</code> in an elevated Command Prompt.</p>
+                
+                <h3>Information Commands</h3>
+                 <pre><code><span class="comment">// List all disks</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">list disk</span>
+<span class="output">
+  Disk ###  Status         Size     Free     Dyn  Gpt
+  --------  -------------  -------  -------  ---  ---
+  Disk 0    Online          465 GB      0 B        *
+  Disk 1    Online           28 GB      0 B</span>
+
+<span class="comment">// Select a disk to work with</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">select disk 1</span>
+<span class="output">Disk 1 is now the selected disk.</span>
+
+<span class="comment">// Show detailed information about the selected disk</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">detail disk</span>
+<span class="output">SanDisk Cruzer Glide USB Device
+Disk ID: E1B4E1B4
+Type   : USB
+Status : Online
+...
+  Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 3     E   WinSetup     FAT32  Removable     28 GB  Healthy</span>
+
+<span class="comment">// Display supported file systems</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">filesystems</span>
+<span class="output">  File System  Type        Size
+  -----------  ----------  -----------------------
+  FAT          FAT         Up to 4 GB
+  FAT32        FAT32       Up to 32 GB
+  exFAT        exFAT       Up to 128 PB
+  NTFS         NTFS        Up to 256 TB</span></code></pre>
+
+                <h3>Partition & Volume Management</h3>
+                <pre><code><span class="comment">// Select a volume to manage</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">select volume 3</span>
+<span class="output">Volume 3 is now the selected volume.</span>
+
+<span class="comment">// Increase the size by 2GB (2000MB)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">extend size=2000</span>
+<span class="output">DiskPart successfully extended the volume.</span>
+
+<span class="comment">// Reduce the size by 5GB (5000MB)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">shrink desired=5000</span>
+<span class="output">DiskPart successfully shrunk the volume by: 5000 MB</span>
+
+<span class="comment">// Remove the drive letter</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">remove letter=E</span>
+<span class="output">DiskPart successfully removed the drive letter or mount point.</span>
+
+<span class="comment">// Delete the selected partition or volume (ERASES ALL DATA)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">delete volume</span>
+<span class="output">DiskPart successfully deleted the selected volume.</span></code></pre>
+            </section>
+            
+            <section class="section">
+                <h2>Virtual Hard Disk (VHD) Management</h2>
+                <p>This combined example shows the complete workflow for creating, partitioning, and managing a new virtual disk.</p>
+                <pre><code><span class="comment">// 1. Create a new 5GB virtual disk file</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">create vdisk file="d:\vms\coit.vhd" maximum=5000</span>
+<span class="output">  100 percent completed
+DiskPart successfully created the virtual disk file.</span>
+
+<span class="comment">// 2. Select and attach the new virtual disk</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">select vdisk file="d:\vms\coit.vhd"</span>
+<span class="output">DiskPart successfully selected the virtual disk file.</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">attach vdisk</span>
+<span class="output">  100 percent completed
+DiskPart successfully attached the virtual disk file.</span>
+
+<span class="comment">// 3. Clean the disk and convert to MBR style for this example</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">clean</span>
+<span class="output">DiskPart succeeded in cleaning the disk.</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">convert mbr</span>
+<span class="output">DiskPart successfully converted the selected disk to MBR format.</span>
+
+<span class="comment">// 4. Create partitions (e.g., 2GB primary, 2GB extended, then logicals)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">create partition primary size=2000</span>
+<span class="output">DiskPart succeeded in creating the specified partition.</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">create partition extended size=2000</span>
+<span class="output">DiskPart succeeded in creating the specified partition.</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">create partition logical size=1000</span>
+<span class="output">DiskPart succeeded in creating the specified partition.</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">create partition logical</span>
+<span class="output">DiskPart succeeded in creating the specified partition.</span>
+
+<span class="comment">// 5. Format and assign letters (select each partition before formatting)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">select partition 1</span>
+<span class="output">Partition 1 is now the selected partition.</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">format fs=ntfs quick label=Google</span>
+<span class="output">  100 percent completed
+DiskPart successfully formatted the volume.</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">assign letter=G</span>
+<span class="output">DiskPart successfully assigned the drive letter or mount point.</span>
+<span class="comment">// (Repeat for other partitions...)</span>
+
+<span class="comment">// 6. Expand the virtual disk's maximum size (e.g., to 8GB)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">expand vdisk maximum=8000</span>
+<span class="output">  100 percent completed
+DiskPart successfully expanded the virtual disk.</span>
+
+<span class="comment">// 7. When finished, detach the virtual disk</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">detach vdisk</span>
+<span class="output">DiskPart successfully detached the virtual disk file.</span>
+</code></pre>
+            </section>
+            
+            <section class="section">
+                <h2>Creating a Bootable USB Drive</h2>
+                <p>Use Diskpart to prepare a USB flash drive to be a bootable Windows installation medium. <strong class="comment">Warning: This will erase all data on the USB drive.</strong></p>
+                <pre><code><span class="comment">// 1. Identify your USB drive (e.g., Disk 2)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">list disk</span>
+<span class="output">  Disk ###  Status         Size     Free     Dyn  Gpt
+  --------  -------------  -------  -------  ---  ---
+  Disk 0    Online          465 GB      0 B        *
+  Disk 1    Online          931 GB      0 B        *
+  Disk 2    Online           58 GB      0 B</span>
+
+<span class="comment">// 2. Select the USB drive</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">select disk 2</span>
+<span class="output">Disk 2 is now the selected disk.</span>
+
+<span class="comment">// 3. Wipe the drive</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">clean</span>
+<span class="output">DiskPart succeeded in cleaning the disk.</span>
+
+<span class="comment">// 4. Create a primary partition</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">create partition primary</span>
+<span class="output">DiskPart succeeded in creating the specified partition.</span>
+
+<span class="comment">// 5. Select and mark the partition as active (bootable)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">select partition 1</span>
+<span class="output">Partition 1 is now the selected partition.</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">active</span>
+<span class="output">DiskPart marked the current partition as active.</span>
+
+<span class="comment">// 6. Format the partition as FAT32</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">format fs=fat32 quick label="WinSetup"</span>
+<span class="output">  100 percent completed
+DiskPart successfully formatted the volume.</span>
+
+<span class="comment">// 7. Assign a drive letter</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">assign letter=W</span>
+<span class="output">DiskPart successfully assigned the drive letter or mount point.</span>
+
+<span class="comment">// 8. Exit diskpart</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">exit</span>
+<span class="output">Leaving DiskPart...</span></code></pre>
+                <p><strong class="comment">Warning: After completing these steps, you must copy all files and folders from your Windows installation ISO or DVD directly onto the root of the newly prepared USB drive..</strong></p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+

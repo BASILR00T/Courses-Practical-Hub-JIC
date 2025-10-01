@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLANs, Trunks, and VTP | Network 2 Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px #0088ff; transform: translateY(-2px); }
+        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
+        h2, h3 { font-weight: 700; }
+        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
+        p, li { font-size: 1rem; color: var(--text-muted); }
+        code { font-family: 'Fira Code', monospace;color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
+        .user-input { color: #87cefa; }
+        .output { color: #a9a9a9; }
+        .comment { color: #6a9955; }
+        .video-container { position: relative; overflow: hidden; width: 100%; padding-top: 56.25%; margin: 1.5rem 0; border-radius: 10px; border: 1px solid var(--border-color); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <a href="Network2.html" class="back-button">&larr; Back to Network 2 Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>VLANs, Trunks, and VTP</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>1. VLAN Configuration</h2>
+                <p>VLANs (Virtual LANs) logically segment a switch into separate broadcast domains. Devices in one VLAN cannot communicate directly with devices in another VLAN without a router.</p>
+                <h3>Creating VLANs and Assigning Ports</h3>
+                <p>This example creates two VLANs (10 and 20) and assigns interfaces to them.</p>
+                 <pre><code><span class="comment">! Create VLAN 10 and give it a name</span>
+<span class="output">Switch(config)#</span><span class="user-input">vlan 10</span>
+<span class="output">Switch(config-vlan)#</span><span class="user-input">name Students</span>
+<span class="output">Switch(config-vlan)#</span><span class="user-input">exit</span>
+
+<span class="comment">! Create VLAN 20 and give it a name</span>
+<span class="output">Switch(config)#</span><span class="user-input">vlan 20</span>
+<span class="output">Switch(config-vlan)#</span><span class="user-input">name Faculty</span>
+<span class="output">Switch(config-vlan)#</span><span class="user-input">exit</span>
+
+<span class="comment">! Assign interface FastEthernet0/1 to VLAN 10</span>
+<span class="output">Switch(config)#</span><span class="user-input">interface fastEthernet 0/1</span>
+<span class="output">Switch(config-if)#</span><span class="user-input">switchport mode access</span>
+<span class="output">Switch(config-if)#</span><span class="user-input">switchport access vlan 10</span>
+<span class="output">Switch(config-if)#</span><span class="user-input">exit</span>
+
+<span class="comment">! Assign a range of interfaces to VLAN 20</span>
+<span class="output">Switch(config)#</span><span class="user-input">interface range fastEthernet 0/2 - 5</span>
+<span class="output">Switch(config-if-range)#</span><span class="user-input">switchport mode access</span>
+<span class="output">Switch(config-if-range)#</span><span class="user-input">switchport access vlan 20</span></code></pre>
+
+                <h3>Verification</h3>
+                <pre><code><span class="output">Switch#</span><span class="user-input">show vlan brief</span>
+<span class="output">
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/6, Fa0/7, Fa0/8, Fa0/9...
+10   Students                         active    Fa0/1
+20   Faculty                          active    Fa0/2, Fa0/3, Fa0/4, Fa0/5
+...</span></code></pre>
+            </section>
+            
+            <section class="section">
+                <h2>2. Trunking Configuration</h2>
+                <p>A trunk port is a link that carries traffic for multiple VLANs between switches or between a switch and a router. The 802.1Q protocol is used to "tag" frames with VLAN information as they cross the trunk.</p>
+                <pre><code><span class="comment">! Configure the interface connecting to another switch as a trunk</span>
+<span class="output">Switch(config)#</span><span class="user-input">interface gigabitEthernet 0/1</span>
+<span class="output">Switch(config-if)#</span><span class="user-input">switchport mode trunk</span></code></pre>
+                <h3>Verification</h3>
+                <pre><code><span class="output">Switch#</span><span class="user-input">show interfaces trunk</span>
+<span class="output">
+Port        Mode             Encapsulation  Status        Native vlan
+Gig0/1      on               802.1q         trunking      1
+
+Port        Vlans allowed on trunk
+Gig0/1      1-4094
+...</span></code></pre>
+            </section>
+            
+            <section class="section">
+                <h2>3. VLAN Trunking Protocol (VTP)</h2>
+                <p>VTP allows you to manage VLANs on a single "server" switch, which then propagates the VLAN database to "client" switches in the same VTP domain. This saves time and ensures consistency.</p>
+                <h3>VTP Modes</h3>
+                <ul>
+                    <li><strong>Server:</strong> The default mode. You can create, modify, and delete VLANs. The server sends VTP advertisements to clients.</li>
+                    <li><strong>Client:</strong> Cannot create, modify, or delete VLANs. It listens to VTP advertisements from the server and synchronizes its VLAN database.</li>
+                    <li><strong>Transparent:</strong> Does not participate in VTP but will forward VTP advertisements. You can create/delete local VLANs, but they are not shared.</li>
+                </ul>
+                <h3>Configuration Example</h3>
+                <pre><code><span class="comment">! Configure the VTP Server Switch</span>
+<span class="output">VTP_Server(config)#</span><span class="user-input">vtp domain JIC</span>
+<span class="output">VTP_Server(config)#</span><span class="user-input">vtp mode server</span>
+<span class="output">VTP_Server(config)#</span><span class="user-input">vtp password cisco</span>
+
+<span class="comment">! Configure the VTP Client Switch</span>
+<span class="output">VTP_Client(config)#</span><span class="user-input">vtp domain JIC</span>
+<span class="output">VTP_Client(config)#</span><span class="user-input">vtp mode client</span>
+<span class="output">VTP_Client(config)#</span><span class="user-input">vtp password cisco</span></code></pre>
+                 <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/wCsk9omVxmY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>4. Native and Voice VLANs</h2>
+                <h3>Native VLAN</h3>
+                <p>The Native VLAN is the one VLAN on an 802.1Q trunk that is sent **untagged**. For security, it is best practice to change the native VLAN from the default of VLAN 1 to an unused VLAN.</p>
+                 <pre><code><span class="output">Switch(config)#</span><span class="user-input">interface gigabitEthernet 0/1</span>
+<span class="output">Switch(config-if)#</span><span class="user-input">switchport trunk native vlan 999</span></code></pre>
+
+                <h3>Voice VLAN</h3>
+                <p>A Voice VLAN allows an IP phone and a PC to share a single switch port. The switch places voice traffic in one VLAN and data traffic from the PC in another.</p>
+                <pre><code><span class="comment">! VLAN 100 for data (PC), VLAN 101 for voice (IP Phone)</span>
+<span class="output">Switch(config)#</span><span class="user-input">interface fastEthernet 0/10</span>
+<span class="output">Switch(config-if)#</span><span class="user-input">switchport mode access</span>
+<span class="output">Switch(config-if)#</span><span class="user-input">switchport access vlan 100</span>
+<span class="output">Switch(config-if)#</span><span class="user-input">switchport voice vlan 101</span></code></pre>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+

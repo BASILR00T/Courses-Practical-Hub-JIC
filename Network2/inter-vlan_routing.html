@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inter-VLAN Routing | Network 2 Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+            --glow-color: #0088ff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            margin: 0;
+            padding: 5rem 2rem 3rem 2rem;
+            line-height: 1.7;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container { max-width: 1000px; width: 100%; }
+        
+        .back-button { 
+            position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; 
+        }
+        .back-button:hover { 
+            background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px var(--glow-color); transform: translateY(-2px); 
+        }
+
+        .header h1 {
+            text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .section {
+            background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem;
+        }
+
+        h2 { font-size: 2rem; font-weight: 700; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        p { font-size: 1rem; color: var(--text-muted); }
+        strong { color: var(--text-color); font-weight: 700; }
+       code {
+            font-family: 'Fira Code', monospace;
+            color: var(--primary-blue);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #0c0c14;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        .user-input { color: #87cefa; }
+        .output { color: #a9a9a9; }
+        .comment { color: #6a9955; }
+        
+        .video-container {
+            position: relative; overflow: hidden; width: 100%; padding-top: 56.25%; margin: 1.5rem 0; border-radius: 10px; border: 1px solid var(--border-color);
+        }
+        .video-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 5rem 1rem 3rem 1rem; }
+            .header h1 { font-size: 2.2rem; }
+            .section { padding: 1rem 1.5rem; }
+            .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="Network2.html" class="back-button">&larr; Back to Network 2 Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>Inter-VLAN Routing</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>Router on a Stick (ROAS)</h2>
+                <p>This method uses a router with a single physical interface connected to a switch via a trunk link to route between multiple VLANs. The router's physical interface is divided into logical "subinterfaces", one for each VLAN.</p>
+                <pre><code class="comment">! On the Switch, configure the port connected to the router as a trunk</code>
+<code class="output">Switch(config)# </code><code class="user-input">interface GigabitEthernet0/1</code>
+<code class="output">Switch(config-if)# </code><code class="user-input">switchport mode trunk</code>
+<code class="output">Switch(config-if)# </code><code class="user-input">exit</code>
+
+<code class="comment">! On the Router, enable the physical interface</code>
+<code class="output">Router(config)# </code><code class="user-input">interface GigabitEthernet0/1</code>
+<code class="output">Router(config-if)# </code><code class="user-input">no shutdown</code>
+<code class="output">Router(config-if)# </code><code class="user-input">exit</code>
+
+<code class="comment">! Create a subinterface for VLAN 10</code>
+<code class="output">Router(config)# </code><code class="user-input">interface GigabitEthernet0/1.10</code>
+<code class="comment">! Set the encapsulation type to dot1q and specify the VLAN ID</code>
+<code class="output">Router(config-subif)# </code><code class="user-input">encapsulation dot1q 10</code>
+<code class="comment">! Assign an IP address to be the default gateway for that VLAN</code>
+<code class="output">Router(config-subif)# </code><code class="user-input">ip address 192.168.10.1 255.255.255.0</code>
+<code class="output">Router(config-subif)# </code><code class="user-input">exit</code>
+
+<code class="comment">! Create a subinterface for VLAN 20</code>
+<code class="output">Router(config)# </code><code class="user-input">interface GigabitEthernet0/1.20</code>
+<code class="output">Router(config-subif)# </code><code class="user-input">encapsulation dot1q 20</code>
+<code class="output">Router(config-subif)# </code><code class="user-input">ip address 192.168.20.1 255.255.255.0</code></pre>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/3II2RwiXImg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>Layer 3 Switch (SVI)</h2>
+                <p>A Layer 3 (or multilayer) switch can perform routing functions, eliminating the need for an external router. This is done by creating Switched Virtual Interfaces (SVIs) for each VLAN and enabling IP routing.</p>
+                 <pre><code class="comment">! Enable IP routing on the Layer 3 switch</code>
+<code class="output">L3_Switch(config)# </code><code class="user-input">ip routing</code>
+
+<code class="comment">! Create an SVI for VLAN 10 and assign its default gateway IP</code>
+<code class="output">L3_Switch(config)# </code><code class="user-input">interface Vlan10</code>
+<code class="output">L3_Switch(config-if)# </code><code class="user-input">ip address 192.168.10.1 255.255.255.0</code>
+<code class="output">L3_Switch(config-if)# </code><code class="user-input">no shutdown</code>
+<code class="output">L3_Switch(config-if)# </code><code class="user-input">exit</code>
+
+<code class="comment">! Create an SVI for VLAN 20 and assign its default gateway IP</code>
+<code class="output">L3_Switch(config)# </code><code class="user-input">interface Vlan20</code>
+<code class="output">L3_Switch(config-if)# </code><code class="user-input">ip address 192.168.20.1 255.255.255.0</code>
+<code class="output">L3_Switch(config-if)# </code><code class="user-input">no shutdown</code></pre>
+                 <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/cF2dXr7Fe_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
