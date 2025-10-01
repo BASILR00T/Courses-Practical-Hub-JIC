@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Client to Domain | NOS Hub</title>
+    <title>Network Operating Systems Hub | JIC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -17,79 +19,197 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
             background-color: var(--background-dark);
             color: var(--text-color);
-            margin: 0;
-            padding: 5rem 2rem 3rem 2rem;
-            line-height: 1.7;
+            font-family: 'Roboto', sans-serif;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
             min-height: 100vh;
+            margin: 0;
+            padding: 4rem 2rem 2rem 2rem;
             box-sizing: border-box;
         }
-
-        .container { max-width: 1000px; width: 100%; }
         
         .back-button { 
-            position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; 
+            position: fixed; 
+            top: 20px; 
+            left: 20px; 
+            background-color: var(--card-bg); 
+            color: var(--primary-blue); 
+            border: 1px solid var(--border-color); 
+            padding: 0.5rem 1rem; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-family: 'Roboto', sans-serif; 
+            font-weight: bold; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); 
+            z-index: 1000; 
         }
         .back-button:hover { 
-            background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px var(--glow-color); transform: translateY(-2px); 
+            background-color: var(--primary-blue); 
+            color: var(--background-dark); 
+            box-shadow: 0 0 20px var(--glow-color); 
+            transform: translateY(-2px); 
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-blue);
         }
 
         .header h1 {
-            text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue);
+            font-family: 'Roboto', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 0;
         }
 
-        .section {
-            background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem;
+        .header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 70ch;
+            margin: 0.5rem auto 0;
         }
 
-        h2 { font-size: 2rem; font-weight: 700; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-        p, li { font-size: 1rem; color: var(--text-muted); }
-        ol, ul { padding-left: 20px; }
-        li { margin-bottom: 0.75rem; }
-        strong { color: var(--text-color); font-weight: 700; }
-        
-        .video-container {
-            position: relative; overflow: hidden; width: 100%; padding-top: 56.25%; margin: 1.5rem 0; border-radius: 10px; border: 1px solid var(--border-color);
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
         }
-        .video-container iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+
+        .module-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(transparent, rgba(0, 136, 255, 0.2), transparent 30%);
+            animation: rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .module-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px var(--glow-color);
+            border-color: var(--primary-blue);
+        }
+
+        .module-card h2 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .module-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: center;
+        }
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            body { padding: 5rem 1rem 3rem 1rem; }
-            .header h1 { font-size: 2.2rem; }
-            .section { padding: 1rem 1.5rem; }
-            .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
+            body { padding: 5rem 1rem 2rem 1rem; }
+            .header h1 {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="NOS.html" class="back-button">&larr; Back to NOS Hub</a>
+<a href="../index.html" class="back-button">&larr; Back to Hub</a>
     <div class="container">
-        <header class="header">
-            <h1>Join a Client PC to the Domain</h1>
-        </header>
-        <main>
-            <section class="section">
-                <p>Connect your client machine to the domain to enable centralized login and management.</p>
-                <ol>
-                    <li>On your "Client-PC" VM, right-click the Start Menu and go to <strong>System</strong>.</li>
-                    <li>Click on "Rename this PC (advanced)" or "Advanced system settings".</li>
-                    <li>Go to the "Computer Name" tab and click "Change...".</li>
-                    <li>Under "Member of", select <strong>Domain</strong> and type your domain name (e.g., `jic.local`).</li>
-                    <li>Click OK. You will be prompted for credentials. Enter the username and password of a domain administrator account.</li>
-                    <li>You should see a welcome message. Restart the PC to apply the changes. You can now log in with the domain user account you created.</li>
-                </ol>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/0gdYu6bw0O0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </section>
-        </main>
+        <div class="header">
+            <h1>Network Operating Systems</h1>
+            <p>Practical guides for setting up and managing Windows Server environments, from domain controllers to client management.</p>
+        </div>
+
+        <div class="grid-container">
+            <a href="environment_setup.html" class="module-card">
+                <h2>Environment Setup</h2>
+                <p>Creating VMs in Hyper-V and assigning static IP addresses.</p>
+            </a>
+            <a href="dc_setup.html" class="module-card">
+                <h2>Domain Controller Setup</h2>
+                <p>Installing and promoting a server to a Domain Controller.</p>
+            </a>
+            <a href="fileserver_setup.html" class="module-card">
+                <h2>File Server Setup</h2>
+                <p>Configuring a server for centralized file sharing.</p>
+            </a>
+            <a href="raid_config.html" class="module-card">
+                <h2>Disk Volume (RAID) Config</h2>
+                <p>Creating spanned, striped (RAID 0), and mirrored (RAID 1) volumes.</p>
+            </a>
+            <a href="ad_management.html" class="module-card">
+                <h2>Active Directory Management</h2>
+                <p>Creating OUs, security groups, and user accounts.</p>
+            </a>
+            <a href="join_domain.html" class="module-card">
+                <h2>Joining a Client to Domain</h2>
+                <p>Connecting a Windows client machine to your Active Directory domain.</p>
+            </a>
+        </div>
+
+        <footer class="footer">
+            <p>If there are any mistakes or wrong info please feel free to contact me on <a href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://BASILR00T.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
+        </footer>
     </div>
 </body>
 </html>
+
+
