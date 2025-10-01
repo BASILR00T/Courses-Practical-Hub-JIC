@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environment Setup | NOS Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+            --glow-color: #0088ff;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            margin: 0;
+            padding: 5rem 2rem 3rem 2rem;
+            line-height: 1.7;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+        }
+        
+        .back-button { 
+            position: fixed; 
+            top: 20px; 
+            left: 20px; 
+            background-color: var(--card-bg); 
+            color: var(--primary-blue); 
+            border: 1px solid var(--border-color); 
+            padding: 0.5rem 1rem; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-family: 'Roboto', sans-serif; 
+            font-weight: bold; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); 
+            z-index: 1000; 
+        }
+        .back-button:hover { 
+            background-color: var(--primary-blue); 
+            color: var(--background-dark); 
+            box-shadow: 0 0 20px var(--glow-color); 
+            transform: translateY(-2px); 
+        }
+
+        .header h1 {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin: 0 0 2rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem 2rem;
+        }
+
+        h2, h3 {
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-top: 2rem;
+        }
+
+        p, li {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        
+        ol, ul { padding-left: 20px; }
+        li { margin-bottom: 0.75rem; }
+
+        strong {
+            color: var(--text-color);
+            font-weight: 700;
+        }
+        
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; 
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 5rem 1rem 3rem 1rem; }
+            .header h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .section { padding: 1rem 1.5rem; }
+            .back-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="NOS.html" class="back-button">&larr; Back to NOS Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>Environment Setup in Hyper-V</h1>
+        </header>
+        <main>
+            <section class="section">
+                <p>Before configuring servers, you need to set up the virtual environment. This involves creating the virtual machines and configuring their network settings.</p>
+                <h3>A. Creating Virtual Machines</h3>
+                <ol>
+                    <li>Open <strong>Hyper-V Manager</strong>.</li>
+                    <li>Create three new Virtual Machines (e.g., "DC-Server", "File-Server", "Client-PC").</li>
+                    <li>Install Windows Server on "DC-Server" and "File-Server", and Windows 10/11 on "Client-PC".</li>
+                </ol>
+                <h3>B. Assigning Static IP Addresses</h3>
+                 <p>Static IPs are crucial for servers. Ensure all machines are on the same subnet.</p>
+                <ol>
+                    <li><strong>DC-Server:</strong>
+                        <ul>
+                            <li>IP Address: <strong>192.168.1.10</strong></li>
+                            <li>Subnet Mask: <strong>255.255.255.0</strong></li>
+                            <li>Default Gateway: (Your network's gateway, e.g., 192.168.1.1)</li>
+                            <li>Preferred DNS: <strong>127.0.0.1</strong> (It will be its own DNS server)</li>
+                        </ul>
+                    </li>
+                     <li><strong>File-Server:</strong>
+                        <ul>
+                            <li>IP Address: <strong>192.168.1.11</strong></li>
+                            <li>Subnet Mask: <strong>255.255.255.0</strong></li>
+                            <li>Default Gateway: (Your network's gateway, e.g., 192.168.1.1)</li>
+                            <li>Preferred DNS: <strong>192.168.1.10</strong> (Points to the DC for name resolution)</li>
+                        </ul>
+                    </li>
+                     <li><strong>Client-PC:</strong>
+                        <ul>
+                            <li>IP Address: <strong>192.168.1.100</strong></li>
+                            <li>Subnet Mask: <strong>255.255.255.0</strong></li>
+                            <li>Default Gateway: (Your network's gateway, e.g., 192.168.1.1)</li>
+                            <li>Preferred DNS: <strong>192.168.1.10</strong> (Points to the DC)</li>
+                        </ul>
+                    </li>
+                </ol>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/5iRp1Nug0PU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
