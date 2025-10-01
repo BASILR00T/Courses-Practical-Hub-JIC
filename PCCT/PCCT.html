@@ -6,54 +6,88 @@
     <title>PC Config & Troubleshooting Hub | JIC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #0088ff;
             --background-dark: #0b1116;
             --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
             --card-bg: #121212;
-            --border-color: rgba(0, 136, 255, 0.2);
+            --border-color: #222;
             --glow-color: #0088ff;
         }
 
         body {
             background-color: var(--background-dark);
             color: var(--text-color);
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Roboto', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Align content to the top */
             min-height: 100vh;
             margin: 0;
-            padding: 0;
+            padding: 5rem 2rem; /* Adjust top/bottom and side padding */
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
+        }
+        
+        .back-button { 
+            position: fixed; 
+            top: 20px; 
+            left: 20px; 
+            background-color: var(--card-bg); 
+            color: var(--primary-blue); 
+            border: 1px solid var(--border-color); 
+            padding: 0.5rem 1rem; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-family: 'Roboto', sans-serif; 
+            font-weight: bold; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); 
+            z-index: 1000; 
+        }
+        .back-button:hover { 
+            background-color: var(--primary-blue); 
+            color: var(--background-dark); 
+            box-shadow: 0 0 20px var(--glow-color); 
+            transform: translateY(-2px); 
         }
 
         .header {
             text-align: center;
             margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-blue);
         }
 
         .header h1 {
-            font-family: 'Exo 2', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 3rem;
+            font-weight: 700;
             color: var(--primary-blue);
             margin: 0;
         }
 
         .header p {
             font-size: 1.1rem;
-            color: #aaa;
-            max-width: 150ch;
+            color: var(--text-muted);
+            max-width: 70ch;
+            margin: 0.5rem auto 0;
         }
 
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
             width: 100%;
-            max-width: 1200px;
         }
 
         .module-card {
@@ -64,7 +98,7 @@
             text-align: center;
             text-decoration: none;
             color: var(--text-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -89,16 +123,7 @@
         .module-card:hover::before {
             opacity: 1;
         }
-        footer a,p{
-            text-decoration: none;
-            text-align: center;
-          
-        }
-        footer{
-              margin-top: 5rem;
-              margin-bottom: 1rem;
-        }
-        
+
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -107,91 +132,91 @@
         .module-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 25px var(--glow-color);
+            border-color: var(--primary-blue);
         }
 
         .module-card h2 {
-            font-family: 'Exo 2', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
             font-size: 1.5rem;
             color: var(--primary-blue);
+            margin-top: 0;
             margin-bottom: 0.5rem;
         }
 
         .module-card p {
             font-size: 0.9rem;
-            color: #aaa;
+            color: var(--text-muted);
         }
 
-        .module-card.placeholder {
-            border-style: dashed;
-            opacity: 0.6;
-            cursor: not-allowed;
+        .footer {
+            margin-top: 5rem;
+            margin-bottom: 1rem;
+            text-align: center;
         }
-
-        .module-card.placeholder:hover {
-            transform: none;
-            box-shadow: none;
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
-        .text-neon-blue {
-            color: #0088ff; /* Deep Sky Blue */
+        .footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
         }
-
-         .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 8px; font-family: 'Exo 2', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 15px var(--glow-color); z-index: 1000; }
-        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 25px var(--glow-color); transform: translateY(-2px); }
+        .footer a:hover {
+            text-decoration: underline;
+        }
 
         @media (max-width: 768px) {
+            body { padding: 5rem 1rem 3rem 1rem; }
             .header h1 {
                 font-size: 2.5rem;
             }
-            body {
-                padding: 1rem;
+            .back-button {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-<a href="https://basilr00t.github.io/Courses-Practical-Hub-JIC/" class="back-button">&larr; Back to Hub</a>
-    <div class="header">
-        <h1>PC Troubleshooting Course Hub</h1>
-        <p>A quick reference guide for the practical CLI commands and concepts covered in the JIC PC Configuration & Troubleshooting course.</p>
-    </div>
+<a href="../index.html" class="back-button">&larr; Back to Hub</a>
+    <div class="container">
+        <div class="header">
+            <h1>PC Troubleshooting Course Hub</h1>
+            <p>A quick reference guide for the practical CLI commands and concepts covered in the JIC PC Configuration & Troubleshooting course.</p>
+        </div>
 
-    <div class="grid-container">
-        <a href="system_info_commands.html" class="module-card">
-            <h2>System Information</h2>
-            <p>Commands to view OS, hardware, and version details.</p>
-        </a>
-        <a href="file_attributes_commands.html" class="module-card">
-            <h2>File Attributes</h2>
-            <p>Manage file properties like read-only, hidden, and system.</p>
-        </a>
-        <a href="disk_commands_dark.html" class="module-card">
-            <h2>Disk Management</h2>
-            <p>Using format, diskpart, and other disk utilities.</p>
-        </a>
-        <a href="drive_maintenance_commands.html" class="module-card">
-            <h2>Drive Maintenance</h2>
-            <p>Check for errors and defragment drives with chkdsk and defrag.</p>
-        </a>
-        <a href="user_management_commands.html" class="module-card">
-            <h2>User Management</h2>
-            <p>Create and manage local user accounts with the 'net user' command.</p>
-        </a>
-        <a href="system_recovery_commands.html" class="module-card">
-            <h2>System Recovery</h2>
-            <p>Boot and system file repair commands like sfc and bootrec.</p>
-        </a>
-        
-    </div>
+        <div class="grid-container">
+            <a href="system_info_commands.html" class="module-card">
+                <h2>System Information</h2>
+                <p>Commands to view OS, hardware, and version details.</p>
+            </a>
+            <a href="file_attributes_commands.html" class="module-card">
+                <h2>File Attributes</h2>
+                <p>Manage file properties like read-only, hidden, and system.</p>
+            </a>
+            <a href="disk_commands_dark.html" class="module-card">
+                <h2>Disk Management</h2>
+                <p>Using format, diskpart, and other disk utilities.</p>
+            </a>
+            <a href="drive_maintenance_commands.html" class="module-card">
+                <h2>Drive Maintenance</h2>
+                <p>Check for errors and defragment drives with chkdsk and defrag.</p>
+            </a>
+            <a href="user_management_commands.html" class="module-card">
+                <h2>User Management</h2>
+                <p>Create and manage local user accounts with the 'net user' command.</p>
+            </a>
+            <a href="system_recovery_commands.html" class="module-card">
+                <h2>System Recovery</h2>
+                <p>Boot and system file repair commands like sfc and bootrec.</p>
+            </a>
+        </div>
 
-     <!-- Footer -->
-        <footer >
-            <p >If there any mistakes or wrong info please feel free to contact me on  <a href="mailto:BSA717@outlook.sa" target="_blank" class="text-neon-blue hover:underline">BSA717@outlook.sa</a>.</p>
-            <p >Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank" class="text-neon-blue hover:underline">BASILR00T</a>.</p> 
+        <footer class="footer">
+            <p>If there any mistakes or wrong info please feel free to contact me on <a href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
         </footer>
+    </div>
 </body>
 </html>
-
-
-
-
-
