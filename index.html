@@ -6,46 +6,59 @@
     <title>Courses Practical Hub | JIC</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-blue: #0088ff;
             --background-dark: #0b1116;
             --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
             --card-bg: #121212;
-            --border-color: rgba(0, 136, 255, 0.2);
+            --border-color: #222;
             --glow-color: #0088ff;
         }
 
         body {
             background-color: var(--background-dark);
             color: var(--text-color);
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Roboto', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* Align content to the top */
             min-height: 100vh;
             margin: 0;
-            padding: 0;
+            padding: 5rem 2rem; /* Adjust top/bottom and side padding */
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            text-align: center;
         }
 
         .header {
             text-align: center;
             margin-bottom: 3rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-blue);
         }
 
         .header h1 {
-            font-family: 'Exo 2', sans-serif;
+            font-family: 'Roboto', sans-serif;
             font-size: 3rem;
+            font-weight: 700;
             color: var(--primary-blue);
             margin: 0;
+            /* text-shadow removed */
         }
 
         .header p {
             font-size: 1.1rem;
-            color: #aaa;
-            max-width: 150ch;
+            color: var(--text-muted);
+            max-width: 70ch;
+            margin: 0.5rem auto 0;
         }
 
         .grid-container {
@@ -53,7 +66,6 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             width: 100%;
-            max-width: 1200px;
         }
 
         .module-card {
@@ -64,7 +76,7 @@
             text-align: center;
             text-decoration: none;
             color: var(--text-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -89,16 +101,7 @@
         .module-card:hover::before {
             opacity: 1;
         }
-        footer a,p{
-            text-decoration: none;
-            text-align: center;
-          
-        }
-        footer{
-              margin-top: 5rem;
-              margin-bottom: 1rem;
-        }
-        
+
         @keyframes rotate {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
@@ -107,84 +110,85 @@
         .module-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 0 25px var(--glow-color);
+            border-color: var(--primary-blue);
         }
 
         .module-card h2 {
-            font-family: 'Exo 2', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
             font-size: 1.5rem;
             color: var(--primary-blue);
+            margin-top: 0;
             margin-bottom: 0.5rem;
         }
 
         .module-card p {
             font-size: 0.9rem;
-            color: #aaa;
+            color: var(--text-muted);
         }
 
-        .module-card.placeholder {
-            border-style: dashed;
-            opacity: 0.6;
-            cursor: not-allowed;
+        .footer {
+            margin-top: 5rem;
+            margin-bottom: 1rem;
+            text-align: center;
         }
-
-        .module-card.placeholder:hover {
-            transform: none;
-            box-shadow: none;
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
-        .text-neon-blue {
-            color: #0088ff; /* Deep Sky Blue */
+        .footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
+            body { padding: 3rem 1rem; }
             .header h1 {
                 font-size: 2.5rem;
-            }
-            body {
-                padding: 1rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Courses Practical Hub</h1>
-        <p>A quick reference guide for the practical CLI commands and concepts covered in the JIC IT courses.</p>
-    </div>
+    <div class="container">
+        <div class="header">
+            <h1>Courses Practical Hub</h1>
+            <p>A quick reference guide for the practical CLI commands and concepts covered in the JIC IT courses.</p>
+        </div>
 
-    <div class="grid-container">
-        <a href="PCCT/PCCT.html" class="module-card">
-            <h2>PC Config & Troubleshooting</h2>
-            <p>Commands to view OS, hardware, and version details.</p>
-        </a>
-         <a href="#" class="module-card">
-            <h2>Network Opreating Systems</h2>
-            <p>Comming soon.</p>
-        </a>
-        <a href="#" class="module-card">
-            <h2>Network 2</h2>
-            <p>Comming soon.</p>
-        </a>
-        <a href="#" class="module-card">
-            <h2>Network 1</h2>
-            <p>Comming soon.</p>
-        </a>
-        <a href="#" class="module-card">
-            <h2>Intro to Web desing</h2>
-            <p>Comming soon.</p>
-        </a>
-        
-    </div>
+        <div class="grid-container">
+            <a href="PCCT/PCCT.html" class="module-card">
+                <h2>PC Config & Troubleshooting</h2>
+                <p>Commands to view OS, hardware, and version details.</p>
+            </a>
+             <a href="network_server_configuration.html" class="module-card">
+                <h2>Network Operating Systems</h2>
+                <p>Guides for server setup, domain control, and user management.</p>
+            </a>
+            <a href="#" class="module-card">
+                <h2>Network 2</h2>
+                <p>Coming soon.</p>
+            </a>
+            <a href="#" class="module-card">
+                <h2>Network 1</h2>
+                <p>Coming soon.</p>
+            </a>
+            <a href="#" class="module-card">
+                <h2>Intro to Web Design</h2>
+                <p>Coming soon.</p>
+            </a>
+            
+        </div>
 
-    <!-- Footer -->
-        <footer >
-            <p >If there any mistakes or wrong info please feel free to contact me on  <a href="mailto:BSA717@outlook.sa" target="_blank" class="text-neon-blue hover:underline">BSA717@outlook.sa</a>.</p>
-            <p >Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank" class="text-neon-blue hover:underline">BASILR00T</a>.</p> 
+        <footer class="footer">
+            <p>If there any mistakes or wrong info please feel free to contact me on <a href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
         </footer>
+    </div>
 </body>
 </html>
-
-
-
-
 
