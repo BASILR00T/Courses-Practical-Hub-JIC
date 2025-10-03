@@ -116,12 +116,12 @@ Gig0/1      1-4094
 <span class="output">VTP_Client(config)#</span><span class="user-input">vtp mode client</span>
 <span class="output">VTP_Client(config)#</span><span class="user-input">vtp password cisco</span></code></pre>
 
-<h3 class="note">Note: if Vlans dosen't shows on client switches up do this on all L2 switches</h3>
+<h3 class="note">Note: if Vlans doesn't shows up on client switches do this on all L2 switches</h3>
 <h4 class="note">First make sure all links between switches in trunk mode , then enable trunk mode on etherchannel interface</h4>
 <pre>
 <code class="output">SW1(config)# </code><code class="user-input">interface port-channel 1</code>
 <code class="output">SW2(config-if)# </code><code class="user-input">switchport mode trunk</code>
-<h5 class="note">Note: if u did all these steps and Vlans still not shows up  try to disconnect the links then connect them at same interface and check VTP configuration on all switches</h5>
+<h5 class="note">Note: if you did all these steps and Vlans still not shows up , try to disconnect the links then reconnect them at same interface , and check VTP configuration on all switches</h5>
 </pre>
                  <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/wCsk9omVxmY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -142,6 +142,14 @@ Gig0/1      1-4094
 <span class="output">Switch(config-if)#</span><span class="user-input">switchport mode access</span>
 <span class="output">Switch(config-if)#</span><span class="user-input">switchport access vlan 100</span>
 <span class="output">Switch(config-if)#</span><span class="user-input">switchport voice vlan 101</span></code></pre>
+            </section>
+
+
+            <section class="section">
+                <h2>5.Another Video reference for DTP, Native VLAN, and Voice VLAN configurations</h2>
+                <div class="video-container">
+                    <iframe width="1257" height="709" src="https://www.youtube.com/embed/cz9sDYkkHho?list=PLHIaUDuXsOs9aZC3nDZ_zb5v4g5qVr5vD" title="20- DTP, Native VLAN, and Voice VLAN configurations" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
             </section>
         </main>
     </div>
