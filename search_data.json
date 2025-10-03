@@ -1,163 +1,194 @@
 [
-    {
-        "id": 1,
-        "title": "PC Config & Troubleshooting Hub",
-        "url": "PCCT/PCCT.html"
-    },
-    {
-        "id": 2,
-        "title": "System Information Commands (systeminfo, dxdiag)",
-        "url": "PCCT/system_info_commands.html"
-    },
-    {
-        "id": 3,
-        "title": "File & Directory Commands (attrib, mkdir, dir)",
-        "url": "PCCT/file_attributes_commands.html"
-    },
-    {
-        "id": 4,
-        "title": "Disk Management Commands (diskpart, format)",
-        "url": "PCCT/disk_management_commands.html"
-    },
-    {
-        "id": 5,
-        "title": "Drive Maintenance Commands (chkdsk, defrag)",
-        "url": "PCCT/drive_maintenance_commands.html"
-    },
-    {
-        "id": 6,
-        "title": "User Management Commands (net user, lusrmgr)",
-        "url": "PCCT/user_management_commands.html"
-    },
-    {
-        "id": 7,
-        "title": "System Recovery Commands (sfc, bootrec)",
-        "url": "PCCT/system_recovery_commands.html"
-    },
-    {
-        "id": 8,
-        "title": "Device Management (devmgmt.msc)",
-        "url": "PCCT/device_management.html"
-    },
-    {
-        "id": 9,
-        "title": "System Configuration (sysdm.cpl, Virtual Memory)",
-        "url": "PCCT/system_config.html"
-    },
-    {
-        "id": 10,
-        "title": "Services & Processes (services.msc, taskmgr)",
-        "url": "PCCT/services_processes.html"
-    },
-    {
-        "id": 11,
-        "title": "Registry & Event Viewer (regedit, eventvwr)",
-        "url": "PCCT/registry_event_viewer.html"
-    },
-    {
-        "id": 12,
-        "title": "Network Operating Systems Hub",
-        "url": "NOSs/NOS.html"
-    },
-    {
-        "id": 13,
-        "title": "Environment & IP Setup (Hyper-V)",
-        "url": "NOS/environment_setup.html"
-    },
-    {
-        "id": 14,
-        "title": "Domain Controller Setup",
-        "url": "NOS/dc_setup.html"
-    },
-    {
-        "id": 15,
-        "title": "File Server Setup",
-        "url": "NOS/fileserver_setup.html"
-    },
-    {
-        "id": 16,
-        "title": "RAID Configuration (Spanned, Striped, Mirrored)",
-        "url": "NOS/raid_config.html"
-    },
-    {
-        "id": 17,
-        "title": "Active Directory Management (OUs, Users, Groups)",
-        "url": "NOS/ad_management.html"
-    },
-    {
-        "id": 18,
-        "title": "Join Client to Domain",
-        "url": "NOS/join_domain.html"
-    },
-    {
-        "id": 19,
-        "title": "Network 2 Hub",
-        "url": "Network2/Network2.html"
-    },
-    {
-        "id": 20,
-        "title": "Basic Cisco IOS CLI",
-        "url": "Network2/basic_cisco_cli.html"
-    },
-    {
-        "id": 21,
-        "title": "VLSM & IP Addressing",
-        "url": "Network2/vlsm_addressing.html"
-    },
-    {
-        "id": 22,
-        "title": "Switch Security (Passwords, Port Security)",
-        "url": "Network2/switch_security.html"
-    },
-    {
-        "id": 23,
-        "title": "VLANs, Trunks, and VTP",
-        "url": "Network2/vlans_and_trunks.html"
-    },
-    {
-        "id": 24,
-        "title": "Inter-VLAN Routing (ROAS, Layer 3 Switch)",
-        "url": "Network2/inter-vlan_routing.html"
-    },
-    {
-        "id": 25,
-        "title": "EtherChannel (Link Aggregation)",
-        "url": "Network2/etherchannel.html"
-    },
-    {
-        "id": 26,
-        "title": "Static & Default Routing",
-        "url": "Network2/static_routing.html"
-    },
-    {
-        "id": 27,
-        "title": "Dynamic Routing (RIP, OSPF, EIGRP)",
-        "url": "Network2/dynamic_routing.html"
-    },
-    {
-        "id": 28,
-        "title": "Network Services (DHCP, DNS, FTP)",
-        "url": "Network2/network_services.html"
-    },
-    {
-        "id": 29,
-        "title": "NAT Configuration (Static, Dynamic, PAT)",
-        "url": "Network2/nat_config.html"
-    },
-    {
-        "id": 30,
-        "title": "Remote Access (Telnet & SSH)",
-        "url": "Network2/remote_access.html"
-    },
-    {
-        "id": 31,
-        "title": "Programming",
-        "url": "Programming/Programming.html"
-    },
-    {
-        "id": 32,
-        "title": "Python Basics",
-        "url": "Programming/python_basics.html"
-    }
+  {
+    "id": 1,
+    "title": "PC Config & Troubleshooting Hub",
+    "url": "PCCT/PCCT.html",
+    "content": "PC Config & Troubleshooting System Information File Attributes Disk Management Drive Maintenance User Management System Recovery Device Management System Configuration Services & Processes Registry & Event Viewer"
+  },
+  {
+    "id": 2,
+    "title": "Network Operating Systems Hub",
+    "url": "NOS/NOS.html",
+    "content": "Network Operating Systems Environment Setup Domain Controller Setup File Server Setup Disk Volume RAID Config Active Directory Management Joining a Client to Domain"
+  },
+  {
+    "id": 3,
+    "title": "Network 2 Hub",
+    "url": "Network2/Network2.html",
+    "content": "Network 2 Hub Basic Cisco IOS CLI Switch Security VLSM & IP Addressing VLANs, Trunks, and VTP EtherChannel Inter-VLAN Routing Static & Default Routing Dynamic Routing Network Services NAT Configuration Remote Access"
+  },
+  {
+    "id": 4,
+    "title": "Programming Hub",
+    "url": "Programming/Programming.html",
+    "content": "Programming Python Basics JavaScript Basics C++ Basics"
+  },
+  {
+    "id": 5,
+    "title": "System Information Commands",
+    "url": "PCCT/system_info_commands.html",
+    "content": "System Information Commands systeminfo msinfo32 dxdiag winver Provides a detailed summary of the computer's hardware and software configuration. Opens the System Information graphical utility, which provides comprehensive technical details about the system. Launches the DirectX Diagnostic Tool, used to troubleshoot video and sound card problems. Displays the About Windows dialog box, showing the specific Windows version and build number."
+  },
+  {
+    "id": 6,
+    "title": "File & Directory Commands",
+    "url": "PCCT/file_attributes_commands.html",
+    "content": "File & Directory Commands File & Directory Management mkdir md echo dir attrib Displays or changes file attributes. You can manage Read-only (R), Archive (A), System (S), and Hidden (H) attributes. Use /s to process files in all directories in the specified path. Use /d to also process folders. Make Directory. Creates a new folder. Creates a new text file and writes text to it. Displays a list of files and subdirectories in a directory. You can search for specific file types."
+  },
+  {
+    "id": 7,
+    "title": "Disk Management Commands",
+    "url": "PCCT/disk_management_commands.html",
+    "content": "Disk Management Commands General CMD Commands format vol label Diskpart General Disk Management List & Select Create & Format Partitions Modify & Delete Partitions Information Commands Diskpart VHD Management create vdisk select vdisk attach vdisk expand vdisk detach vdisk Creating a Bootable USB Drive active clean convert gpt convert mbr"
+  },
+  {
+    "id": 8,
+    "title": "Drive Maintenance Commands",
+    "url": "PCCT/drive_maintenance_commands.html",
+    "content": "Drive Maintenance Commands chkdsk defrag Checks a disk for file system errors and bad sectors and attempts to repair them. Analyzes and defragments files on local volumes to improve system performance."
+  },
+  {
+    "id": 9,
+    "title": "User Management Commands",
+    "url": "PCCT/user_management_commands.html",
+    "content": "User Management Commands net user lusrmgr.msc Adds, modifies, and removes user accounts. Must be run from an elevated Command Prompt. Opens the Local Users and Groups GUI tool for managing user accounts and group memberships."
+  },
+  {
+    "id": 10,
+    "title": "System Recovery Commands",
+    "url": "PCCT/system_recovery_commands.html",
+    "content": "System Recovery Commands sfc bootrec dism rstrui.exe mdsched.exe shutdown /r /o System File Checker. Scans and repairs protected system files. Used to repair boot-related issues like MBR or BCD. Deployment Image Servicing and Management. Can repair the Windows component store. Launches the System Restore utility. Launches the Windows Memory Diagnostic tool. Restarts the computer into the Advanced Startup Options (Windows RE)."
+  },
+  {
+    "id": 11,
+    "title": "Device Management",
+    "url": "PCCT/device_management.html",
+    "content": "Device Manager devmgmt.msc A tool to manage hardware devices and their drivers. You can update, roll back, disable, or uninstall drivers."
+  },
+  {
+    "id": 12,
+    "title": "System Configuration",
+    "url": "PCCT/system_config.html",
+    "content": "System Configuration sysdm.cpl Opens the System Properties window. From the Advanced tab, you can manage Performance settings (including Virtual Memory) and from the System Protection tab, you can manage System Restore points."
+  },
+  {
+    "id": 13,
+    "title": "System Services & Processes",
+    "url": "PCCT/services_processes.html",
+    "content": "System Services & Processes services.msc taskmgr.exe Opens the Services management console to start, stop, and configure system services. Opens the Task Manager to view and manage running applications, background processes, and system performance."
+  },
+  {
+    "id": 14,
+    "title": "Windows Registry & Event Viewer",
+    "url": "PCCT/registry_event_viewer.html",
+    "content": "Windows Registry & Event Viewer regedit.exe eventvwr.msc Opens the Registry Editor to view and edit system-wide configuration settings. Opens the Event Viewer to browse and manage system and application logs."
+  },
+  {
+    "id": 15,
+    "title": "Environment Setup",
+    "url": "NOS/environment_setup.html",
+    "content": "Environment Setup in Hyper-V Creating Virtual Machines Assigning Static IP Addresses"
+  },
+  {
+    "id": 16,
+    "title": "Domain Controller Setup",
+    "url": "NOS/dc_setup.html",
+    "content": "Create a Domain Controller DC Add the AD DS Role Promote Server to a Domain Controller jic.local"
+  },
+  {
+    "id": 17,
+    "title": "File Server Setup",
+    "url": "NOS/fileserver_setup.html",
+    "content": "Create a File Server Add the File Server Role Create a Shared Folder SMB Share"
+  },
+  {
+    "id": 18,
+    "title": "RAID Configuration",
+    "url": "NOS/raid_config.html",
+    "content": "Configure Disk Volumes RAID Spanned Volume Striped Volume RAID 0 Mirrored Volume RAID 1"
+  },
+  {
+    "id": 19,
+    "title": "Active Directory Management",
+    "url": "NOS/ad_management.html",
+    "content": "Manage OUs, Users, and Groups Create an OU Organizational Unit Create a Group Create a User Add User to Group"
+  },
+  {
+    "id": 20,
+    "title": "Join Client to Domain",
+    "url": "NOS/join_domain.html",
+    "content": "Join a Client PC to the Domain Connect client machine to the domain for centralized login and management."
+  },
+  {
+    "id": 21,
+    "title": "Basic Cisco IOS CLI",
+    "url": "Network2/basic_cisco_cli.html",
+    "content": "Basic Cisco IOS CLI User EXEC mode Privileged EXEC mode Global configuration mode enable configure terminal interface hostname banner motd copy running-config startup-config erase startup-config delete flash:vlan.dat show running-config show ip interface brief show version clock set"
+  },
+  {
+    "id": 22,
+    "title": "VLSM & IP Addressing",
+    "url": "Network2/vlsm_addressing.html",
+    "content": "VLSM & IP Addressing Variable Length Subnet Masking subnet design strategy slash notation"
+  },
+  {
+    "id": 23,
+    "title": "Switch Security",
+    "url": "Network2/switch_security.html",
+    "content": "Switch Security Basic Switch Security Console and VTY Passwords Enable Secret Password Password Encryption Switch Port Security switchport port-security mac-address sticky violation shutdown"
+  },
+  {
+    "id": 24,
+    "title": "VLANs, Trunks, and VTP",
+    "url": "Network2/vlans_and_trunks.html",
+    "content": "VLANs, Trunks, and VTP Creating VLANs switchport mode access switchport access vlan Creating Trunk Ports switchport mode trunk 802.1q VTP VLAN Trunking Protocol vtp mode server client transparent Native VLAN Voice VLAN"
+  },
+  {
+    "id": 25,
+    "title": "EtherChannel (Link Aggregation)",
+    "url": "Network2/etherchannel.html",
+    "content": "EtherChannel Link Aggregation PAgP LACP Manual channel-group mode desirable auto active passive on Layer 3 EtherChannel no switchport load-balancing"
+  },
+  {
+    "id": 26,
+    "title": "Inter-VLAN Routing",
+    "url": "Network2/inter-vlan_routing.html",
+    "content": "Inter-VLAN Routing Router-on-a-Stick ROAS encapsulation dot1q subinterface Layer 3 Switch SVI Switched Virtual Interface ip routing"
+  },
+  {
+    "id": 27,
+    "title": "Static & Default Routing",
+    "url": "Network2/static_routing.html",
+    "content": "Static & Default Routing Static Routing ip route Default Route Gateway of Last Resort ip route 0.0.0.0 0.0.0.0"
+  },
+  {
+    "id": 28,
+    "title": "Dynamic Routing (RIP, OSPF, EIGRP)",
+    "url": "Network2/dynamic_routing.html",
+    "content": "Dynamic Routing Protocols RIP Routing Information Protocol router rip version 2 no auto-summary network OSPF Open Shortest Path First router ospf network area wildcard mask EIGRP Enhanced Interior Gateway Routing Protocol router eigrp network"
+  },
+  {
+    "id": 29,
+    "title": "Network Services (DHCP, DNS, HTTP, FTP)",
+    "url": "Network2/network_services.html",
+    "content": "Network Services DHCP Server DNS Server HTTP Server DHCP Relay Agent ip helper-address ip dhcp pool default-router dns-server TFTP copy running-config tftp:"
+  },
+  {
+    "id": 30,
+    "title": "NAT Configuration",
+    "url": "Network2/nat_config.html",
+    "content": "NAT Configuration Static NAT ip nat inside source static Dynamic NAT ip nat pool access-list PAT Port Address Translation Overload ip nat inside source list pool overload"
+  },
+  {
+    "id": 31,
+    "title": "Remote Access (Telnet & SSH)",
+    "url": "Network2/remote_access.html",
+    "content": "Remote Access Telnet line vty login SSH Secure Shell ip domain-name crypto key generate rsa login local transport input ssh"
+  },
+  {
+    "id": 32,
+    "title": "Python Basics Guide",
+    "url": "Programming/python_basics.html",
+    "content": "Python Basics print variables data types string integer float boolean operators input if elif else for loop while loop functions def list dictionary"
+  }
 ]
-

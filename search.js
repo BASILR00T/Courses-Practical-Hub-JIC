@@ -2,16 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
     let documents = [];
     let idx;
 
-    // Fetch the search data from the JSON file
+    // Fetch the search data
     fetch('search_data.json')
         .then(response => response.json())
         .then(data => {
             documents = data;
-            // Build the Lunr.js search index
+            // Build the Lunr.js index
             idx = lunr(function () {
                 this.ref('id');
-                this.field('title');
-                this.field('url');
+                this.field('title', { boost: 10 }); // Boost title matches
+                this.field('content');
 
                 documents.forEach(function (doc) {
                     this.add(doc);
@@ -21,25 +21,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const searchInput = document.getElementById('search-input');
     const resultsContainer = document.getElementById('results-container');
-    const mainContent = document.querySelector('.grid-container'); 
+    const mainContent = document.getElementById('main-content'); 
 
-    searchInput.addEventListener('input', function () {
-        const query = this.value.trim().toLowerCase();
-        resultsContainer.innerHTML = ''; // Clear old results
+    searchInput.addEventListener('keyup', function () {
+        const query = this.value.trim();
+        resultsContainer.innerHTML = ''; 
 
-        // If the search box is empty, show main content and hide results
         if (query === '') {
             resultsContainer.style.display = 'none';
-            mainContent.style.display = 'grid'; 
+            if(mainContent) mainContent.style.display = 'grid'; 
             return;
         }
 
-        // Perform the search
         try {
-            const results = idx.search(`*${query}*`); // Use wildcards for partial matches
+            const results = idx.search(query);
 
-            // Hide main content and show results container
-            mainContent.style.display = 'none';
+            if(mainContent) mainContent.style.display = 'none';
             resultsContainer.style.display = 'block';
 
             if (results.length > 0) {
@@ -47,14 +44,30 @@ document.addEventListener('DOMContentLoaded', function () {
                     const item = documents.find(doc => doc.id == result.ref);
                     const resultElement = document.createElement('div');
                     resultElement.className = 'search-result-item';
-                    resultElement.innerHTML = `<a href="${item.url}">${item.title}</a>`;
+                    
+                    // Create a relative URL from the current page
+                    let currentPath = window.location.pathname;
+                    let basePath = currentPath.substring(0, currentPath.lastIndexOf('/'));
+                    let relativeUrl = item.url;
+                    
+                    // Adjust URL if searching from a subdirectory
+                    if (!currentPath.endsWith('/') && !currentPath.endsWith('.html')) {
+                         basePath = currentPath;
+                    }
+                    if(basePath.includes('/PCCT') || basePath.includes('/NOS') || basePath.includes('/Network2') || basePath.includes('/Programming')) {
+                       // We are in a subfolder, need to go up one level
+                       relativeUrl = '../' + item.url;
+                    }
+
+
+                    resultElement.innerHTML = `<a href="${relativeUrl}">${item.title}</a>`;
                     resultsContainer.appendChild(resultElement);
                 });
             } else {
-                resultsContainer.innerHTML = '<p style="padding: 1rem; color: var(--text-muted);">No matching results found.</p>';
+                resultsContainer.innerHTML = '<p style="color: var(--text-muted);">No matching results found.</p>';
             }
         } catch (e) {
-            // Ignore errors that might come from Lunr on incomplete queries
+            // Ignore errors from incomplete search queries
         }
     });
 });
