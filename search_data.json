@@ -195,6 +195,6 @@
     "id": 33,
     "title": "Switch Port Security",
     "url": "Network2/switch_port_security.html",
-    "content": "Securing the switch with port security from unauthorized Pcs and Switches Security switchport port-security mac-address sticky violation shutdown"
+    "content": "Securing the switch with port security from unauthorized Pcs and Switches Security switchport port-security mac-address sticky violation shutdown spanning-tree bpduguard enable"
   }
 ]
