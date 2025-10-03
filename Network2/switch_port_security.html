@@ -143,6 +143,14 @@ Last Source Address:Vlan   : 0001.4284.D8E9:1
 Security Violation Count   : 0</code></pre>
                  <p>When a violation occurs (e.g., an unauthorized device connects), the port will enter an <code>err-disabled</code> state. To re-enable it, you must go to the interface configuration and issue the <code>shutdown</code> command followed by the <code>no shutdown</code> command.</p>
             </section>
+            <section class="section">
+                <h2>Protect a Cisco switch from another unauthorized switch</h2>
+                <p>Enable BPDU Guard (Prevents Rogue Switches on Access Ports)</p>
+                <pre>
+<code class="output">Switch(config)#</code><code class="user-input">interface fastEthernet 0/1  (or gigabitEthernet as needed)</code>
+<code class="output">Switch(config-if)#</code><code class="user-input">spanning-tree portfast</code>                    
+<code class="output">Switch(config-if)#</code><code class="user-input">spanning-tree bpduguard enable</code>
+            </section>
         </main>
     </div>
 </body>

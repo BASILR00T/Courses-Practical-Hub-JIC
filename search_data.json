@@ -133,9 +133,9 @@
   },
   {
     "id": 23,
-    "title": "Switch Security",
-    "url": "Network2/switch_security.html",
-    "content": "Switch Security Basic Switch Security Console and VTY Passwords Enable Secret Password Password Encryption Switch Port Security switchport port-security mac-address sticky violation shutdown"
+    "title": "Switch Access Security",
+    "url": "Network2/Switch_Access_Security.html",
+    "content": "Switch Security Basic Switch Security Console and VTY Passwords Enable Secret Password Password Encryption Switch Port Switch Access "
   },
   {
     "id": 24,
@@ -190,5 +190,11 @@
     "title": "Python Hub",
     "url": "Programming/Python/Python_language.html",
     "content": "Python Basics print variables data types string integer float boolean operators input if elif else for loop while loop functions def list dictionary string methods upper lower strip replace split f-strings error handling try except file io open read write"
+  },
+   {
+    "id": 33,
+    "title": "Switch Port Security",
+    "url": "Network2/switch_port_security.html",
+    "content": "Securing the switch with port security from unauthorized Pcs and Switches Security switchport port-security mac-address sticky violation shutdown"
   }
 ]
