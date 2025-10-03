@@ -148,6 +148,16 @@
         "id": 30,
         "title": "Remote Access (Telnet & SSH)",
         "url": "Network2/remote_access.html"
+    },
+    {
+        "id": 31,
+        "title": "Programming",
+        "url": "Programming/Programming.html"
+    },
+    {
+        "id": 32,
+        "title": "Python Basics",
+        "url": "Programming/python_basics.html"
     }
 ]
 
