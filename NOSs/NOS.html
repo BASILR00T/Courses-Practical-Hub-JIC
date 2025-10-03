@@ -63,9 +63,7 @@
 
         .header {
             text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-blue);
+            margin-bottom: 2rem;
         }
 
         .header h1 {
@@ -74,13 +72,37 @@
             font-weight: 700;
             color: var(--primary-blue);
             margin: 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-blue);
         }
 
         .header p {
             font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 70ch;
-            margin: 0.5rem auto 0;
+            margin: 0.5rem auto 2rem auto;
+        }
+
+        .search-container {
+            margin-bottom: 3rem;
+        }
+
+        #searchInput {
+            width: 50%;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 15px var(--glow-color);
         }
 
         .grid-container {
@@ -166,6 +188,7 @@
             .header h1 {
                 font-size: 2.5rem;
             }
+            #searchInput { width: 80%; }
         }
     </style>
 </head>
@@ -175,6 +198,9 @@
         <div class="header">
             <h1>Network Operating Systems</h1>
             <p>Practical guides for setting up and managing Windows Server environments, from domain controllers to client management.</p>
+             <div class="search-container">
+                <input type="search" id="searchInput" placeholder="Search topics (e.g., RAID, AD)...">
+            </div>
         </div>
 
         <div class="grid-container">
@@ -209,7 +235,24 @@
             <p>Built as a reference for JIC students. Inspired by <a href="https://BASILR00T.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const cards = document.querySelectorAll('.module-card');
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                cards.forEach(card => {
+                    const cardText = card.textContent.toLowerCase();
+                    if (cardText.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
-
 

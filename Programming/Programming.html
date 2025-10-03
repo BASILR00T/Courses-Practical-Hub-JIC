@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Hub | JIC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+            --glow-color: #0088ff;
+        }
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 4rem 2rem 2rem 2rem;
+            box-sizing: border-box;
+        }
+        .back-button { 
+            position: fixed; 
+            top: 20px; 
+            left: 20px; 
+            background-color: var(--card-bg); 
+            color: var(--primary-blue); 
+            border: 1px solid var(--border-color); 
+            padding: 0.5rem 1rem; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-family: 'Roboto', sans-serif; 
+            font-weight: bold; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); 
+            z-index: 1000; 
+        }
+        .back-button:hover { 
+            background-color: var(--primary-blue); 
+            color: var(--background-dark); 
+            box-shadow: 0 0 20px var(--glow-color); 
+            transform: translateY(-2px); 
+        }
+        .container { width: 100%; max-width: 1200px; text-align: center; }
+        .header { text-align: center; margin-bottom: 2rem; }
+        .header h1 { font-family: 'Roboto', sans-serif; font-size: 3rem; font-weight: 700; color: var(--primary-blue); margin: 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .header p { font-size: 1.1rem; color: var(--text-muted); max-width: 70ch; margin: 0.5rem auto 2rem auto; }
+        .search-container { margin-bottom: 3rem; }
+        #searchInput { width: 50%; padding: 0.75rem 1.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-family: 'Fira Code', monospace; font-size: 1rem; transition: all 0.3s ease; }
+        #searchInput:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 15px var(--glow-color); }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; }
+        .module-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; text-decoration: none; color: var(--text-color); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; overflow: hidden; }
+        .module-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(transparent, rgba(0, 136, 255, 0.2), transparent 30%); animation: rotate 4s linear infinite; opacity: 0; transition: opacity 0.3s ease; }
+        .module-card:hover::before { opacity: 1; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .module-card:hover { transform: translateY(-5px); box-shadow: 0 0 25px var(--glow-color); border-color: var(--primary-blue); }
+        .module-card h2 { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--primary-blue); margin-top: 0; margin-bottom: 0.5rem; }
+        .module-card p { font-size: 0.9rem; color: var(--text-muted); }
+        .footer { margin-top: 4rem; text-align: center; }
+        .footer p { color: var(--text-muted); font-size: 0.9rem; }
+        .footer a { color: var(--primary-blue); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 2rem 1rem; } .header h1 { font-size: 2.5rem; } #searchInput { width: 80%; } }
+    </style>
+</head>
+<body>
+<a href="../index.html" class="back-button">&larr; Back to Main Hub</a>
+    <div class="container">
+        <div class="header">
+            <h1>Programming</h1>
+            <p>Practical guides and references for various programming languages, focusing on fundamental concepts and examples.</p>
+            <div class="search-container">
+                <input type="search" id="searchInput" placeholder="Search for a language or concept...">
+            </div>
+        </div>
+
+        <div class="grid-container">
+            <a href="python_basics.html" class="module-card">
+                <h2>Python Basics</h2>
+                <p>A beginner's guide to variables, data types, control flow, loops, and functions in Python.</p>
+            </a>
+            <a href="#" class="module-card" style="opacity: 0.5; cursor: not-allowed;">
+                <h2>JavaScript Basics</h2>
+                <p>Coming Soon.</p>
+            </a>
+             <a href="#" class="module-card" style="opacity: 0.5; cursor: not-allowed;">
+                <h2>C++ Basics</h2>
+                <p>Coming Soon.</p>
+            </a>
+        </div>
+
+        <footer class="footer">
+            <p>If there are any mistakes or wrong info please feel free to contact me on <a href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
+        </footer>
+    </div>
+     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const cards = document.querySelectorAll('.module-card');
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                cards.forEach(card => {
+                    const cardText = card.textContent.toLowerCase();
+                    if (cardText.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

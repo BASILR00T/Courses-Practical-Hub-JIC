@@ -21,9 +21,12 @@
         .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
         .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px var(--glow-color); transform: translateY(-2px); }
         .container { width: 100%; max-width: 1200px; text-align: center; }
-        .header { text-align: center; margin-bottom: 3rem; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
-        .header h1 { font-family: 'Roboto', sans-serif; font-size: 3rem; font-weight: 700; color: var(--primary-blue); margin: 0; }
-        .header p { font-size: 1.1rem; color: var(--text-muted); max-width: 70ch; margin: 0.5rem auto 0; }
+        .header { text-align: center; margin-bottom: 2rem; }
+        .header h1 { font-family: 'Roboto', sans-serif; font-size: 3rem; font-weight: 700; color: var(--primary-blue); margin: 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .header p { font-size: 1.1rem; color: var(--text-muted); max-width: 70ch; margin: 0.5rem auto 2rem auto; }
+        .search-container { margin-bottom: 3rem; }
+        #searchInput { width: 50%; padding: 0.75rem 1.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-family: 'Fira Code', monospace; font-size: 1rem; transition: all 0.3s ease; }
+        #searchInput:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 15px var(--glow-color); }
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; }
         .module-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; text-decoration: none; color: var(--text-color); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; overflow: hidden; }
         .module-card::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: conic-gradient(transparent, rgba(0, 136, 255, 0.2), transparent 30%); animation: rotate 4s linear infinite; opacity: 0; transition: opacity 0.3s ease; }
@@ -36,7 +39,7 @@
         .footer p { color: var(--text-muted); font-size: 0.9rem; }
         .footer a { color: var(--primary-blue); text-decoration: none; }
         .footer a:hover { text-decoration: underline; }
-        @media (max-width: 768px) { body { padding: 5rem 1rem 2rem 1rem; } .header h1 { font-size: 2.5rem; } }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 2rem 1rem; } .header h1 { font-size: 2.5rem; } #searchInput { width: 80%; } }
     </style>
 </head>
 <body>
@@ -45,6 +48,9 @@
         <div class="header">
             <h1>PC Config & Troubleshooting</h1>
             <p>A quick reference for practical CLI commands and tools covered in the JIC PC Configuration & Troubleshooting course.</p>
+             <div class="search-container">
+                <input type="search" id="searchInput" placeholder="Search topics (e.g., diskpart, chkdsk)...">
+            </div>
         </div>
 
         <div class="grid-container">
@@ -95,6 +101,24 @@
             <p>Built as a reference for JIC students. Inspired by <a href="https://greatbsa.github.io/BASIL-TECH/" target="_blank">BASIL-TECH</a>.</p> 
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const cards = document.querySelectorAll('.module-card');
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                cards.forEach(card => {
+                    const cardText = card.textContent.toLowerCase();
+                    if (cardText.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 

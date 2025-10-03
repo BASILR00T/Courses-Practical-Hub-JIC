@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Basics | Programming Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px #0088ff; transform: translateY(-2px); }
+        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
+        h2, h3 { font-weight: 700; }
+        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
+        p, li { font-size: 1rem; color: var(--text-muted); }
+        code { font-family: 'Fira Code', monospace; background-color: rgba(0, 136, 255, 0.1); color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
+        .code-block { color: #d4d4d4; }
+        .comment { color: #6a9955; }
+        .keyword { color: #569cd6; }
+        .string { color: #ce9178; }
+        .number { color: #b5cea8; }
+        .function { color: #dcdcaa; }
+        .output { color: #a9a9a9; font-style: italic; }
+        strong { color: var(--text-color); font-weight: 700; }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <a href="Programming.html" class="back-button">&larr; Back to Programming Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>Python Basics</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>Introduction to Python</h2>
+                <p>Python is a high-level, interpreted programming language known for its clear syntax and readability. It's a great first language for beginners and is widely used in web development, data science, automation, and more.</p>
+            </section>
+
+            <section class="section">
+                <h2>1. "Hello, World!" - Your First Program</h2>
+                <p>The first step in any language is to print a simple message. In Python, this is done with the <code>print()</code> function.</p>
+                <pre class="code-block"><span class="function">print</span>(<span class="string">"Hello, World!"</span>)</pre>
+                <h4>Output:</h4>
+                <pre class="output">Hello, World!</pre>
+            </section>
+
+            <section class="section">
+                <h2>2. Variables and Data Types</h2>
+                <p>Variables are used to store data. Python is dynamically typed, meaning you don't need to declare the data type.</p>
+                <pre class="code-block"><span class="comment"># String (text)</span>
+name = <span class="string">"Basil"</span>
+
+<span class="comment"># Integer (whole number)</span>
+age = <span class="number">25</span>
+
+<span class="comment"># Float (number with a decimal)</span>
+height = <span class="number">175.5</span>
+
+<span class="comment"># Boolean (True or False)</span>
+is_student = <span class="keyword">True</span>
+
+<span class="function">print</span>(<span class="string">"Name:"</span>, name)
+<span class="function">print</span>(<span class="string">"Age:"</span>, age)
+<span class="function">print</span>(<span class="string">"Is a student:"</span>, is_student)</pre>
+                 <h4>Output:</h4>
+                <pre class="output">Name: Basil
+Age: 25
+Is a student: True</pre>
+            </section>
+
+            <section class="section">
+                <h2>3. Basic Operators</h2>
+                <p>Python supports standard arithmetic and comparison operators.</p>
+                <pre class="code-block"><span class="comment"># Arithmetic Operators</span>
+a = <span class="number">10</span>
+b = <span class="number">3</span>
+<span class="function">print</span>(<span class="string">"Addition:"</span>, a + b)       <span class="comment"># 13</span>
+<span class="function">print</span>(<span class="string">"Subtraction:"</span>, a - b)    <span class="comment"># 7</span>
+<span class="function">print</span>(<span class="string">"Multiplication:"</span>, a * b) <span class="comment"># 30</span>
+<span class="function">print</span>(<span class="string">"Division:"</span>, a / b)         <span class="comment"># 3.33...</span>
+<span class="function">print</span>(<span class="string">"Modulus (remainder):"</span>, a % b) <span class="comment"># 1</span>
+
+<span class="comment"># Comparison Operators</span>
+<span class="function">print</span>(<span class="string">"Is a > b?"</span>, a > b)        <span class="comment"># True</span>
+<span class="function">print</span>(<span class="string">"Is a == 10?"</span>, a == <span class="number">10</span>)   <span class="comment"># True</span></pre>
+            </section>
+
+            <section class="section">
+                <h2>4. Input and Output</h2>
+                <p>You can get input from the user with the <code>input()</code> function and display output with <code>print()</code>.</p>
+                <pre class="code-block">user_name = <span class="function">input</span>(<span class="string">"Enter your name: "</span>)
+<span class="function">print</span>(<span class="string">"Hello, "</span> + user_name + <span class="string">"!"</span>)</pre>
+                <h4>Example Interaction:</h4>
+                <pre class="output">Enter your name: Ahmed
+Hello, Ahmed!</pre>
+            </section>
+
+             <section class="section">
+                <h2>5. Control Flow (if/elif/else)</h2>
+                <p>Control the flow of your program based on conditions.</p>
+                <pre class="code-block">score = <span class="number">85</span>
+
+<span class="keyword">if</span> score >= <span class="number">90</span>:
+    <span class="function">print</span>(<span class="string">"Grade: A"</span>)
+<span class="keyword">elif</span> score >= <span class="number">80</span>:
+    <span class="function">print</span>(<span class="string">"Grade: B"</span>)
+<span class="keyword">else</span>:
+    <span class="function">print</span>(<span class="string">"Grade: C or lower"</span>)</pre>
+                <h4>Output:</h4>
+                <pre class="output">Grade: B</pre>
+            </section>
+
+            <section class="section">
+                <h2>6. Loops</h2>
+                <p>Repeat blocks of code using <code>for</code> and <code>while</code> loops.</p>
+                <h3>For Loop</h3>
+                <p>Iterates over a sequence (like a list or a range of numbers).</p>
+                <pre class="code-block"><span class="comment"># Loop 5 times</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> <span class="function">range</span>(<span class="number">5</span>):
+    <span class="function">print</span>(<span class="string">"Loop number"</span>, i)
+</pre>
+                <h4>Output:</h4>
+                <pre class="output">Loop number 0
+Loop number 1
+Loop number 2
+Loop number 3
+Loop number 4</pre>
+
+                <h3>While Loop</h3>
+                <p>Repeats as long as a condition is true.</p>
+                <pre class="code-block">count = <span class="number">0</span>
+<span class="keyword">while</span> count < <span class="number">3</span>:
+    <span class="function">print</span>(<span class="string">"Count is"</span>, count)
+    count = count + <span class="number">1</span></pre>
+                <h4>Output:</h4>
+                <pre class="output">Count is 0
+Count is 1
+Count is 2</pre>
+            </section>
+            
+            <section class="section">
+                <h2>7. Functions</h2>
+                <p>Functions are reusable blocks of code. You define them with the <code>def</code> keyword.</p>
+                <pre class="code-block"><span class="comment"># Define a function</span>
+<span class="keyword">def</span> <span class="function">greet</span>(name):
+    <span class="keyword">return</span> <span class="string">"Hello, "</span> + name + <span class="string">"!"</span>
+
+<span class="comment"># Call the function</span>
+message = <span class="function">greet</span>(<span class="string">"Sarah"</span>)
+<span class="function">print</span>(message)</pre>
+                <h4>Output:</h4>
+                <pre class="output">Hello, Sarah!</pre>
+            </section>
+
+            <section class="section">
+                <h2>8. Basic Data Structures</h2>
+                <h3>Lists</h3>
+                <p>An ordered, mutable collection of items.</p>
+                <pre class="code-block">fruits = [<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"cherry"</span>]
+<span class="function">print</span>(fruits[<span class="number">0</span>])  <span class="comment"># Access the first item</span>
+fruits.<span class="function">append</span>(<span class="string">"orange"</span>) <span class="comment"># Add a new item</span>
+<span class="function">print</span>(fruits)</pre>
+                <h4>Output:</h4>
+                <pre class="output">apple
+['apple', 'banana', 'cherry', 'orange']</pre>
+
+                <h3>Dictionaries</h3>
+                <p>A collection of key-value pairs.</p>
+                <pre class="code-block">student = {
+    <span class="string">"name"</span>: <span class="string">"Faisal"</span>,
+    <span class="string">"id"</span>: <span class="number">439101</span>,
+    <span class="string">"major"</span>: <span class="string">"COIT"</span>
+}
+<span class="function">print</span>(student[<span class="string">"name"</span>]) <span class="comment"># Access value by key</span>
+<span class="function">print</span>(student)</pre>
+                <h4>Output:</h4>
+                <pre class="output">Faisal
+{'name': 'Faisal', 'id': 439101, 'major': 'COIT'}</pre>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

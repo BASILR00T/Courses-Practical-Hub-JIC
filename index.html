@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses Practical Hub | JIC</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
     <style>
         :root {
-           --primary-blue: #0088ff;
-           --background-dark: #0b1116;
-           --text-color: #e0e0e0;
-           --text-muted: #a0a0a0;
-           --card-bg: #121212;
-           --border-color: #222;
-           --glow-color: #0088ff;
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+            --glow-color: #0088ff;
         }
 
         body {
@@ -25,10 +23,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* Align content to the top */
+            justify-content: flex-start;
             min-height: 100vh;
             margin: 0;
-            padding: 5rem 2rem; /* Adjust top/bottom and side padding */
+            padding: 4rem 2rem 2rem 2rem;
             box-sizing: border-box;
         }
 
@@ -40,9 +38,8 @@
 
         .header {
             text-align: center;
-            margin-bottom: 3rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-blue);
+            margin-bottom: 2rem;
+            width: 100%;
         }
 
         .header h1 {
@@ -51,14 +48,38 @@
             font-weight: 700;
             color: var(--primary-blue);
             margin: 0;
-            /* text-shadow removed */
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-blue);
         }
 
         .header p {
             font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 70ch;
-            margin: 0.5rem auto 0;
+            margin: 0.5rem auto 2rem auto;
+        }
+
+        .search-container {
+            margin-bottom: 3rem;
+        }
+
+        #searchInput {
+            width: 50%;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-color);
+            font-family: 'Fira Code', monospace;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0,0,0,0.4);
+        }
+
+        #searchInput:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 15px var(--glow-color);
         }
 
         .grid-container {
@@ -80,7 +101,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .module-card::before {
             content: '';
             position: absolute;
@@ -88,11 +109,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: conic-gradient(
-                transparent,
-                rgba(0, 136, 255, 0.2),
-                transparent 30%
-            );
+            background: conic-gradient(transparent, rgba(0, 136, 255, 0.2), transparent 30%);
             animation: rotate 4s linear infinite;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -145,53 +162,73 @@
         }
 
         @media (max-width: 768px) {
-            body { padding: 3rem 1rem; }
-            .header h1 {
-                font-size: 2.5rem;
-            }
+            body { padding: 4rem 1rem 2rem 1rem; }
+            .header h1 { font-size: 2.5rem; }
+            #searchInput { width: 80%; }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="header">
             <h1>Courses Practical Hub</h1>
             <p>A quick reference guide for the practical CLI commands and concepts covered in the JIC IT courses.</p>
+            <div class="search-container">
+                <input type="search" id="searchInput" placeholder="Search for a topic or command...">
+            </div>
         </div>
 
         <div class="grid-container">
             <a href="PCCT/PCCT.html" class="module-card">
                 <h2>PC Config & Troubleshooting</h2>
-                <p>Commands to view OS, hardware, and version details.</p>
+                <p>Windows CLI commands for system info, disk management, and user accounts.</p>
             </a>
-             <a href="NOSs/NOS.html" class="module-card">
+            <a href="NOSs/NOS.html" class="module-card">
                 <h2>Network Operating Systems</h2>
-                <p>Guides for server setup, domain control, and user management.</p>
+                <p>Server configuration, Active Directory, Domain Controllers, and File Servers.</p>
             </a>
             <a href="Network2/Network2.html" class="module-card">
                 <h2>Network 2</h2>
-                <p>Cisco IOS commands for switching, VLANs, and routing protocols.</p>
+                <p>Cisco IOS commands, VLANs, routing protocols (RIP, OSPF, EIGRP), and more.</p>
             </a>
-            <a href="#" class="module-card">
-                <h2>Network 1</h2>
-                <p>Coming soon.</p>
-            </a>
-            <a href="#" class="module-card">
-                <h2>Intro to Web Design</h2>
-                <p>Coming soon.</p>
-            </a>
-            <a href="#" class="module-card">
+             <a href="Programming/Programming.html" class="module-card">
                 <h2>Programming</h2>
-                <p>Coming soon.</p>
+                <p>Guides and examples for programming languages like Python.</p>
+            </a>
+            <a href="#" class="module-card" style="opacity: 0.5; cursor: not-allowed;">
+                <h2>Network 1</h2>
+                <p>Coming Soon.</p>
+            </a>
+            <a href="#" class="module-card" style="opacity: 0.5; cursor: not-allowed;">
+                <h2>Intro to Web Design</h2>
+                <p>Coming Soon.</p>
             </a>
         </div>
-
-        <footer class="footer">
-            <p>If there any mistakes or wrong info please feel free to contact me on <a href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
-            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
-        </footer>
     </div>
+
+    <footer class="footer">
+        <p>If there are any mistakes or wrong info please feel free to contact me on <a href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+        <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const cards = document.querySelectorAll('.module-card');
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                cards.forEach(card => {
+                    const cardText = card.textContent.toLowerCase();
+                    if (cardText.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
 
