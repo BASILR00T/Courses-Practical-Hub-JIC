@@ -15,7 +15,7 @@
     "id": 3,
     "title": "Network 2 Hub",
     "url": "Network2/Network2.html",
-    "content": "Network 2 Hub Basic Cisco IOS CLI Switch Security VLSM & IP Addressing VLANs, Trunks, and VTP EtherChannel Inter-VLAN Routing Static & Default Routing Dynamic Routing Network Services NAT Configuration Remote Access"
+    "content": "Network 2 Hub Basic Cisco IOS CLI Switch Security VLSM & IP Addressing VLANs, Trunks, and VTP EtherChannel Inter-VLAN Routing Static & Default Routing Dynamic Routing Network Services NAT Configuration Remote Access load balancing port-channel"
   },
   {
     "id": 4,
