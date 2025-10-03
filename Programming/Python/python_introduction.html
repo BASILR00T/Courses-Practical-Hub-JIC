@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Python | Programming Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px #0088ff; transform: translateY(-2px); }
+        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
+        h2, h3 { font-weight: 700; }
+        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
+        p { font-size: 1rem; color: var(--text-muted); }
+        code { font-family: 'Fira Code', monospace; color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
+        .code-block { margin: 1rem 0; }
+        .output { color: #a9a9a9; border-top: 1px dashed #333; margin-top: 0.5rem; padding-top: 0.5rem; }
+        .comment { color: #6a9955; }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <a href="Python_language.html" class="back-button">&larr; Back to Python Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>Introduction to Python</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>Variables and Data Types</h2>
+                <p>المتغيرات هي حاويات لتخزين قيم البيانات. بايثون لا تحتاج إلى تعريف نوع المتغير بشكل صريح.</p>
+                <div class="code-block">
+                    <pre><code><span class="comment"># String (نص)</span>
+name = "Basil"
+<span class="comment"># Integer (عدد صحيح)</span>
+age = 25
+<span class="comment"># Float (عدد عشري)</span>
+height = 175.5
+<span class="comment"># Boolean (قيمة منطقية)</span>
+is_student = True
+
+print(f"Name: {name}, Type: {type(name)}")
+print(f"Age: {age}, Type: {type(age)}")</code></pre>
+                    <pre class="output">Name: Basil, Type: &lt;class 'str'&gt;
+Age: 25, Type: &lt;class 'int'&gt;</pre>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>String Methods</h2>
+                <p>النصوص في بايثون تأتي مع العديد من الدوال المدمجة (methods) لمعالجتها.</p>
+                <div class="code-block">
+                    <pre><code>message = "  Hello, World!  "
+
+<span class="comment"># تحويل النص إلى حروف كبيرة</span>
+print(message.upper())
+
+<span class="comment"># إزالة المسافات البيضاء من البداية والنهاية</span>
+print(message.strip())
+
+<span class="comment"># استبدال جزء من النص</span>
+print(message.replace("World", "Python"))
+
+<span class="comment"># تقسيم النص إلى قائمة</span>
+print(message.strip().split(','))</code></pre>
+                    <pre class="output">  HELLO, WORLD!  
+Hello, World!
+  Hello, Python!  
+['Hello', ' World!']</pre>
+                </div>
+                 <h3>Formatted Strings (f-strings)</h3>
+                <p>f-strings هي طريقة سهلة ومقروءة لتضمين المتغيرات داخل النصوص.</p>
+                 <div class="code-block">
+                    <pre><code>name = "Ali"
+age = 30
+print(f"My name is {name} and I am {age} years old.")</code></pre>
+                    <pre class="output">My name is Ali and I am 30 years old.</pre>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+

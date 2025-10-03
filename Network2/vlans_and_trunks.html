@@ -29,6 +29,7 @@
         .user-input { color: #87cefa; }
         .output { color: #a9a9a9; }
         .comment { color: #6a9955; }
+        .note { color: #ff0000; }
         .video-container { position: relative; overflow: hidden; width: 100%; padding-top: 56.25%; margin: 1.5rem 0; border-radius: 10px; border: 1px solid var(--border-color); }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
@@ -114,6 +115,14 @@ Gig0/1      1-4094
 <span class="output">VTP_Client(config)#</span><span class="user-input">vtp domain JIC</span>
 <span class="output">VTP_Client(config)#</span><span class="user-input">vtp mode client</span>
 <span class="output">VTP_Client(config)#</span><span class="user-input">vtp password cisco</span></code></pre>
+
+<h3 class="note">Note: if Vlans dosen't shows on client switches up do this on all L2 switches</h3>
+<h4 class="note">First make sure all links between switches in trunk mode , then enable trunk mode on etherchannel interface</h4>
+<pre>
+<code class="output">SW1(config)# </code><code class="user-input">interface port-channel 1</code>
+<code class="output">SW2(config-if)# </code><code class="user-input">switchport mode trunk</code>
+<h5 class="note">Note: if u did all these steps and Vlans still not shows up  try to disconnect the links then connect them at same interface and check VTP configuration on all switches</h5>
+</pre>
                  <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/wCsk9omVxmY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>

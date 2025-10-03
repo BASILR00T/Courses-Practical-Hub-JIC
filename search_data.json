@@ -187,8 +187,8 @@
   },
   {
     "id": 32,
-    "title": "Python Basics Guide",
-    "url": "Programming/python_basics.html",
-    "content": "Python Basics print variables data types string integer float boolean operators input if elif else for loop while loop functions def list dictionary"
+    "title": "Python Hub",
+    "url": "Programming/Python/Python_language.html",
+    "content": "Python Basics print variables data types string integer float boolean operators input if elif else for loop while loop functions def list dictionary string methods upper lower strip replace split f-strings error handling try except file io open read write"
   }
 ]

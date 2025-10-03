@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programming Hub | JIC</title>
+    <title>Python Basics Hub | JIC</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lunr/lunr.min.js"></script>
     <style>
@@ -59,7 +59,6 @@
         #search-input { width: 50%; padding: 0.75rem 1.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-family: 'Fira Code', monospace; font-size: 1rem; transition: all 0.3s ease; }
         #search-input:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 15px var(--glow-color); }
         #results-container { text-align: left; margin-top: 1rem; max-width: 60%; margin-left: auto; margin-right: auto; }
-        .search-result-item { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem; }
         .search-result-item a { color: var(--primary-blue); text-decoration: none; font-weight: bold; }
         .search-result-item a:hover { text-decoration: underline; }
         .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; }
@@ -75,22 +74,38 @@
     </style>
 </head>
 <body>
-<a href="../index.html" class="back-button">&larr; Back to Main Hub</a>
+<a href="../Programming.html" class="back-button">&larr; Back to Programming Hub</a>
     <div class="container">
         <div class="header">
-            <h1>Programming</h1>
+            <h1>Python Basics Hub</h1>
             <p>Practical guides and references for various programming languages, focusing on fundamental concepts and examples.</p>
             <div class="search-container">
-                <input type="search" id="search-input" placeholder="Search for any topic or command...">
+                <input type="search" id="search-input" placeholder="Search Python topics...">
             </div>
         </div>
 
         <div id="results-container" style="display: none;"></div>
 
         <div class="grid-container" id="main-content">
-            <a href="Python/Python_language.html" class="module-card">
-                <h2>Python</h2>
-                <p>A beginner's guide to variables, data types, control flow, loops, and functions in Python.</p>
+            <a href="python_introduction.html" class="module-card">
+                <h2>Introduction to Python</h2>
+                <p>Variables, data types, and essential string methods.</p>
+            </a>
+            <a href="python_control_flow.html" class="module-card">
+                <h2>Control Flow</h2>
+                <p>Conditional statements (if/else) and loops (for/while).</p>
+            </a>
+            <a href="python_functions.html" class="module-card">
+                <h2>Functions</h2>
+                <p>Defining and using reusable blocks of code.</p>
+            </a>
+            <a href="python_data_structures.html" class="module-card">
+                <h2>Data Structures</h2>
+                <p>Working with Lists, Dictionaries, Tuples, and Sets.</p>
+            </a>
+            <a href="python_file_error_handling.html" class="module-card">
+                <h2>File & Error Handling</h2>
+                <p>Reading from/writing to files and managing errors with try/except.</p>
             </a>
         </div>
 
@@ -99,6 +114,47 @@
             <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
         </footer>
     </div>
-    <script src="../search.js"></script>
+    <script>
+        // Simple search for this page
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('search-input');
+            const cards = document.querySelectorAll('.module-card');
+            const mainContent = document.getElementById('main-content');
+            const resultsContainer = document.getElementById('results-container');
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.toLowerCase();
+                
+                if (searchTerm === '') {
+                    resultsContainer.style.display = 'none';
+                    mainContent.style.display = 'grid';
+                    cards.forEach(card => card.style.display = 'block');
+                    return;
+                }
+
+                mainContent.style.display = 'none';
+                resultsContainer.style.display = 'block';
+                resultsContainer.innerHTML = '';
+
+                const filteredCards = Array.from(cards).filter(card => {
+                    return card.textContent.toLowerCase().includes(searchTerm);
+                });
+
+                if (filteredCards.length > 0) {
+                    filteredCards.forEach(card => {
+                         const resultElement = document.createElement('div');
+                         resultElement.className = 'search-result-item';
+                         const title = card.querySelector('h2').textContent;
+                         const url = card.getAttribute('href');
+                         resultElement.innerHTML = `<a href="${url}">${title}</a>`;
+                         resultsContainer.appendChild(resultElement);
+                    });
+                } else {
+                    resultsContainer.innerHTML = '<p style="color: var(--text-muted);">No matching results found.</p>';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+

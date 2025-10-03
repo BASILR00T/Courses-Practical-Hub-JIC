@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Control Flow | Programming Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
+        .container { max-width: 1000px; width: 100%; }
+        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
+        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px #0088ff; transform: translateY(-2px); }
+        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
+        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
+        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        p { font-size: 1rem; color: var(--text-muted); }
+        code { font-family: 'Fira Code', monospace; color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
+        .output { color: #a9a9a9; border-top: 1px dashed #333; margin-top: 0.5rem; padding-top: 0.5rem; }
+        .comment { color: #6a9955; }
+        .video-container { position: relative; overflow: hidden; width: 100%; padding-top: 56.25%; margin: 1.5rem 0; border-radius: 10px; border: 1px solid var(--border-color); }
+        .video-container iframe { position: absolute; top: 0; left: 0; bottom: 0; right: 0; width: 100%; height: 100%; }
+        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
+    </style>
+</head>
+<body>
+    <a href="Python_language.html" class="back-button">&larr; Back to Python Hub</a>
+    <div class="container">
+        <header class="header">
+            <h1>Python Control Flow</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>Conditional Statements (if, elif, else)</h2>
+                <p>تُستخدم الجمل الشرطية لتنفيذ كود معين بناءً على تحقق شرط ما.</p>
+                 <pre><code>temperature = 28
+
+if temperature > 30:
+    print("It's a hot day.")
+elif temperature > 20: <span class="comment"># (30 >= temperature > 20)</span>
+    print("It's a nice day.")
+else:
+    print("It's cold.")</code></pre>
+                <pre class="output">It's a nice day.</pre>
+            </section>
+
+            <section class="section">
+                <h2>Loops (for and while)</h2>
+                <p>حلقات التكرار تُستخدم لتنفيذ كتلة من الكود عدة مرات.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/4p4sTMEl_gY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <h3>For Loop</h3>
+                <pre><code><span class="comment"># التكرار على قائمة</span>
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+<span class="comment"># التكرار لعدد معين من المرات</span>
+for i in range(5): <span class="comment"># from 0 to 4</span>
+    print(i)</code></pre>
+                <pre class="output">apple
+banana
+cherry
+0
+1
+2
+3
+4</pre>
+                <h3>While Loop</h3>
+                <pre><code>count = 0
+while count < 5:
+    print(count)
+    count += 1 <span class="comment"># نفس الشيء مثل count = count + 1</span></code></pre>
+                <pre class="output">0
+1
+2
+3
+4</pre>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+

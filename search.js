@@ -2,8 +2,17 @@ document.addEventListener('DOMContentLoaded', function () {
     let documents = [];
     let idx;
 
+    // Determine the base path for fetching the JSON file
+    let pathPrefix = '.';
+    if (window.location.pathname.includes('/PCCT/') || 
+        window.location.pathname.includes('/NOS/') || 
+        window.location.pathname.includes('/Network2/') || 
+        window.location.pathname.includes('/Programming/')) {
+        pathPrefix = '..';
+    }
+
     // Fetch the search data
-    fetch('search_data.json')
+    fetch(`${pathPrefix}/search_data.json`)
         .then(response => response.json())
         .then(data => {
             documents = data;
@@ -34,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         try {
-            const results = idx.search(query);
+            const results = idx.search(`*${query}*`); // Use wildcards for partial matches
 
             if(mainContent) mainContent.style.display = 'none';
             resultsContainer.style.display = 'block';
@@ -45,22 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     const resultElement = document.createElement('div');
                     resultElement.className = 'search-result-item';
                     
-                    // Create a relative URL from the current page
-                    let currentPath = window.location.pathname;
-                    let basePath = currentPath.substring(0, currentPath.lastIndexOf('/'));
-                    let relativeUrl = item.url;
-                    
-                    // Adjust URL if searching from a subdirectory
-                    if (!currentPath.endsWith('/') && !currentPath.endsWith('.html')) {
-                         basePath = currentPath;
-                    }
-                    if(basePath.includes('/PCCT') || basePath.includes('/NOS') || basePath.includes('/Network2') || basePath.includes('/Programming')) {
-                       // We are in a subfolder, need to go up one level
-                       relativeUrl = '../' + item.url;
-                    }
+                    // Construct the correct relative URL
+                    const resultUrl = `${pathPrefix}/${item.url}`;
 
-
-                    resultElement.innerHTML = `<a href="${relativeUrl}">${item.title}</a>`;
+                    resultElement.innerHTML = `<a href="${resultUrl}">${item.title}</a>`;
                     resultsContainer.appendChild(resultElement);
                 });
             } else {
