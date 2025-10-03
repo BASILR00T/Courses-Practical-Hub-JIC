@@ -8,7 +8,7 @@
   {
     "id": 2,
     "title": "Network Operating Systems Hub",
-    "url": "NOS/NOS.html",
+    "url": "NOSs/NOSs.html",
     "content": "Network Operating Systems Environment Setup Domain Controller Setup File Server Setup Disk Volume RAID Config Active Directory Management Joining a Client to Domain Hyper-V Static IP AD DS jic.local SMB Share Spanned Striped RAID 0 Mirrored RAID 1 OU Organizational Unit windows server, active directory users and groups, اعدادات السيرفر, إدارة المستخدمين"
   },
   {
@@ -27,7 +27,7 @@
     "id": 5,
     "title": "System Information Commands",
     "url": "PCCT/system_info_commands.html",
-    "content": "System Information Commands systeminfo msinfo32 dxdiag winver dir Provides a detailed summary of the computer's hardware and software configuration. Opens the System Information graphical utility. Launches the DirectX Diagnostic Tool, used to troubleshoot video and sound card problems. Displays the About Windows dialog box. Lists files and directories. *.cpl. how to check pc specs, my computer information, مواصفات جهازي, معرفة نسخة الويندوز"
+    "content": "System Information Commands systeminfo msinfo32 dxdiag winver dir Provides a detailed summary of the computer's hardware and software configuration. Opens the System Information graphical utility. Launches the DirectX DiagNOSstic Tool, used to troubleshoot video and sound card problems. Displays the About Windows dialog box. Lists files and directories. *.cpl. how to check pc specs, my computer information, مواصفات جهازي, معرفة نسخة الويندوز"
   },
   {
     "id": 6,
@@ -57,7 +57,7 @@
     "id": 10,
     "title": "System Recovery Commands",
     "url": "PCCT/system_recovery_commands.html",
-    "content": "System Recovery Commands sfc bootrec dism rstrui.exe mdsched.exe shutdown /r /o System File Checker. Scans and repairs protected system files. /scannow. repair boot-related issues like MBR or BCD. /fixmbr /fixboot /rebuildbcd. Deployment Image Servicing and Management. /online /cleanup-image /restorehealth. Launches System Restore. Launches Windows Memory Diagnostic. Restarts into Advanced Startup. how to repair windows, fix boot problems, system restore from cmd, اصلاح الويندوز, مشاكل الاقلاع"
+    "content": "System Recovery Commands sfc bootrec dism rstrui.exe mdsched.exe shutdown /r /o System File Checker. Scans and repairs protected system files. /scannow. repair boot-related issues like MBR or BCD. /fixmbr /fixboot /rebuildbcd. Deployment Image Servicing and Management. /online /cleanup-image /restorehealth. Launches System Restore. Launches Windows Memory DiagNOSstic. Restarts into Advanced Startup. how to repair windows, fix boot problems, system restore from cmd, اصلاح الويندوز, مشاكل الاقلاع"
   },
   {
     "id": 11,
@@ -86,37 +86,37 @@
   {
     "id": 15,
     "title": "Environment Setup",
-    "url": "NOS/environment_setup.html",
+    "url": "NOSs/environment_setup.html",
     "content": "Environment Setup in Hyper-V Creating Virtual Machines Assigning Static IP Addresses DC-Server File-Server Client-PC Subnet Mask Default Gateway Preferred DNS. how to create a vm in hyper-v, set static ip, virtual machine setup, اعداد جهاز وهمي"
   },
   {
     "id": 16,
     "title": "Domain Controller Setup",
-    "url": "NOS/dc_setup.html",
+    "url": "NOSs/dc_setup.html",
     "content": "Create a Domain Controller DC Add the AD DS Role Promote Server to a Domain Controller jic.local Add a new forest Root domain name DSRM Directory Services Restore Mode password. how to make a domain controller, active directory setup, promote to dc, اعداد المتحكم بالمجال"
   },
   {
     "id": 17,
     "title": "File Server Setup",
-    "url": "NOS/fileserver_setup.html",
+    "url": "NOSs/fileserver_setup.html",
     "content": "Create a File Server Add the File Server Role Create a Shared Folder SMB Share - Quick New Share File and Storage Services Shares. how to setup a file server, create a shared folder, smb share configuration, اعداد سيرفر ملفات, مشاركة الملفات"
   },
   {
     "id": 18,
     "title": "RAID Configuration",
-    "url": "NOS/raid_config.html",
+    "url": "NOSs/raid_config.html",
     "content": "Configure Disk Volumes RAID Spanned Volume Striped Volume RAID 0 Mirrored Volume RAID 1 Combine multiple physical disks into a single logical volume for performance or redundancy. Disk Management. how to configure raid 1, what is raid 0, create a striped volume, اعدادات الريد"
   },
   {
     "id": 19,
     "title": "Active Directory Management",
-    "url": "NOS/ad_management.html",
+    "url": "NOSs/ad_management.html",
     "content": "Manage OUs, Users, and Groups Create an OU Organizational Unit Create a Group Create a User Add User to Group Active Directory Users and Computers. how to create a user in active directory, add user to group, create an ou, انشاء مستخدم في الدليل النشط"
   },
   {
     "id": 20,
     "title": "Join Client to Domain",
-    "url": "NOS/join_domain.html",
+    "url": "NOSs/join_domain.html",
     "content": "Join a Client PC to the Domain Connect client machine to the domain for centralized login and management. Advanced system settings Computer Name Member of Domain. how to join a computer to a domain, connect to domain, اضافة جهاز للمجال"
   },
   {
