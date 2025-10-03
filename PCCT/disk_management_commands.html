@@ -24,7 +24,7 @@
         h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
         h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
         p, li { font-size: 1rem; color: var(--text-muted); }
-        code { font-family: 'Fira Code', monospace;color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        code { font-family: 'Fira Code', monospace; color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
         pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
         .user-input { color: #87cefa; }
         .output { color: #a9a9a9; }
@@ -62,7 +62,10 @@ Format complete.</span></code></pre>
 
                 <h3>label</h3>
                 <p>Creates, changes, or deletes the volume label (name) of a disk.</p>
-                <pre><code><span class="output">C:\></span><span class="user-input">label D: Backup</span></code></pre>
+                <pre><code><span class="output">C:\></span><span class="user-input">label D: Backup</span>
+<span class="output">Volume in drive D is Data
+Volume Serial Number is ABCD-EF98
+Volume label (11 characters, ENTER for none)? Backup</span></code></pre>
             </section>
             
             <section class="section">
@@ -72,31 +75,34 @@ Format complete.</span></code></pre>
                 <h3>List & Select Commands</h3>
                 <p>Used to view and select disks, partitions, or volumes to work on.</p>
                 <pre><code><span class="output">DISKPART></span><span class="user-input">list disk</span>
-<span class="output">
-  Disk ###  Status         Size     Free     Dyn  Gpt
+<span class="output">  Disk ###  Status         Size     Free     Dyn  Gpt
   --------  -------------  -------  -------  ---  ---
-  Disk 0    Online          465 GB      0 B        *
+  Disk 0    Online          931 GB      0 B        *
   Disk 1    Online           58 GB    58 GB</span>
 <span class="output">DISKPART></span><span class="user-input">select disk 1</span>
 <span class="output">Disk 1 is now the selected disk.</span>
 <span class="output">DISKPART></span><span class="user-input">list partition</span>
-<span class="output">There are no partitions on this disk to show.</span></code></pre>
+<span class="output">  Partition ###  Type              Size     Offset
+  -------------  ----------------  -------  -------
+  Partition 1    Primary             20 GB  1024 KB
+  Partition 2    Extended            38 GB    20 GB
+  Partition 3    Logical             10 GB    20 GB</span></code></pre>
                 
                 <h3>Create & Format Partitions</h3>
-                <p>Commands to create, format, and assign letters to new partitions.</p>
-                 <pre><code><span class="comment">! Create a 20GB Primary Partition</span>
-<span class="output">DISKPART></span><span class="user-input">create partition primary size=20000</span>
+                <p>This example shows how to partition a new disk using the modern GPT style.</p>
+                <pre><code><span class="comment">! Select, clean, and convert the disk to GPT</span>
+<span class="output">DISKPART> </span><span class="user-input">select disk 1</span>
+<span class="output">DISKPART> </span><span class="user-input">clean</span>
+<span class="output">DISKPART> </span><span class="user-input">convert gpt</span>
+<span class="comment">! Create a 100GB primary partition</span>
+<span class="output">DISKPART> </span><span class="user-input">create partition primary size=100000</span>
 <span class="output">DiskPart succeeded in creating the specified partition.</span>
-
-<span class="comment">! Format the newly created partition (it is selected automatically)</span>
-<span class="output">DISKPART></span><span class="user-input">format fs=ntfs label="Primary" quick</span>
-<span class="output">  100 percent completed
-DiskPart successfully formatted the volume.</span>
-
-<span class="comment">! Assign a drive letter</span>
-<span class="output">DISKPART></span><span class="user-input">assign letter=G</span>
+<span class="comment">! Format and assign a letter</span>
+<span class="output">DISKPART> </span><span class="user-input">format fs=ntfs quick label="Windows"</span>
+<span class="output">DiskPart successfully formatted the volume.</span>
+<span class="output">DISKPART> </span><span class="user-input">assign letter=W</span>
 <span class="output">DiskPart successfully assigned the drive letter or mount point.</span></code></pre>
-                
+
                 <h3>Modify & Delete Partitions</h3>
                 <p>Commands to change or remove existing partitions.</p>
                 <pre><code><span class="comment">! Extend the selected volume by 5GB (5000MB)</span>
@@ -121,54 +127,59 @@ DiskPart successfully formatted the volume.</span>
 <span class="output">DISKPART></span><span class="user-input">detail disk</span>
 <span class="output">SAMSUNG MZ77Q1T0B/003 (SSD)
     Disk ID: {1234ABCD-5678-90EF-1234-567890ABCDEF}
-    ...
-    Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
-    ----------  ---  -----------  -----  ----------  -------  ---------  --------
-    Volume 1         SYSTEM       FAT32  Partition    100 MB  Healthy    System
-    Volume 2     C   Windows      NTFS   Partition    465 GB  Healthy    Boot</span>
+    ...</span>
 
 <span class="comment">! See all supported file systems for formatting</span>
 <span class="output">DISKPART></span><span class="user-input">filesystems</span>
 <span class="output">
   File System  Type        Size
   -----------  ----------  -----------------------
-  FAT          FAT         Up to 4 GB
-  FAT32        FAT32       Up to 32 GB
-  exFAT        exFAT       Up to 128 PB
-  NTFS         NTFS        Up to 256 TB</span></code></pre>
+  NTFS         NTFS        Up to 256 TB
+  ...</span></code></pre>
             </section>
             
             <section class="section">
-                <h2>Diskpart - VHD Management</h2>
-                <p>Commands specifically for creating and managing Virtual Hard Disk (`.vhd` or `.vhdx`) files.</p>
+                <h2>Diskpart - VHD Management & MBR Partitioning</h2>
+                <p>This workflow shows the complete process of creating a VHD, converting it to the legacy MBR style, and creating primary, extended, and logical partitions.</p>
                 
-                <h3>create vdisk</h3>
-                <p>Creates a virtual hard disk file.</p>
-                <pre><code><span class="output">DISKPART></span><span class="user-input">create vdisk file="D:\vhd\test.vhd" maximum=10000</span>
+                <pre><code><span class="comment">! Create a 5GB VHD file</span>
+<span class="output">DISKPART></span><span class="user-input">create vdisk file="D:\vhd\mbr_disk.vhd" maximum=5000</span>
 <span class="output">  100 percent completed
-DiskPart successfully created the virtual disk file.</span></code></pre>
+DiskPart successfully created the virtual disk file.</span>
 
-                <h3>select vdisk</h3>
-                <p>Selects the specified VHD to work with.</p>
-                <pre><code><span class="output">DISKPART></span><span class="user-input">select vdisk file="D:\vhd\test.vhd"</span>
-<span class="output">DiskPart successfully selected the virtual disk file.</span></code></pre>
-
-                <h3>attach vdisk</h3>
-                <p>Attaches the selected VHD, making it appear as a physical disk to Windows.</p>
-                <pre><code><span class="output">DISKPART></span><span class="user-input">attach vdisk</span>
+<span class="comment">! Select and attach the VHD to the system</span>
+<span class="output">DISKPART></span><span class="user-input">select vdisk file="D:\vhd\mbr_disk.vhd"</span>
+<span class="output">DiskPart successfully selected the virtual disk file.</span>
+<span class="output">DISKPART></span><span class="user-input">attach vdisk</span>
 <span class="output">  100 percent completed
-DiskPart successfully attached the virtual disk file.</span></code></pre>
-                
-                <h3>expand vdisk</h3>
-                <p>Expands the maximum size of a VHD. The VHD must be detached first.</p>
-                <pre><code><span class="output">DISKPART></span><span class="user-input">expand vdisk maximum=20000</span>
-<span class="output">  100 percent completed
-DiskPart successfully expanded the virtual disk.</span></code></pre>
+DiskPart successfully attached the virtual disk file.</span>
 
-                <h3>detach vdisk</h3>
-                <p>Detaches the selected VHD, making it "disappear" from the system.</p>
-                 <pre><code><span class="output">DISKPART></span><span class="user-input">detach vdisk</span>
-<span class="output">DiskPart successfully detached the virtual disk file.</span></code></pre>
+<span class="comment">! Convert the attached VHD to MBR style</span>
+<span class="output">DISKPART></span><span class="user-input">convert mbr</span>
+<span class="output">DiskPart successfully converted the selected disk to MBR format.</span>
+
+<span class="comment">! Create a 2GB Primary Partition (Max 4 on MBR)</span>
+<span class="output">DISKPART></span><span class="user-input">create partition primary size=2000</span>
+<span class="output">DiskPart succeeded in creating the specified partition.</span>
+
+<span class="comment">! Create an Extended Partition with the remaining space (Max 1 per disk)</span>
+<span class="output">DISKPART></span><span class="user-input">create partition extended</span>
+<span class="output">DiskPart succeeded in creating the specified partition.</span>
+
+<span class="comment">! Create a 1GB Logical drive inside the extended partition (Unlimited logical drives)</span>
+<span class="output">DISKPART></span><span class="user-input">create partition logical size=1000</span>
+<span class="output">DiskPart succeeded in creating the specified partition.</span>
+
+<span class="comment">! Select the first partition (the primary one) to format it</span>
+<span class="output">DISKPART></span><span class="user-input">select partition 1</span>
+<span class="output">Partition 1 is now the selected partition.</span>
+
+<span class="comment">! Format and assign a letter</span>
+<span class="output">DISKPART></span><span class="user-input">format fs=ntfs quick label="VHD_Primary"</span>
+<span class="output">  100 percent completed
+DiskPart successfully formatted the volume.</span>
+<span class="output">DISKPART></span><span class="user-input">assign letter=V</span>
+<span class="output">DiskPart successfully assigned the drive letter or mount point.</span></code></pre>
             </section>
 
             <section class="section">
@@ -189,4 +200,3 @@ DiskPart successfully expanded the virtual disk.</span></code></pre>
     </div>
 </body>
 </html>
-
