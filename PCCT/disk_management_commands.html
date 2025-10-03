@@ -181,20 +181,48 @@ DiskPart successfully formatted the volume.</span>
 <span class="output">DISKPART></span><span class="user-input">assign letter=V</span>
 <span class="output">DiskPart successfully assigned the drive letter or mount point.</span></code></pre>
             </section>
-
             <section class="section">
                 <h2>Creating a Bootable USB Drive</h2>
-                <p>Use `diskpart` to prepare a USB flash drive for installing Windows.</p>
-                <pre><code><span class="output">DISKPART></span><span class="user-input">list disk</span>
-<span class="output">DISKPART></span><span class="user-input">select disk 2</span>      <span class="comment">! Assuming disk 2 is the USB drive</span>
-<span class="output">DISKPART></span><span class="user-input">clean</span>
-<span class="output">DISKPART></span><span class="user-input">create partition primary</span>
-<span class="output">DISKPART></span><span class="user-input">select partition 1</span>
-<span class="output">DISKPART></span><span class="user-input">active</span>
-<span class="output">DISKPART></span><span class="user-input">format fs=fat32 quick label="WinSetup"</span>
-<span class="output">DISKPART></span><span class="user-input">assign letter=J</span>
-<span class="output">DISKPART></span><span class="user-input">exit</span></code></pre>
-                <p>After running these commands, copy the entire contents of the Windows installation media (DVD or mounted ISO) to the root of the USB drive.</p>
+                <p>Use Diskpart to prepare a USB flash drive to be a bootable Windows installation medium. <strong class="danger">Warning: This will erase all data on the USB drive.</strong></p>
+                <pre><code><span class="comment">// 1. Identify your USB drive (e.g., Disk 2)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">list disk</span>
+<span class="output">  Disk ###  Status         Size     Free     Dyn  Gpt
+  --------  -------------  -------  -------  ---  ---
+  Disk 0    Online          465 GB      0 B        *
+  Disk 1    Online          931 GB      0 B        *
+  Disk 2    Online           58 GB      0 B</span>
+
+<span class="comment">// 2. Select the USB drive</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">select disk 2</span>
+<span class="output">Disk 2 is now the selected disk.</span>
+
+<span class="comment">// 3. Wipe the drive</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">clean</span>
+<span class="output">DiskPart succeeded in cleaning the disk.</span>
+
+<span class="comment">// 4. Create a primary partition</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">create partition primary</span>
+<span class="output">DiskPart succeeded in creating the specified partition.</span>
+
+<span class="comment">// 5. Select and mark the partition as active (bootable)</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">select partition 1</span>
+<span class="output">Partition 1 is now the selected partition.</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">active</span>
+<span class="output">DiskPart marked the current partition as active.</span>
+
+<span class="comment">// 6. Format the partition as FAT32</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">format fs=fat32 quick label="WinSetup"</span>
+<span class="output">  100 percent completed
+DiskPart successfully formatted the volume.</span>
+
+<span class="comment">// 7. Assign a drive letter</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">assign letter=W</span>
+<span class="output">DiskPart successfully assigned the drive letter or mount point.</span>
+
+<span class="comment">// 8. Exit diskpart</span>
+<span class="output">DISKPART&gt; </span><span class="user-input">exit</span>
+<span class="output">Leaving DiskPart...</span></code></pre>
+                <p><strong class="danger">Warning: After completing these steps, you must copy all files and folders from your Windows installation ISO or DVD directly onto the root of the newly prepared USB drive..</strong></p>
             </section>
         </main>
     </div>
