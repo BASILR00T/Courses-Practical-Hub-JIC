@@ -124,7 +124,10 @@
             width: 100%;
             height: 100%;
         }
-
+        code { font-family: 'Fira Code', monospace; color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
+        .output { color: #a9a9a9; }
+        .note { color: #ff0000; }
         @media (max-width: 768px) {
             body { padding: 5rem 1rem 3rem 1rem; }
             .header h1 { font-size: 2.2rem; }
@@ -157,26 +160,26 @@
                 <ol>
                     <li><strong>DC-Server:</strong>
                         <ul>
-                            <li>IP Address: <strong>192.168.1.10</strong></li>
+                            <li>IP Address: <strong>192.168.1.1</strong></li>
                             <li>Subnet Mask: <strong>255.255.255.0</strong></li>
                             <li>Default Gateway: (Your network's gateway, e.g., 192.168.1.1)</li>
-                            <li>Preferred DNS: <strong>127.0.0.1</strong> (It will be its own DNS server)</li>
+                            <li>Preferred DNS: <strong>192.168.1.1</strong> (It will be its own DNS server)</li>
                         </ul>
                     </li>
                      <li><strong>File-Server:</strong>
                         <ul>
-                            <li>IP Address: <strong>192.168.1.11</strong></li>
+                            <li>IP Address: <strong>192.168.1.10</strong></li>
                             <li>Subnet Mask: <strong>255.255.255.0</strong></li>
                             <li>Default Gateway: (Your network's gateway, e.g., 192.168.1.1)</li>
-                            <li>Preferred DNS: <strong>192.168.1.10</strong> (Points to the DC for name resolution)</li>
+                            <li>Preferred DNS: <strong>192.168.1.1</strong> (Points to the DC for name resolution)</li>
                         </ul>
                     </li>
                      <li><strong>Client-PC:</strong>
                         <ul>
-                            <li>IP Address: <strong>192.168.1.100</strong></li>
+                            <li>IP Address: <strong>192.168.1.2</strong></li>
                             <li>Subnet Mask: <strong>255.255.255.0</strong></li>
                             <li>Default Gateway: (Your network's gateway, e.g., 192.168.1.1)</li>
-                            <li>Preferred DNS: <strong>192.168.1.10</strong> (Points to the DC)</li>
+                            <li>Preferred DNS: <strong>192.168.1.1</strong> (Points to the DC)</li>
                         </ul>
                     </li>
                 </ol>
@@ -184,6 +187,30 @@
                     <iframe src="https://www.youtube.com/embed/5iRp1Nug0PU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </section>
+
+
+        <section class="section">
+            <h3>Ping Between DC-server and Client-PC</h3>
+            <ol>
+                <li>Open <strong>CMD</strong>.</li>
+            </ol>
+            <pre><code><span class="output">C:\></span><span class="user-input">Ping 192.168.1.1</span>
+<span class="output">Reply from 192.168.1.1: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.1.1: bytes=32 time&lt;1ms TTL=128
+Reply from 192.168.1.1: bytes=32 time=1ms TTL=128
+Reply from 192.168.1.1: bytes=32 time&lt;1ms TTL=128
+
+Ping statistics for 192.168.1.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 0ms, Maximum = 1ms, Average = 0ms
+</span></code></pre>
+<p class="note">NOTE: if u didn't get Reply , check IP ,DNS , and Network file sharing settings</p>
+<h3>How to change Network and sharing center settings </h3>
+<div class="video-container">
+                    <iframe width="1260" height="709" src="https://www.youtube.com/embed/R27-b5wznq8" title="How to Enable Network Sharing Settings &amp; Domain Joining in Windows 11." frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+        </section>                
         </main>
     </div>
 </body>
