@@ -9,7 +9,7 @@
     "id": 2,
     "title": "Network Operating Systems Hub",
     "url": "NOSs/NOSs.html",
-    "content": "Network Operating Systems Environment Setup Domain Controller Setup File Server Setup Disk Volume RAID Config Active Directory Management Joining a Client to Domain Hyper-V Static IP AD DS jic.local SMB Share Spanned Striped RAID 0 Mirrored RAID 1 OU Organizational Unit windows server, active directory users and groups, اعدادات السيرفر, إدارة المستخدمين"
+    "content": "Network Operating Systems Environment Setup Domain Controller Setup File Server Setup Disk Volume RAID Config Active Directory Management Joining a Client to Domain Hyper-V Static IP AD DS M014.com SMB Share Spanned Striped RAID 0 Mirrored RAID 1 OU Organizational Unit windows server, active directory users and groups, اعدادات السيرفر, إدارة المستخدمين"
   },
   {
     "id": 3,
@@ -93,7 +93,7 @@
     "id": 16,
     "title": "Domain Controller Setup",
     "url": "NOSs/dc_setup.html",
-    "content": "Create a Domain Controller DC Add the AD DS Role Promote Server to a Domain Controller jic.local Add a new forest Root domain name DSRM Directory Services Restore Mode password. how to make a domain controller, active directory setup, promote to dc, اعداد المتحكم بالمجال"
+    "content": "Create a Domain Controller DC Add the AD DS Role Promote Server to a Domain Controller M014.com Add a new forest Root domain name DSRM Directory Services Restore Mode password. how to make a domain controller, active directory setup, promote to dc, اعداد المتحكم بالمجال"
   },
   {
     "id": 17,
