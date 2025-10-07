@@ -31,6 +31,12 @@
         .comment { color: #6a9955; }
         strong { color: var(--text-color); font-weight: 700; }
         .danger { color: #ff0000; }
+        .video-container {
+            position: relative; overflow: hidden; width: 100%; padding-top: 56.25%; margin: 1.5rem 0; border-radius: 10px; border: 1px solid var(--border-color);
+        }
+        .video-container iframe {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
         @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
     </style>
 </head>
@@ -41,6 +47,15 @@
             <h1>Disk Management Commands</h1>
         </header>
         <main>
+
+            <section class="section">
+                <h2>How to create partition and format using CMD</h2>
+                <p class="danger">NOTE: you cannot assign latter usin CMD without diskpart , so we should assign while creating the volume</p>
+                <div class="video-container">
+                    <iframe width="1920" height="1080" src="https://www.youtube.com/embed/dxYws4V1O-c" title="How to create partition and format it using CMD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </section>
+
             <section class="section">
                 <h2>General CMD Commands</h2>
                 <p>These commands are run directly in the Command Prompt, not inside the `diskpart` utility.</p>
