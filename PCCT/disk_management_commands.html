@@ -158,12 +158,12 @@ Volume label (11 characters, ENTER for none)? Backup</span></code></pre>
                 <p>This workflow shows the complete process of creating a VHD, converting it to the legacy MBR style, and creating primary, extended, and logical partitions.</p>
                 
                 <pre><code><span class="comment">! Create a 5GB VHD file</span>
-<span class="output">DISKPART></span><span class="user-input">create vdisk file="D:\vhd\mbr_disk.vhd" maximum=5000</span>
+<span class="output">DISKPART></span><span class="user-input">create vdisk file="C:\vhd1.vhd" maximum=5000</span>
 <span class="output">  100 percent completed
 DiskPart successfully created the virtual disk file.</span>
 
 <span class="comment">! Select and attach the VHD to the system</span>
-<span class="output">DISKPART></span><span class="user-input">select vdisk file="D:\vhd\mbr_disk.vhd"</span>
+<span class="output">DISKPART></span><span class="user-input">select vdisk file="C:\vhd1.vhd"</span>
 <span class="output">DiskPart successfully selected the virtual disk file.</span>
 <span class="output">DISKPART></span><span class="user-input">attach vdisk</span>
 <span class="output">  100 percent completed
