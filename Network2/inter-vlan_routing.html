@@ -129,14 +129,16 @@
 <code class="output">L3_Switch(config)# </code><code class="user-input">ip routing</code>
 
 <code class="comment">! Create an SVI for VLAN 10 and assign its default gateway IP</code>
-<code class="output">L3_Switch(config)# </code><code class="user-input">interface Vlan10</code>
-<code class="output">L3_Switch(config-if)# </code><code class="user-input">ip address 192.168.10.1 255.255.255.0</code>
+<code class="output">L3_Switch(config)# </code><code class="user-input">Vlan 10</code>
+<code class="output">L3_Switch(config)# </code><code class="user-input">interface Vlan 10</code>
+<code class="output">L3_Switch(config-if)# </code><code class="user-input">ip address 10.0.0.1 255.0.0.0</code>
 <code class="output">L3_Switch(config-if)# </code><code class="user-input">no shutdown</code>
 <code class="output">L3_Switch(config-if)# </code><code class="user-input">exit</code>
 
 <code class="comment">! Create an SVI for VLAN 20 and assign its default gateway IP</code>
-<code class="output">L3_Switch(config)# </code><code class="user-input">interface Vlan20</code>
-<code class="output">L3_Switch(config-if)# </code><code class="user-input">ip address 192.168.20.1 255.255.255.0</code>
+<code class="output">L3_Switch(config)# </code><code class="user-input">Vlan 20</code>
+<code class="output">L3_Switch(config)# </code><code class="user-input">interface Vlan 20</code>
+<code class="output">L3_Switch(config-if)# </code><code class="user-input">ip address 11.0.0.1 255.0.0.0</code>
 <code class="output">L3_Switch(config-if)# </code><code class="user-input">no shutdown</code></pre>
                  <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/cF2dXr7Fe_A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
