@@ -8,6 +8,7 @@
     <style>
         :root {
             --primary-blue: #0088ff;
+            --red:#A00020;
             --background-dark: #0b1116;
             --text-color: #e0e0e0;
             --text-muted: #a0a0a0;
@@ -22,19 +23,20 @@
         .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
         h2, h3 { font-weight: 700; }
         h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-        p { font-size: 1rem; color: var(--text-muted); }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
+        p, li { font-size: 1rem; color: var(--text-muted); }
         code { font-family: 'Fira Code', monospace;color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
         pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
         .user-input { color: #87cefa; }
         .output { color: #a9a9a9; }
         .comment { color: #6a9955; }
-        ul { list-style: none; padding-left: 0; }
-        li { margin-bottom: 0.5rem; }
+        strong { color: var(--text-color); font-weight: 700; }
+        .note { background-color: rgba(0, 136, 255, 0.1); border-left: 4px solid var(--red); padding: 1rem; margin: 1.5rem 0; border-radius: 4px; }
         @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
     </style>
 </head>
 <body>
-    <a href="PCCT.html" class="back-button">&larr; Back to PCCT Hub</a>
+    <a href="PCCT.html" class="back-button">&larr; Back to Hub</a>
     <div class="container">
         <header class="header">
             <h1>User Management Commands</h1>
@@ -50,46 +52,129 @@
                     <li>Delete a user: <code>net user [username] /delete</code></li>
                     <li>Change a password: <code>net user [username] *</code></li>
                 </ul>
+            <section class="section">
+                <h2>'net user' Commands</h2>
+                <p>This command is used to add, display, modify, and delete user accounts. It must be run from an elevated Command Prompt.</p>
 
-                <p><strong>Example Workflow:</strong> Create, manage, and delete a user named <code>TestUser</code>.</p>
-                
-                <p>1. Create a new user with a password:</p>
-                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user TestUser Pa$$w0rd /add</span>
-<span class="output">The command completed successfully.</span></code></pre>
-
-                <p>2. View all user accounts to confirm creation:</p>
+                <h3>Display All Users</h3>
                 <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user</span>
 <span class="output">
 User accounts for \\DESKTOP-JIC01
 -------------------------------------------------------------------------------
 Administrator            DefaultAccount           Guest
-Student-Admin            TestUser                 WDAGUtilityAccount
+JIC_Student              WDAGUtilityAccount
 The command completed successfully.</span></code></pre>
 
-                <p>3. Change the user's password (you will be prompted):</p>
-                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user TestUser *</span>
-<span class="output">Type a password for the user: 
-Retype the password to confirm: 
+                <h3>Add a New User</h3>
+                <pre><code><span class="comment">! Add a user with a password</span>
+<span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user Ahmed 12345 /add</span>
+<span class="output">The command completed successfully.</span>
+
+<span class="comment">! Add a user, prompting for the password interactively (to hide it)</span>
+<span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user Ali * /add</span>
+<span class="output">Type a password for the user: </span><span class="user-input">*****</span>
+<span class="output">Retype the password to confirm: </span><span class="user-input">*****</span>
+<span class="output">The command completed successfully.</span></code></pre>
+                
+                <div class="note">
+                    <p><strong>Important Note:</strong> If the username contains spaces, it must be enclosed in quotation marks.</p>
+                    <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user "Ahmed Admin" 123 /add</span>
+<span class="output">The command completed successfully.</span></code></pre>
+                </div>
+
+                <h3>Display Specific User Information</h3>
+                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user Ahmed</span>
+<span class="output">User name                    Ahmed
+Full Name
+Comment
+User's comment
+Country/region code          000 (System Default)
+Account active               Yes
+Account expires              Never
+...
+Local Group Memberships      *Users
+Global Group memberships     *None
 The command completed successfully.</span></code></pre>
 
-                <p>4. Delete the user account:</p>
-                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user TestUser /delete</span>
+                <h3>Activate or Deactivate a User</h3>
+                <pre><code><span class="comment">! Deactivate the user account</span>
+<span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user Ahmed /active:no</span>
+<span class="output">The command completed successfully.</span>
+
+<span class="comment">! Activate the user account</span>
+<span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user Ahmed /active:yes</span>
+<span class="output">The command completed successfully.</span></code></pre>
+
+                <h3>Delete a User</h3>
+                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net user Ahmed /delete</span>
 <span class="output">The command completed successfully.</span></code></pre>
             </section>
+
             <section class="section">
-                <h2>Local Users and Groups (lusrmgr.msc)</h2>
-                <p>The <code>lusrmgr.msc</code> command opens a graphical tool for more detailed user management, including changing group memberships or disabling accounts. This must be run as an administrator.</p>
-                <pre><code><span class="output">C:\&gt;</span><span class="user-input">lusrmgr.msc</span>
+                <h2>'net localgroup' Commands</h2>
+                <p>This command is used to manage local groups on the computer.</p>
+                
+                <h3>Display All Groups</h3>
+                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net localgroup</span>
+<span class="output">
+Aliases for \\DESKTOP-JIC01
+----------------------------------------------------------------
+*Administrators
+*Backup Operators
+*Guests
+*Power Users
+*Users
+The command completed successfully.</span></code></pre>
+
+                <h3>Add a New Group</h3>
+                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net localgroup Sales /add</span>
+<span class="output">The command completed successfully.</span></code></pre>
+                
+                <h3>Add a User to a Group</h3>
+                <pre><code><span class="comment">! Add user "Ahmed" to the "Sales" group</span>
+<span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net localgroup Sales Ahmed /add</span>
+<span class="output">The command completed successfully.</span>
+
+<span class="comment">! Add a user to the "Power Users" group (requires quotes)</span>
+<span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">net localgroup "Power Users" Ahmed /add</span>
+<span class="output">The command completed successfully.</span></code></pre>
+            </section>
+            
+            <section class="section">
+                <h2>Other Useful Commands</h2>
+
+                <h3>hostname</h3>
+                <p>Displays the current computer name on the network.</p>
+                <pre><code><span class="output">C:\></span><span class="user-input">hostname</span>
+<span class="output">DESKTOP-JIC01</span></code></pre>
+
+                <h3>whoami</h3>
+                <p>Displays the currently logged-on user.</p>
+                <pre><code><span class="output">C:\></span><span class="user-input">whoami</span>
+<span class="output">desktop-jic01\jic_student</span>
+
+<span class="comment">! Display the user's Security Identifier (SID)</span>
+<span class="output">C:\></span><span class="user-input">whoami /user</span>
+<span class="output">USER INFORMATION
+----------------
+User Name         SID
+================= =============================================
+desktop-jic01\jic_student S-1-5-21-123456789-987654321-1234567890-1001</span></code></pre>
+
+                <h3>shutdown</h3>
+                <p>Used to shut down or restart the computer.</p>
+                <pre><code><span class="comment">! Shut down immediately and force running applications to close</span>
+<span class="output">C:\></span><span class="user-input">shutdown /s /f /t 0</span></code></pre>
+            </section>
+
+            <section class="section">
+                <h2>GUI Tool: lusrmgr.msc</h2>
+                <p>For visual user and group management, you can use the "Local Users and Groups" tool.</p>
+                <pre><code><span class="output">C:\></span><span class="user-input">lusrmgr.msc</span>
 <span class="output">[A graphical window opens showing Users and Groups]</span></code></pre>
-                <p>Inside this tool, you can right-click on a user to perform actions like:</p>
-                <ul>
-                    <li>Set Password</li>
-                    <li>Add to groups (via Properties &gt; Member Of)</li>
-                    <li>Disable or enable the account</li>
-                </ul>
+                <p>From inside this tool, you can right-click on a user to perform tasks like "Set Password", "Properties" (to change group membership), or disable the account.</p>
             </section>
         </main>
     </div>
 </body>
 </html>
-

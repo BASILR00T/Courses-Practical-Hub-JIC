@@ -136,6 +136,15 @@
             font-weight: bold;
         }
 
+        /* Added for specific emphasis mentioned in notes */
+        .note {
+            border-left: 3px solid var(--primary-blue);
+            padding-left: 1rem;
+            margin-top: 1rem;
+            color: #fff;
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             body { padding: 5rem 1rem 3rem 1rem; }
             .container { padding: 1.5rem; }
@@ -154,12 +163,25 @@
         <h1>Drive Maintenance Commands</h1>
         
         <div class="command-section">
-            <h2>chkdsk</h2>
-            <p>Checks a disk for file system errors and bad sectors and attempts to repair them.</p>
-            <p><strong>Syntax:</strong> <code class="inline">chkdsk [drive_letter]: /f /r</code></p>
+            <h2>cleanmgr (Disk Cleanup)</h2>
+            <p>Starts the Disk Cleanup tool to free up space on your hard disk. It searches for and analyzes temporary files that can be safely deleted.</p>
+            <p><strong>Syntax:</strong> <code class="inline">cleanmgr [switches]</code></p>
             <ul>
-                <li><code class="inline">/f</code> - Fixes errors on the disk.</li>
-                <li><code class="inline">/r</code> - Locates bad sectors and recovers readable information (implies /f).</li>
+                <li><code class="inline">/LOWDISK</code> - Launches with default settings (checked by default).</li>
+                <li><code class="inline">/VERYLOWDISK</code> - Launches without user prompts (aggressive cleanup).</li>
+            </ul>
+            <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">cleanmgr /LOWDISK</span>
+<span class="output">[Opens the Disk Cleanup GUI dialog]</span></code></pre>
+        </div>
+
+        <div class="command-section">
+            <h2>chkdsk (Check Disk)</h2>
+            <p>Checks a disk for file system errors and bad sectors and attempts to repair them.</p>
+            <p><strong>Syntax:</strong> <code class="inline">chkdsk [drive_letter]: /r</code></p>
+            <ul>
+                <li><code class="inline">/f</code> - Fixes errors on the disk[cite: 21].</li>
+                <li><code class="inline">/r</code> - Locates bad sectors and recovers readable information[cite: 22].</li>
+                <li><code class="inline">/scan</code> - Runs an online scan on the volume (NTFS only).</li>
             </ul>
             <p><strong>Example:</strong> Check and repair the D: drive.</p>
             <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">chkdsk D: /r</span>
@@ -174,12 +196,13 @@ checked the next time the system restarts? (Y/N) </span><span class="user-input"
         </div>
 
         <div class="command-section">
-            <h2>defrag</h2>
+            <h2>defrag (Optimize Drives)</h2>
             <p>Analyzes and defragments files on local volumes to improve system performance.</p>
-            <p><strong>Syntax:</strong> <code class="inline">defrag [drive_letter]: /a /d</code></p>
+            <p><strong>Syntax:</strong> <code class="inline">defrag [drive_letter] [switches]</code></p>
             <ul>
-                <li><code class="inline">/a</code> - Perform analysis only.</li>
-                <li><code class="inline">/d</code> - Perform traditional defragmentation (this is the default).</li>
+                <li><code class="inline">/A</code> - Perform analysis only[cite: 14].</li>
+                <li><code class="inline">/C</code> - Perform the operation on all volumes (Select All).</li>
+                <li><code class="inline">/D</code> - Perform traditional defragmentation (default)[cite: 16].</li>
             </ul>
             <p><strong>Example:</strong> Analyze the C: drive for fragmentation.</p>
             <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">defrag C: /a</span>
@@ -191,7 +214,6 @@ Invoking analysis on (C:)...
 The operation completed successfully.
 
 Post Defragmentation Report:
-
         Volume Information:
                 Volume size                = 465.23 GB
                 Free space                 = 123.45 GB
