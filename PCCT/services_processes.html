@@ -13,6 +13,7 @@
             --text-muted: #a0a0a0;
             --card-bg: #121212;
             --border-color: #222;
+            --glow-color: #0088ff;
         }
         body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
         .container { max-width: 1000px; width: 100%; }
@@ -24,10 +25,51 @@
         h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
         h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
         p, li { font-size: 1rem; color: var(--text-muted); }
-        ol { padding-left: 20px; }
+        ol { padding-left: 20px; margin-top: 1rem; }
         li { margin-bottom: 0.75rem; }
         strong { color: var(--text-color); font-weight: 700; }
         code { font-family: 'Fira Code', monospace; background-color: rgba(0, 136, 255, 0.1); color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
+        
+        /* === NEW IMAGE STYLES === */
+        /* This handles the placeholder box */
+        .image-placeholder {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 2px dashed var(--text-muted);
+            border-radius: 10px;
+            padding: 2rem; /* Reduced padding */
+            margin: 2rem auto; /* Center horizontally */
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+            max-width: 80%; /* Don't let placeholder be too wide */
+        }
+
+        /* This handles the actual Image tag <img> whenever you insert it */
+        .section img {
+            display: block;
+            max-width: 100%;      /* Never exceed container width */
+            max-height: 500px;    /* Cap the height so it doesn't scroll forever */
+            width: auto;          /* Maintain aspect ratio */
+            height: auto;
+            margin: 2rem auto;    /* Center the image */
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Nice shadow effect */
+        }
+
+        .process-path {
+            background-color: #1a1a2e;
+            border-left: 3px solid var(--primary-blue);
+            padding: 1rem;
+            font-family: 'Fira Code', monospace;
+            color: var(--primary-blue);
+            margin: 1rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+
         @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
     </style>
 </head>
@@ -54,7 +96,8 @@
                 <h2>Services (services.msc)</h2>
                 <p>Windows Services are programs that run in the background, often starting when the computer boots. They perform core OS functions. Misconfigured or failed services can cause system-wide problems.</p>
                 <p><strong>To open Services:</strong> Press <code>Windows Logo + R</code>, type <code>services.msc</code>, and press Enter.</p>
-                <h3>Managing a Service:</h3>
+                
+                <h3>Managing a Service</h3>
                 <p>Find the service in the list and double-click it to open its properties. From here you can:</p>
                 <ul>
                     <li><strong>Start, Stop, Pause, or Restart</strong> the service.</li>
@@ -67,7 +110,31 @@
                         </ul>
                     </li>
                 </ul>
-            </section>
+
+                <h3>Checking Service Properties and Dependencies</h3>
+                <p>Some services rely on other services to function. If a service fails to start, checking its dependencies is crucial.</p>
+                
+                <div class="process-path">
+                    Select Service &rarr; Right Click &rarr; Properties &rarr; General/ Dependencies , etc.
+                </div>
+
+                <p><strong>Detailed Steps:</strong></p>
+                <ol>
+                    <li>Right-click on the specific service (e.g., <em>Print Spooler</em>).</li>
+                    <li>Select <strong>Properties</strong> from the context menu.</li>
+                    <li>Click on the <strong>Dependencies</strong> tab at the top of the window.</li>
+                    <li>Review the boxes to see:
+                        <ul>
+                            <li>"This service depends on the following system components" (Parents).</li>
+                            <li>"The following system components depend on this service" (Children).</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div  class="image-placeholder">
+                    <img class="section img" src="/PCCT/image/Services_properties.jpg">
+                </div>
+                </section>
         </main>
     </div>
 </body>
