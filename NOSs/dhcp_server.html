@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHCP Server Setup | Server 2022</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0088ff;
+            --background-dark: #0b1116;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --card-bg: #121212;
+            --border-color: #222;
+            --glow-color: #0088ff;
+            --green: #28a745;
+        }
+
+        body {
+            background-color: var(--background-dark);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 5rem 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+        
+        .back-button { 
+            position: fixed; 
+            top: 20px; 
+            left: 20px; 
+            background-color: var(--card-bg); 
+            color: var(--primary-blue); 
+            border: 1px solid var(--border-color); 
+            padding: 0.5rem 1rem; 
+            text-decoration: none; 
+            border-radius: 8px; 
+            font-family: 'Roboto', sans-serif; 
+            font-weight: bold; 
+            transition: all 0.3s ease; 
+            box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); 
+            z-index: 1000; 
+        }
+        .back-button:hover { 
+            background-color: var(--primary-blue); 
+            color: var(--background-dark); 
+            box-shadow: 0 0 20px var(--glow-color); 
+            transform: translateY(-2px); 
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            text-align: center;
+            color: var(--primary-blue);
+            margin: 0 0 2rem 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-blue);
+        }
+
+        .section {
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #222;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        h2::before {
+            content: '#';
+            margin-right: 10px;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        p, li {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive Video Container CSS */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin: 2rem 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        pre {
+            background-color: #050509;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .note {
+            background-color: rgba(255, 165, 0, 0.1);
+            border-left: 4px solid orange;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+            color: #ffdcb0;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 5rem 1rem 3rem 1rem; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="PCCT.html" class="back-button">&larr; Back to Hub</a>
+    <div class="container">
+        <header>
+            <h1>DHCP Server Setup (Win Server 2022)</h1>
+            <p style="text-align: center; margin-bottom: 3rem;">A complete guide to configuring DHCP & DNS on Windows Server using Hyper-V.</p>
+        </header>
+        <main>
+            
+            <section class="section">
+                <h2>1. Create Virtual Machine in Hyper-V</h2>
+                <p>Setting up the environment for the server.</p>
+                <ol>
+                    <li>Open <strong>Hyper-V Manager</strong>.</li>
+                    <li>Click <strong>New &gt; Virtual Machine</strong>.</li>
+                    <li><strong>Name:</strong> "DHCP_[Last 3 Digits of ID]" <br><em>(Example: DHCP_789)</em>.</li>
+                    <li><strong>Generation:</strong> Select <strong>Generation 2</strong> (Recommended).</li>
+                    <li><strong>Memory:</strong> Assign at least <strong>4096 MB</strong> (4GB).</li>
+                    <li><strong>Networking:</strong> Select your "External Switch".</li>
+                    <li><strong>Installation:</strong> Select the Windows Server 2022 ISO.</li>
+                </ol>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/X8e5WWSJpro" title="How to Create DHCP Server" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>2. Install DHCP & DNS Roles</h2>
+                <div class="note">
+                    <strong>Important:</strong> Assign a <strong>Static IP Address</strong> (e.g., 192.168.1.10) before starting.
+                </div>
+                <ol>
+                    <li>Open <strong>Server Manager</strong> &gt; <strong>Add Roles and Features</strong>.</li>
+                    <li>Check <strong>DHCP Server</strong> and <strong>DNS Server</strong>.</li>
+                    <li>Click <strong>Install</strong>.</li>
+                    <li>After install, click the Notification flag and select <strong>"Complete DHCP Configuration"</strong>.</li>
+                </ol>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ZxT-YO_io8I" title="Give DHCP RULE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>3. Create a DHCP Scope</h2>
+                <p>Defining the pool of IP addresses with specific local network requirements.</p>
+                <ol>
+                    <li>Open <strong>Tools &gt; DHCP</strong>.</li>
+                    <li>Right-click IPv4 &gt; <strong>New Scope</strong>.</li>
+                    <li><strong>IP Address Range:</strong> 
+                        <ul>
+                            <li>Start IP: <code>192.168.1.3</code></li>
+                            <li>End IP: <code>192.168.1.254</code></li>
+                            <li>Subnet Mask: <code>255.255.255.0</code></li>
+                        </ul>
+                    </li>
+                    <li><strong>Add Exclusions (Execute):</strong>
+                        <ul>
+                            <li>Start IP: <code>192.168.1.10</code></li>
+                            <li>End IP: <code>192.168.1.30</code></li>
+                            <li><em>(These addresses will NOT be distributed)</em></li>
+                        </ul>
+                    </li>
+                    <li><strong>Lease Duration:</strong> Set "Limited to" days: <strong>100</strong> Days.</li>
+                    <li><strong>Configure DHCP Options:</strong> Select "Yes, I want to configure these options now".</li>
+                    <li><strong>Router (Default Gateway):</strong> <span style="color: var(--primary-blue); font-weight: bold;">SKIP THIS STEP</span>. Leave it blank (Local Network Only).</li>
+                    <li><strong>DNS Server:</strong> Ensure the server's own IP is listed (e.g., <code>192.168.1.10</code>).</li>
+                    <li>Activate the Scope.</li>
+                </ol>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/iKi-Lks_Q6E" title="Create DHCP Scope" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>5. Join Server to Domain</h2>
+                <p>Joining the server to an existing Active Directory.</p>
+                <ol>
+                    <li>Open <strong>System Properties</strong>.</li>
+                    <li>Click <strong>Change...</strong> settings.</li>
+                    <li>Select <strong>Domain</strong> and type the name (e.g., <code>mycompany.local</code>).</li>
+                    <li>Enter Domain Admin credentials.</li>
+                    <li>Restart the server.</li>
+                </ol>
+                
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/E3EP8L0M6c0" title="Join DHCP to Domain" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>6. Client: Obtain IP from DHCP</h2>
+                <p>Verify on a Windows 10/11 Client Machine.</p>
+                <ol>
+                    <li>Set Network Adapter to <strong>"Obtain an IP address automatically"</strong>.</li>
+                    <li>Run these commands in CMD:</li>
+                </ol>
+                <pre><code>C:\> <span style="color:#0088ff; font-weight:bold;">ipconfig /release</span>
+C:\> <span style="color:#0088ff; font-weight:bold;">ipconfig /renew</span>
+C:\> <span style="color:#0088ff; font-weight:bold;">ipconfig /all</span></code></pre>
+                
+                <div class="video-container">
+                    <iframe width="1260" height="709" src="https://www.youtube.com/embed/8X2qTYgOgJs" title="Give Client  IP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>
