@@ -1,190 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drive Maintenance Commands | PC Troubleshooting Hub</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #0088ff;
-            --background-dark: #0b1116;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --card-bg: #121212;
-            --border-color: #222;
-            --glow-color: #0088ff;
-        }
-
-        body {
-            background-color: var(--background-dark);
-            color: var(--text-color);
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 5rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-        
-        .back-button { 
-            position: fixed; 
-            top: 20px; 
-            left: 20px; 
-            background-color: var(--card-bg); 
-            color: var(--primary-blue); 
-            border: 1px solid var(--border-color); 
-            padding: 0.5rem 1rem; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-family: 'Roboto', sans-serif; 
-            font-weight: bold; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); 
-            z-index: 1000; 
-        }
-        .back-button:hover { 
-            background-color: var(--primary-blue); 
-            color: var(--background-dark); 
-            box-shadow: 0 0 20px var(--glow-color); 
-            transform: translateY(-2px); 
-        }
-
-        h1, h2 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-blue);
-        }
-
-        .command-section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin-bottom: 1rem;
-        }
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        code.inline {
-            background-color: #2a2a3a;
-            color: #f0f0f0;
-            padding: 0.2em 0.4em;
-            border-radius: 4px;
-            font-family: 'Roboto Mono', monospace;
-            font-weight: bold;
-        }
-
-        pre {
-            background-color: #050509;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            overflow-x: auto;
-            margin-top: 1rem;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        code {
-            font-family: 'Roboto Mono', monospace;
-        }
-
-        .output {
-            color: #a0a0a0;
-        }
-
-        .user-input {
-            color: var(--primary-blue);
-            font-weight: bold;
-        }
-
-        /* Added for specific emphasis mentioned in notes */
-        .note {
-            border-left: 3px solid var(--primary-blue);
-            padding-left: 1rem;
-            margin-top: 1rem;
-            color: #fff;
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 5rem 1rem 3rem 1rem; }
-            .container { padding: 1.5rem; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            .back-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
     <a href="PCCT.html" class="back-button">&larr; Back to PCCT Hub</a>
     <div class="container">
-        <h1>Drive Maintenance Commands</h1>
-        
-        <div class="command-section">
-            <h2>cleanmgr (Disk Cleanup)</h2>
-            <p>Starts the Disk Cleanup tool to free up space on your hard disk. It searches for and analyzes temporary files that can be safely deleted.</p>
-            <p><strong>Syntax:</strong> <code class="inline">cleanmgr [switches]</code></p>
-            <ul>
-                <li><code class="inline">/LOWDISK</code> - Launches with default settings (checked by default).</li>
-                <li><code class="inline">/VERYLOWDISK</code> - Launches without user prompts (aggressive cleanup).</li>
-            </ul>
-            <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">cleanmgr /LOWDISK</span>
+        <header class="main-header">
+            <h1>Drive Maintenance Commands</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>cleanmgr (Disk Cleanup)</h2>
+                <p>Starts the Disk Cleanup tool to free up space on your hard disk. It searches for and analyzes
+                    temporary files that can be safely deleted.</p>
+                <p><strong>Syntax:</strong> <code>cleanmgr [switches]</code></p>
+                <ul>
+                    <li><code>/LOWDISK</code> - Launches with default settings (checked by default).</li>
+                    <li><code>/VERYLOWDISK</code> - Launches without user prompts (aggressive cleanup).</li>
+                </ul>
+                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">cleanmgr /LOWDISK</span>
 <span class="output">[Opens the Disk Cleanup GUI dialog]</span></code></pre>
-        </div>
+            </section>
 
-        <div class="command-section">
-            <h2>chkdsk (Check Disk)</h2>
-            <p>Checks a disk for file system errors and bad sectors and attempts to repair them.</p>
-            <p><strong>Syntax:</strong> <code class="inline">chkdsk [drive_letter]: /r</code></p>
-            <ul>
-                <li><code class="inline">/f</code> - Fixes errors on the disk.</li>
-                <li><code class="inline">/r</code> - Locates bad sectors and recovers readable information.</li>
-                <li><code class="inline">/scan</code> - Runs an online scan on the volume (NTFS only).</li>
-            </ul>
-            <p><strong>Example:</strong> Check and repair the D: drive.</p>
-            <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">chkdsk D: /r</span>
+            <section class="section">
+                <h2>chkdsk (Check Disk)</h2>
+                <p>Checks a disk for file system errors and bad sectors and attempts to repair them.</p>
+                <p><strong>Syntax:</strong> <code>chkdsk [drive_letter]: /r</code></p>
+                <ul>
+                    <li><code>/f</code> - Fixes errors on the disk.</li>
+                    <li><code>/r</code> - Locates bad sectors and recovers readable information.</li>
+                    <li><code>/scan</code> - Runs an online scan on the volume (NTFS only).</li>
+                </ul>
+                <p><strong>Example:</strong> Check and repair the D: drive.</p>
+                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">chkdsk D: /r</span>
 <span class="output">The type of the file system is NTFS.
 Volume label is Data.
 
@@ -193,19 +58,19 @@ process. Would you like to schedule this volume to be
 checked the next time the system restarts? (Y/N) </span><span class="user-input">Y</span>
 
 <span class="output">This volume will be checked the next time the system restarts.</span></code></pre>
-        </div>
+            </section>
 
-        <div class="command-section">
-            <h2>defrag (Optimize Drives)</h2>
-            <p>Analyzes and defragments files on local volumes to improve system performance.</p>
-            <p><strong>Syntax:</strong> <code class="inline">defrag [drive_letter] [switches]</code></p>
-            <ul>
-                <li><code class="inline">/A</code> - Perform analysis only.</li>
-                <li><code class="inline">/C</code> - Perform the operation on all volumes (Select All).</li>
-                <li><code class="inline">/D</code> - Perform traditional defragmentation (default).</li>
-            </ul>
-            <p><strong>Example:</strong> Analyze the C: drive for fragmentation.</p>
-            <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">defrag C: /a</span>
+            <section class="section">
+                <h2>defrag (Optimize Drives)</h2>
+                <p>Analyzes and defragments files on local volumes to improve system performance.</p>
+                <p><strong>Syntax:</strong> <code>defrag [drive_letter] [switches]</code></p>
+                <ul>
+                    <li><code>/A</code> - Perform analysis only.</li>
+                    <li><code>/C</code> - Perform the operation on all volumes (Select All).</li>
+                    <li><code>/D</code> - Perform traditional defragmentation (default).</li>
+                </ul>
+                <p><strong>Example:</strong> Analyze the C: drive for fragmentation.</p>
+                <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">defrag C: /a</span>
 <span class="output">Microsoft Drive Optimizer
 Copyright (c) 2013 Microsoft Corp.
 
@@ -221,8 +86,15 @@ Post Defragmentation Report:
                 Largest free space size    = 50.12 GB
 
 You do not need to defragment this volume.</span></code></pre>
-        </div>
-        
+            </section>
+        </main>
+        <footer class="main-footer">
+            <p>If there are any mistakes or wrong info, please feel free to contact me at <a
+                    href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/"
+                    target="_blank">BASILR00T</a>.</p>
+        </footer>
     </div>
 </body>
+
 </html>

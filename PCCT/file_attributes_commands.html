@@ -1,44 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File & Directory Commands | PC Troubleshooting Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #0088ff;
-            --background-dark: #0b1116;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --card-bg: #121212;
-            --border-color: #222;
-        }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
-        .container { max-width: 1000px; width: 100%; }
-        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
-        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px #0088ff; transform: translateY(-2px); }
-        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
-        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
-        h2, h3 { font-weight: 700; }
-        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; }
-        p { font-size: 1rem; color: var(--text-muted); }
-        strong.comment { color: #ff0000; }
-        code { font-family: 'Fira Code', monospace;color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
-        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; }
-        .user-input { color: #87cefa; }
-        .output { color: #a9a9a9; }
-        .comment { color: #6a9955; }
-        ul { list-style: none; padding-left: 0; }
-        li { margin-bottom: 0.5rem; }
-        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
     <a href="PCCT.html" class="back-button">&larr; Back to PCCT Hub</a>
     <div class="container">
-        <header class="header">
+        <header class="main-header">
             <h1>File & Directory Commands</h1>
         </header>
         <main>
@@ -49,23 +33,27 @@
                 <pre><code><span class="output">C:\Users\Jargon\Desktop&gt;</span><span class="user-input">mkdir MIT_Project</span></code></pre>
 
                 <h3>echo</h3>
-                <p>Creates a new text file and writes content to it using the output redirection symbol (<code>&gt;</code>).</p>
+                <p>Creates a new text file and writes content to it using the output redirection symbol
+                    (<code>&gt;</code>).</p>
                 <pre><code><span class="output">C:\Users\Jargon\Desktop\MIT_Project&gt;</span><span class="user-input">echo This is a test file. &gt; readme.txt</span>
 
 <span class="output">C:\Users\Jargon\Desktop\MIT_Project&gt;</span><span class="user-input">type readme.txt</span>
 <span class="output">This is a test file.</span></code></pre>
-         
+
             </section>
 
             <section class="section">
                 <h2>attrib</h2>
-                <p>Displays or changes file and folder attributes. You can manage Read-only (R), Archive (A), System (S), and Hidden (H) attributes.</p>
-                
+                <p>Displays or changes file and folder attributes. You can manage Read-only (R), Archive (A), System
+                    (S), and Hidden (H) attributes.</p>
+
                 <h3>Managing Attributes for a Single File</h3>
                 <ul>
                     <li>View attributes: <code>attrib [filename]</code></li>
-                    <li>Set an attribute: <code>attrib +[attribute] [filename]</code> (e.g., <code>+h</code> for hidden)</li>
-                    <li>Remove an attribute: <code>attrib -[attribute] [filename]</code> (e.g., <code>-r</code> for read-only)</li>
+                    <li>Set an attribute: <code>attrib +[attribute] [filename]</code> (e.g., <code>+h</code> for hidden)
+                    </li>
+                    <li>Remove an attribute: <code>attrib -[attribute] [filename]</code> (e.g., <code>-r</code> for
+                        read-only)</li>
                 </ul>
                 <p>Example: Make a file read-only and hidden.</p>
                 <pre><code><span class="output">C:\MIT_Project&gt;</span><span class="user-input">attrib +r +h readme.txt</span>
@@ -75,19 +63,27 @@
 
                 <h3>Applying Attributes to a Folder and its Contents</h3>
                 <p>You can use switches to apply attributes recursively to all files and subfolders.</p>
-                 <ul>
+                <ul>
                     <li><code>/s</code> : Processes matching files in the current folder and all subfolders.</li>
                     <li><code>/d</code> : Processes folders as well.</li>
                 </ul>
-                <p>Example: Make the entire <code>MIT_Project</code> folder, and everything inside it, a hidden system folder.</p>
+                <p>Example: Make the entire <code>MIT_Project</code> folder, and everything inside it, a hidden system
+                    folder.</p>
                 <pre><code><span class="output">C:\Users\Jargon\Desktop&gt;</span><span class="user-input">attrib +s +h MIT_Project/*.* /s /d</span>
 
 <span class="output">C:\Users\Jargon\Desktop&gt;</span><span class="user-input">attrib MIT_Project</span>
 <span class="output">A    S H      C:\Users\Jargon\Desktop\MIT_Project</span></code></pre>
-                <p><strong class="comment">Important Note:</strong> If a file or folder has the System (S) or Hidden (H) attribute set, you may not be able to change other attributes until you remove them first.</p>
+                <p><strong class="comment">Important Note:</strong> If a file or folder has the System (S) or Hidden (H)
+                    attribute set, you may not be able to change other attributes until you remove them first.</p>
             </section>
         </main>
+        <footer class="main-footer">
+            <p>If there are any mistakes or wrong info, please feel free to contact me at <a
+                    href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/"
+                    target="_blank">BASILR00T</a>.</p>
+        </footer>
     </div>
 </body>
-</html>
 
+</html>

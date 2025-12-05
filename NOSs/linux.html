@@ -1,64 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Network OS (Linux) | PC Troubleshooting Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #0088ff;
-            --background-dark: #0b1116;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --card-bg: #121212;
-            --border-color: #222;
-            --glow-color: #0088ff;
-            --green: #28a745;
-        }
-        body { font-family: 'Roboto', sans-serif; background-color: var(--background-dark); color: var(--text-color); margin: 0; padding: 5rem 2rem 3rem 2rem; line-height: 1.7; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; box-sizing: border-box; }
-        .container { max-width: 1000px; width: 100%; }
-        .back-button { position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; }
-        .back-button:hover { background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px var(--glow-color); transform: translateY(-2px); }
-        .header h1 { text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
-        .section { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem; }
-        h2 { font-size: 2rem; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-        h3 { font-size: 1.5rem; color: var(--text-color); margin-top: 2rem; border-left: 3px solid var(--primary-blue); padding-left: 10px; }
-        p, li { font-size: 1rem; color: var(--text-muted); }
-        ul { list-style-type: none; padding-left: 0; }
-        li { margin-bottom: 0.75rem; padding-left: 1rem; border-left: 2px solid #333; }
-        strong { color: var(--text-color); font-weight: 700; }
-        
-        /* Code Block Styling */
-        pre { background-color: #0c0c14; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem; overflow-x: auto; font-family: 'Fira Code', monospace; white-space: pre-wrap; word-wrap: break-word; margin-top: 1rem; }
-        code { font-family: 'Fira Code', monospace; color: var(--primary-blue); padding: 0.2em 0.4em; border-radius: 4px; }
-        .user-input { color: #fff; font-weight: bold; }
-        .output { color: #a9a9a9; }
-        .comment { color: #6a9955; font-style: italic; }
-        .prompt { color: var(--green); }
-
-        /* Keyboard Key Style */
-        kbd {
-            background-color: #333;
-            border-radius: 3px;
-            border: 1px solid #555;
-            box-shadow: 0 1px 0 rgba(0,0,0,0.2), 0 0 0 2px #111 inset;
-            color: #fff;
-            display: inline-block;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.85em;
-            line-height: 1.4;
-            padding: 0.1em 0.6em;
-            text-shadow: 0 1px 0 #000;
-        }
-
-        @media (max-width: 768px) { body { padding: 5rem 1rem 3rem 1rem; } .header h1 { font-size: 2.2rem; } .section { padding: 1rem 1.5rem; } .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; } }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
     <a href="NOS.html" class="back-button">&larr; Back to Hub</a>
     <div class="container">
-        <header class="header">
+        <header class="main-header">
             <h1>Network Operating Systems (Linux)</h1>
         </header>
         <main>
@@ -105,7 +69,8 @@
 
             <section class="section">
                 <h2>2. VI Editor Commands</h2>
-                <p>The Visual Editor has two main modes: <strong>Command Mode</strong> (default) and <strong>Input Mode</strong>.</p>
+                <p>The Visual Editor has two main modes: <strong>Command Mode</strong> (default) and <strong>Input
+                        Mode</strong>.</p>
                 <p>To open a file: <code>vi filename</code></p>
 
                 <h3>Switching Modes</h3>
@@ -159,8 +124,9 @@
                 <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chown ahmed file.txt</span>        <span class="comment"># Change user owner</span>
 <span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chgrp students file.txt</span>     <span class="comment"># Change group owner</span>
 <span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chown -R ahmed /var/www</span>     <span class="comment"># Recursive change</span></code></pre>
-                
-                <div class="note" style="border-left: 3px solid var(--green); padding-left: 1rem; margin-top: 1rem; color: var(--text-muted);">
+
+                <div class="note"
+                    style="border-left: 3px solid var(--green); padding-left: 1rem; margin-top: 1rem; color: var(--text-muted);">
                     <strong>Default Permissions (umask 022):</strong><br>
                     Files: 644 (rw- r-- r--)<br>
                     Directories: 755 (rwx r-x r-x)
@@ -181,6 +147,13 @@
             </section>
 
         </main>
+        <footer class="main-footer">
+            <p>If there are any mistakes or wrong info please feel free to contact me on <a
+                    href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://BASILR00T.github.io/BASILR00T/"
+                    target="_blank">BASILR00T</a>.</p>
+        </footer>
     </div>
 </body>
+
 </html>

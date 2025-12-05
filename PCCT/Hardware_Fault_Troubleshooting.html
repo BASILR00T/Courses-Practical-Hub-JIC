@@ -1,172 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardware Fault Troubleshooting | PC Troubleshooting Hub</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #0088ff;
-            --red: #A00020;
-            --background-dark: #0b1116;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --card-bg: #121212;
-            --border-color: #222;
-            --glow-color: #0088ff;
-        }
-
-        body {
-            background-color: var(--background-dark);
-            color: var(--text-color);
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 5rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-        
-        .back-button { 
-            position: fixed; 
-            top: 20px; 
-            left: 20px; 
-            background-color: var(--card-bg); 
-            color: var(--primary-blue); 
-            border: 1px solid var(--border-color); 
-            padding: 0.5rem 1rem; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-family: 'Roboto', sans-serif; 
-            font-weight: bold; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); 
-            z-index: 1000; 
-        }
-        .back-button:hover { 
-            background-color: var(--primary-blue); 
-            color: var(--background-dark); 
-            box-shadow: 0 0 20px var(--glow-color); 
-            transform: translateY(-2px); 
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            text-align: center;
-            color: var(--primary-blue);
-            margin: 0 0 2rem 0;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-blue);
-        }
-
-        .section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: var(--primary-blue);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        h3 {
-            font-size: 1.4rem;
-            color: var(--text-color);
-            margin-top: 1.5rem;
-        }
-
-        p, li {
-            color: var(--text-muted);
-        }
-
-        ul, ol {
-            padding-left: 20px;
-            margin-bottom: 1rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        .note {
-            background-color: rgba(0, 136, 255, 0.05);
-            border-left: 4px solid var(--red);
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-        }
-
-        /* Table Styles for Beep Codes */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            background-color: #1a1a1a;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        th, td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
-        }
-        th {
-            background-color: #222;
-            color: var(--primary-blue);
-            font-weight: bold;
-        }
-        td {
-            color: var(--text-muted);
-        }
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        code {
-            font-family: 'Roboto Mono', monospace;
-            background-color: #2a2a3a;
-            color: var(--primary-blue);
-            padding: 0.2em 0.4em;
-            border-radius: 4px;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 5rem 1rem 3rem 1rem; }
-            .container { padding: 1.5rem; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
     <a href="PCCT.html" class="back-button">&larr; Back to Hub</a>
     <div class="container">
-        <header>
+        <header class="main-header">
             <h1>Hardware Fault Troubleshooting</h1>
         </header>
         <main>
             <section class="section">
                 <h2>1. POST & Beep Codes (Startup Errors)</h2>
-                <p>When a computer fails to boot, the BIOS Power-On Self-Test (POST) may emit beep codes to identify the faulty component.</p>
-                
+                <p>When a computer fails to boot, the BIOS Power-On Self-Test (POST) may emit beep codes to identify the
+                    faulty component.</p>
+
                 <h3>Common Beep Codes (AMI/Award BIOS)</h3>
                 <table>
                     <thead>
@@ -200,7 +64,9 @@
                     </tbody>
                 </table>
                 <div class="note">
-                    <p><strong>Correction Note:</strong> While some older systems might signal DRAM with "Long + Short", the standard for modern BIOS is that <strong>1 Long + 2 Short indicates a Graphics (GPU) error</strong>, not RAM.</p>
+                    <p><strong>Correction Note:</strong> While some older systems might signal DRAM with "Long + Short",
+                        the standard for modern BIOS is that <strong>1 Long + 2 Short indicates a Graphics (GPU)
+                            error</strong>, not RAM.</p>
                 </div>
             </section>
 
@@ -212,15 +78,19 @@
                 <p><strong>Symptom:</strong> "Select Boot Device" or "Boot Device Not Found".</p>
                 <ul>
                     <li><strong>Cause:</strong> The HDD is detected but has no OS, or the cable is loose.</li>
-                    <li><strong>Fix:</strong> Check SATA data/power cables. Ensure the correct drive is first in the BIOS Boot Order.</li>
-                    <li><strong>Status:</strong> <span style="color: #6a9955;">Non-Fatal</span> (System has power, just can't load Windows).</li>
+                    <li><strong>Fix:</strong> Check SATA data/power cables. Ensure the correct drive is first in the
+                        BIOS Boot Order.</li>
+                    <li><strong>Status:</strong> <span style="color: #6a9955;">Non-Fatal</span> (System has power, just
+                        can't load Windows).</li>
                 </ul>
 
                 <h3>Legacy IDE Configuration</h3>
                 <p><strong>Symptom:</strong> CD-ROM or secondary HDD not showing up.</p>
                 <ul>
-                    <li><strong>Context:</strong> Older IDE (PATA) ribbons support two devices: a Master and a Slave.</li>
-                    <li><strong>Fix:</strong> Check the <strong>Jumpers</strong> on the back of the drive. If two devices share a cable, one <em>must</em> be Master and the other Slave.</li>
+                    <li><strong>Context:</strong> Older IDE (PATA) ribbons support two devices: a Master and a Slave.
+                    </li>
+                    <li><strong>Fix:</strong> Check the <strong>Jumpers</strong> on the back of the drive. If two
+                        devices share a cable, one <em>must</em> be Master and the other Slave.</li>
                 </ul>
             </section>
 
@@ -253,11 +123,20 @@
                 <p>Issues with modems, network cards, or sound cards.</p>
                 <ul>
                     <li><strong>Symptom:</strong> Device not detected in Device Manager.</li>
-                    <li><strong>Status:</strong> <span style="color: #6a9955;">Non-Fatal</span>. The PC will still boot.</li>
-                    <li><strong>Fix:</strong> Move the card to a different PCI slot to rule out a bad motherboard slot.</li>
+                    <li><strong>Status:</strong> <span style="color: #6a9955;">Non-Fatal</span>. The PC will still boot.
+                    </li>
+                    <li><strong>Fix:</strong> Move the card to a different PCI slot to rule out a bad motherboard slot.
+                    </li>
                 </ul>
             </section>
         </main>
+        <footer class="main-footer">
+            <p>If there are any mistakes or wrong info, please feel free to contact me at <a
+                    href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/"
+                    target="_blank">BASILR00T</a>.</p>
+        </footer>
     </div>
 </body>
+
 </html>

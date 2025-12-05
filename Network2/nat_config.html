@@ -1,104 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAT Configuration | Network 2 Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #0088ff;
-            --background-dark: #0b1116;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --card-bg: #121212;
-            --border-color: #222;
-            --glow-color: #0088ff;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--background-dark);
-            color: var(--text-color);
-            margin: 0;
-            padding: 5rem 2rem 3rem 2rem;
-            line-height: 1.7;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-
-        .container { max-width: 1000px; width: 100%; }
-        
-        .back-button { 
-            position: fixed; top: 20px; left: 20px; background-color: var(--card-bg); color: var(--primary-blue); border: 1px solid var(--border-color); padding: 0.5rem 1rem; text-decoration: none; border-radius: 8px; font-family: 'Roboto', sans-serif; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); z-index: 1000; 
-        }
-        .back-button:hover { 
-            background-color: var(--primary-blue); color: var(--background-dark); box-shadow: 0 0 20px var(--glow-color); transform: translateY(-2px); 
-        }
-
-        .header h1 {
-            text-align: center; font-size: 2.8rem; font-weight: 700; color: var(--primary-blue); margin: 0 0 2rem 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue);
-        }
-
-        .section {
-            background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 15px; margin-bottom: 2.5rem; padding: 1.5rem 2rem;
-        }
-
-        h2 { font-size: 2rem; font-weight: 700; color: var(--primary-blue); margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-        p { font-size: 1rem; color: var(--text-muted); }
-        strong { color: var(--text-color); font-weight: 700; }
-       code {
-            font-family: 'Fira Code', monospace;
-            color: var(--primary-blue);
-            padding: 0.2em 0.4em;
-            border-radius: 4px;
-        }
-        pre {
-            background-color: #0c0c14;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1rem;
-            overflow-x: auto;
-            font-family: 'Fira Code', monospace;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        .user-input { color: #87cefa; }
-        .output { color: #a9a9a9; }
-        .comment { color: #6a9955; }
-        
-        .video-container {
-            position: relative; overflow: hidden; width: 100%; padding-top: 56.25%; margin: 1.5rem 0; border-radius: 10px; border: 1px solid var(--border-color);
-        }
-        .video-container iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 5rem 1rem 3rem 1rem; }
-            .header h1 { font-size: 2.2rem; }
-            .section { padding: 1rem 1.5rem; }
-            .back-button { padding: 0.5rem 1rem; font-size: 0.9rem; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
     <a href="Network2.html" class="back-button">&larr; Back to Network 2 Hub</a>
     <div class="container">
-        <header class="header">
+        <header class="main-header">
             <h1>NAT Configuration</h1>
         </header>
         <main>
             <section class="section">
+                <h2>Static NAT</h2>
+                <p>Static NAT maps a single private IP address to a single public IP address. It is typically used for
+                    servers that need to be accessible from the outside.</p>
+                <ol>
+                    <li>Define the <strong>inside</strong> interface.</li>
+                    <li>Define the <strong>outside</strong> interface.</li>
+                    <li>Configure the static mapping between the inside local address and the inside global address.
+                    </li>
+                </ol>
+                <pre><code class="comment">! Define the inside interface</code>
+<code class="output">Router(config)# </code><code class="user-input">interface GigabitEthernet0/0</code>
+<code class="output">Router(config-if)# </code><code class="user-input">ip nat inside</code>
+<code class="output">Router(config-if)# </code><code class="user-input">exit</code>
+
+<code class="comment">! Define the outside interface</code>
+<code class="output">Router(config)# </code><code class="user-input">interface GigabitEthernet0/1</code>
+<code class="output">Router(config-if)# </code><code class="user-input">ip nat outside</code>
+<code class="output">Router(config-if)# </code><code class="user-input">exit</code>
+
+<code class="comment">! Configure Static NAT mapping</code>
+<code class="output">Router(config)# </code><code class="user-input">ip nat inside source static 192.168.1.10 209.165.200.225</code></pre>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/HD1WaIN-fvE" title="Static NAT Configuration"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Dynamic NAT</h2>
+                <p>Dynamic NAT maps a private IP address to a public IP address from a pool of available public IP
+                    addresses.</p>
+                <ol>
+                    <li>Define the <strong>inside</strong> and <strong>outside</strong> interfaces.</li>
+                    <li>Create a <strong>pool</strong> of public IP addresses.</li>
+                    <li>Create an <strong>Access Control List (ACL)</strong> to define which private addresses can be
+                        translated.</li>
+                    <li>Bind the ACL to the NAT pool.</li>
+                </ol>
+                <pre><code class="comment">! Define interfaces (same as above)</code>
+<code class="comment">! Create a pool of public addresses</code>
+<code class="output">Router(config)# </code><code class="user-input">ip nat pool MY_POOL 209.165.200.226 209.165.200.240 netmask 255.255.255.224</code>
+
+<code class="comment">! Create ACL for private addresses</code>
+<code class="output">Router(config)# </code><code class="user-input">access-list 1 permit 192.168.1.0 0.0.0.255</code>
+
+<code class="comment">! Bind the ACL to the Pool</code>
+<code class="output">Router(config)# </code><code class="user-input">ip nat inside source list 1 pool MY_POOL</code></pre>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/cZX9wRcV_Rs" title="Dynamic NAT Configuration"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section class="section">
                 <h2>PAT (NAT Overload)</h2>
-                <p>Port Address Translation (PAT) is the most common form of NAT. It translates multiple private IP addresses into a single public IP address by using different port numbers to track connections.</p>
+                <p>Port Address Translation (PAT) is the most common form of NAT. It translates multiple private IP
+                    addresses into a single public IP address by using different port numbers to track connections.</p>
                 <ol>
                     <li>Define the <strong>inside</strong> interface (your local network).</li>
                     <li>Define the <strong>outside</strong> interface (facing the internet/public network).</li>
-                    <li>Create an <strong>Access Control List (ACL)</strong> to identify the private IP addresses that are allowed to be translated.</li>
+                    <li>Create an <strong>Access Control List (ACL)</strong> to identify the private IP addresses that
+                        are allowed to be translated.</li>
                     <li>Enable NAT, linking the ACL to the outside interface and enabling <code>overload</code>.</li>
                 </ol>
                 <pre><code class="comment">! Define the inside interface</code>
@@ -117,10 +111,12 @@
 <code class="comment">! Enable NAT, linking the access list to the outside interface with overload</code>
 <code class="output">Router(config)# </code><code class="user-input">ip nat inside source list 1 interface GigabitEthernet0/1 overload</code></pre>
                 <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/5-wTergGO4A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/uF-4cxIJQ_E" title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
                 </div>
             </section>
-             <section class="section">
+            <section class="section">
                 <h2>Verification</h2>
                 <pre><code class="comment">! Show active NAT translations</code>
 <code class="output">Router# </code><code class="user-input">show ip nat translations</code>
@@ -133,4 +129,5 @@ icmp 209.165.200.226:2 10.0.0.2:2        8.8.8.8:2         8.8.8.8:2
         </main>
     </div>
 </body>
+
 </html>

@@ -1,0 +1,422 @@
+/* Version 2 Identity - Marketing & Rebranding Update */
+:root {
+    /* Fonts */
+    --font-main: 'Cairo', sans-serif;
+    --font-eng: 'Inter', sans-serif;
+    --font-code: 'Fira Code', monospace;
+
+    /* Colors */
+    --bg-main: #050507;
+    /* Deep Black */
+    --text-primary: #ffffff;
+    /* White */
+    --text-secondary: #9ca3af;
+    /* Gray */
+
+    --primary-brand: #3b82f6;
+    /* Vibrant Blue */
+    --secondary-accent: #8b5cf6;
+    /* Purple */
+
+    --border-color: rgba(255, 255, 255, 0.08);
+    --card-bg: rgba(20, 20, 25, 0.7);
+
+    /* UI Elements */
+    --radius-btn: 8px;
+    --radius-card: 16px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-main);
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-size: 16px;
+    /* Consistent font size */
+    line-height: 1.7;
+    /* Breathing room */
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-main);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+h1 {
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-top: 2em;
+    /* Visual Hierarchy */
+    margin-bottom: 1em;
+    color: var(--primary-brand);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-top: 2em;
+    /* Visual Hierarchy */
+    margin-bottom: 1em;
+    color: var(--text-primary);
+}
+
+p {
+    margin-bottom: 1.5em;
+    /* Separation between paragraphs */
+    color: var(--text-secondary);
+}
+
+ul,
+ol {
+    margin-bottom: 1.5em;
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.2s ease;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header */
+.main-header {
+    padding: 4rem 0 3rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+}
+
+.main-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.main-header p {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+/* Search Bar */
+.search-wrapper {
+    max-width: 550px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#search-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-btn);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: var(--font-main);
+    transition: all 0.2s ease;
+}
+
+#search-input:focus {
+    outline: none;
+    border-color: var(--primary-brand);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Grid */
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 4rem;
+}
+
+/* Cards */
+.module-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 2rem;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    backdrop-filter: blur(10px);
+}
+
+.module-card:hover {
+    border-color: var(--primary-brand);
+    transform: translateY(-4px);
+}
+
+.module-card h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    /* Reset for card title */
+    margin-bottom: 0.75rem;
+    color: var(--primary-brand);
+    border-bottom: none;
+    /* Remove border for card title */
+    padding-bottom: 0;
+}
+
+.module-card p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Subpage Sections */
+.section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-card);
+    padding: 2.5rem;
+    /* Increased padding */
+    margin-bottom: 2.5rem;
+}
+
+/* Technical Elements: Code Blocks */
+pre {
+    background: #1e1e1e;
+    /* Darker background */
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    /* Sharp borders */
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: var(--font-code);
+    margin: 1.5rem 0;
+    line-height: 1.5;
+}
+
+code {
+    font-family: var(--font-code);
+    color: var(--secondary-accent);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    border-radius: 0;
+}
+
+.user-input {
+    color: #58a6ff;
+    font-weight: bold;
+}
+
+.output {
+    color: #8b949e;
+}
+
+.comment {
+    color: #7ee787;
+    font-style: italic;
+}
+
+.prompt {
+    color: #28a745;
+}
+
+/* Technical Elements: Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 1rem;
+}
+
+thead {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+th,
+td {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    /* Increased padding */
+    text-align: left;
+    color: var(--text-secondary);
+}
+
+th {
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Media */
+iframe,
+video {
+    max-width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-card);
+    display: block;
+    margin: 0 auto;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+    margin: 2rem 0;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Buttons & Interactive Elements (Shrink to Fit) */
+button,
+.btn,
+input[type='submit'],
+a.button,
+.back-button {
+    display: inline-block;
+    /* Essential */
+    width: auto !important;
+    /* Force auto width */
+    max-width: fit-content;
+    /* Ensure it wraps content only */
+    vertical-align: middle;
+    align-self: flex-start;
+    /* Prevent flex stretching */
+
+    background-color: var(--primary-brand);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+    /* Layout adjustments */
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+button:hover,
+.btn:hover,
+input[type='submit']:hover,
+a.button:hover,
+.back-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+button:active,
+.btn:active,
+input[type='submit']:active,
+a.button:active,
+.back-button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+/* Specific positioning for the Back Button */
+.back-button {
+    align-self: center !important;
+    /* Center the button as requested */
+}
+
+/* Footer */
+.main-footer {
+    margin-top: auto;
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.main-footer p {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.main-footer a {
+    color: var(--primary-brand);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2.25rem;
+    }
+
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 1.5rem;
+    }
+}

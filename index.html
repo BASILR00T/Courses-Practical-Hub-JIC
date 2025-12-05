@@ -1,106 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Courses Practical Hub | JIC</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lunr/lunr.min.js"></script>
-    <style>
-        :root {
-            --primary-blue: #0088ff;
-            --background-dark: #0b1116;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --card-bg: #121212;
-            --border-color: #222;
-            --glow-color: #0088ff;
-        }
-        body {
-            background-color: var(--background-dark);
-            color: var(--text-color);
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
-            margin: 0;
-            padding: 4rem 2rem 2rem 2rem;
-            box-sizing: border-box;
-        }
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            text-align: center;
-        }
-        .header { text-align: center; margin-bottom: 2rem; width: 100%; }
-        .header h1 { font-family: 'Roboto', sans-serif; font-size: 3rem; font-weight: 700; color: var(--primary-blue); margin: 0; padding-bottom: 1rem; border-bottom: 2px solid var(--primary-blue); }
-        .header p { font-size: 1.1rem; color: var(--text-muted); max-width: 70ch; margin: 0.5rem auto 2rem auto; }
-        .search-container { margin-bottom: 3rem; position: relative; }
-        #search-input { width: 50%; padding: 0.75rem 1.5rem; background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-color); font-family: 'Fira Code', monospace; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0,0,0,0.4); }
-        #search-input:focus { outline: none; border-color: var(--primary-blue); box-shadow: 0 0 15px var(--glow-color); }
-        #results-container { text-align: left; margin-top: 1rem; max-width: 60%; margin-left: auto; margin-right: auto; }
-        .search-result-item { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; margin-bottom: 0.5rem; }
-        .search-result-item a { color: var(--primary-blue); text-decoration: none; font-weight: bold; }
-        .search-result-item a:hover { text-decoration: underline; }
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; width: 100%; }
-        .module-card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 2rem; text-align: center; text-decoration: none; color: var(--text-color); transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; position: relative; overflow: hidden; }
-        .module-card:hover { transform: translateY(-5px); box-shadow: 0 0 25px var(--glow-color); border-color: var(--primary-blue); }
-        .module-card h2 { font-family: 'Roboto', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--primary-blue); margin-top: 0; margin-bottom: 0.5rem; }
-        .module-card p { font-size: 0.9rem; color: var(--text-muted); }
-        .footer { margin-top: 5rem; margin-bottom: 1rem; text-align: center; }
-        .footer p { color: var(--text-muted); font-size: 0.9rem; }
-        .footer a { color: var(--primary-blue); text-decoration: none; }
-        .footer a:hover { text-decoration: underline; }
-        @media (max-width: 768px) { body { padding: 4rem 1rem 2rem 1rem; } .header h1 { font-size: 2.5rem; } #search-input { width: 80%; } #results-container { max-width: 90%; } }
-    </style>
 </head>
+
 <body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
     <div class="container">
-        <div class="header">
+        <header class="main-header">
             <h1>Courses Practical Hub</h1>
-            <p>A quick reference guide for the practical CLI commands and concepts covered in the JIC IT courses.</p>
-            <div class="search-container">
-                <input type="search" id="search-input" placeholder="Search for any topic or command...">
+            <p>Your ultimate reference for JIC practical courses. CLI commands, configurations, and troubleshooting
+                guides at your fingertips.</p>
+            <div class="search-wrapper">
+                <input type="search" id="search-input" placeholder="Search topics, commands, or modules..."
+                    autocomplete="off">
             </div>
-        </div>
+        </header>
 
-        <div id="results-container" style="display: none;"></div>
+        <div id="results-container"></div>
 
-        <div class="grid-container" id="main-content">
+        <main class="modules-grid" id="main-content">
             <a href="PCCT/PCCT.html" class="module-card">
                 <h2>PC Config & Troubleshooting</h2>
-                <p>Windows CLI commands for system info, disk management, and user accounts.</p>
+                <p>Master Windows CLI, system diagnostics, disk management, and user administration.</p>
             </a>
             <a href="NOSs/NOS.html" class="module-card">
                 <h2>Network Operating Systems</h2>
-                <p>Server configuration, Active Directory, Domain Controllers, and File Servers.</p>
+                <p>Server administration, Active Directory, Domain Controllers, and File Services.</p>
             </a>
             <a href="Network2/Network2.html" class="module-card">
                 <h2>Network 2</h2>
-                <p>Cisco IOS commands, VLANs, routing protocols (RIP, OSPF, EIGRP), and more.</p>
+                <p>Advanced Cisco IOS, VLANs, OSPF, EIGRP, and enterprise routing protocols.</p>
             </a>
             <a href="Programming/Programming.html" class="module-card">
                 <h2>Programming</h2>
-                <p>Guides and examples for programming languages like Python.</p>
+                <p>Comprehensive guides for Python, scripting, and software development concepts.</p>
             </a>
-            <a href="#" class="module-card" style="opacity: 0.5; cursor: not-allowed;">
+            <div class="module-card disabled">
                 <h2>Network 1</h2>
-                <p>Coming Soon.</p>
-            </a>
-            <a href="#" class="module-card" style="opacity: 0.5; cursor: not-allowed;">
+                <p>Fundamental networking concepts. Coming Soon.</p>
+            </div>
+            <div class="module-card disabled">
                 <h2>Intro to Web Design</h2>
-                <p>Coming Soon.</p>
-            </a>
-        </div>
+                <p>HTML, CSS, and Web basics. Coming Soon.</p>
+            </div>
+        </main>
     </div>
 
-    <footer class="footer">
-        <p>If there are any mistakes or wrong info please feel free to contact me on <a href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
-        <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/" target="_blank">BASILR00T</a>.</p> 
+    <footer class="main-footer">
+        <div class="container">
+            <p>Found an issue? Contact <a href="mailto:BSA717@outlook.sa">BSA717@outlook.sa</a></p>
+            <p>Built for JIC Students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/"
+                    target="_blank">BASILR00T</a>.</p>
+        </div>
     </footer>
     <script src="search.js"></script>
 </body>
-</html>
 
+</html>

@@ -1,158 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Information Commands | PC Troubleshooting Hub</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-blue: #0088ff;
-            --background-dark: #0b1116;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
-            --card-bg: #121212;
-            --border-color: #222;
-            --glow-color: #0088ff;
-        }
-
-        body {
-            background-color: var(--background-dark);
-            color: var(--text-color);
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 5rem 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            box-sizing: border-box;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2.5rem;
-        }
-        
-        .back-button { 
-            position: fixed; 
-            top: 20px; 
-            left: 20px; 
-            background-color: var(--card-bg); 
-            color: var(--primary-blue); 
-            border: 1px solid var(--border-color); 
-            padding: 0.5rem 1rem; 
-            text-decoration: none; 
-            border-radius: 8px; 
-            font-family: 'Roboto', sans-serif; 
-            font-weight: bold; 
-            transition: all 0.3s ease; 
-            box-shadow: 0 0 10px rgba(0, 136, 255, 0.5); 
-            z-index: 1000; 
-        }
-        .back-button:hover { 
-            background-color: var(--primary-blue); 
-            color: var(--background-dark); 
-            box-shadow: 0 0 20px var(--glow-color); 
-            transform: translateY(-2px); 
-        }
-
-        h1, h2 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 2.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-blue);
-        }
-
-        .command-section {
-            margin-bottom: 3rem;
-        }
-        .command-section:last-child {
-            margin-bottom: 0;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        p {
-            margin-bottom: 1rem;
-            color: var(--text-muted);
-        }
-
-        code.inline {
-            background-color: #2a2a3a;
-            color: #f0f0f0;
-            padding: 0.2em 0.4em;
-            border-radius: 4px;
-            font-family: 'Roboto Mono', monospace;
-            font-weight: bold;
-        }
-
-        pre {
-            background-color: #050509;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            overflow-x: auto;
-            margin-top: 1rem;
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        code {
-            font-family: 'Roboto Mono', monospace;
-        }
-
-        .output {
-            color: #a0a0a0;
-        }
-
-        .user-input {
-            color: var(--primary-blue);
-            font-weight: bold;
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 5rem 1rem 3rem 1rem; }
-            .container { padding: 1.5rem; }
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            .back-button {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
 </head>
+
 <body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
     <a href="PCCT.html" class="back-button">&larr; Back to PCCT Hub</a>
     <div class="container">
-        <h1>System Information Commands</h1>
-        
-        <div class="command-section">
-            <h2>systeminfo</h2>
-            <p>Provides a detailed summary of the computer's hardware and software configuration.</p>
-            <p><strong>Syntax:</strong> <code class="inline">systeminfo</code></p>
-            <p><strong>Example:</strong> Display system information in the console.</p>
-            <pre><code><span class="output">C:\Users\Student&gt;</span><span class="user-input">systeminfo</span>
+        <header class="main-header">
+            <h1>System Information Commands</h1>
+        </header>
+        <main>
+            <div class="command-section">
+                <h2>systeminfo</h2>
+                <p>Provides a detailed summary of the computer's hardware and software configuration.</p>
+                <p><strong>Syntax:</strong> <code>systeminfo</code></p>
+                <p><strong>Example:</strong> Display system information in the console.</p>
+                <pre><code><span class="output">C:\Users\Student&gt;</span><span class="user-input">systeminfo</span>
 <span class="output">
 Host Name:                 DESKTOP-JIC01
 OS Name:                   Microsoft Windows 10 Enterprise
@@ -168,38 +47,39 @@ Total Physical Memory:     8,079 MB
 Available Physical Memory: 3,456 MB
 ...
 </span></code></pre>
-        </div>
+            </div>
 
-        <div class="command-section">
-            <h2>msinfo32</h2>
-            <p>Opens the System Information graphical utility, which provides comprehensive technical details about the system.</p>
-            <p><strong>Syntax:</strong> <code class="inline">msinfo32</code></p>
-            <p><strong>Example:</strong> Launch the System Information window.</p>
-            <pre><code><span class="output">C:\Users\Student&gt;</span><span class="user-input">msinfo32</span>
+            <div class="command-section">
+                <h2>msinfo32</h2>
+                <p>Opens the System Information graphical utility, which provides comprehensive technical details about
+                    the system.</p>
+                <p><strong>Syntax:</strong> <code>msinfo32</code></p>
+                <p><strong>Example:</strong> Launch the System Information window.</p>
+                <pre><code><span class="output">C:\Users\Student&gt;</span><span class="user-input">msinfo32</span>
 <span class="output">[A graphical window opens showing detailed system information]</span></code></pre>
-        </div>
+            </div>
 
-        <div class="command-section">
-            <h2>dxdiag</h2>
-            <p>Launches the DirectX Diagnostic Tool, used to troubleshoot video and sound card problems.</p>
-            <p><strong>Syntax:</strong> <code class="inline">dxdiag</code></p>
-            <p><strong>Example:</strong> Open the DirectX Diagnostic Tool.</p>
-            <pre><code><span class="output">C:\Users\Student&gt;</span><span class="user-input">dxdiag</span>
+            <div class="command-section">
+                <h2>dxdiag</h2>
+                <p>Launches the DirectX Diagnostic Tool, used to troubleshoot video and sound card problems.</p>
+                <p><strong>Syntax:</strong> <code>dxdiag</code></p>
+                <p><strong>Example:</strong> Open the DirectX Diagnostic Tool.</p>
+                <pre><code><span class="output">C:\Users\Student&gt;</span><span class="user-input">dxdiag</span>
 <span class="output">[A graphical window opens with tabs for System, Display, Sound, and Input]</span></code></pre>
-        </div>
+            </div>
 
-        <div class="command-section">
-            <h2>winver</h2>
-            <p>Displays the "About Windows" dialog box, showing the specific Windows version and build number.</p>
-            <p><strong>Syntax:</strong> <code class="inline">winver</code></p>
-            <p><strong>Example:</strong> Check the exact version of Windows.</p>
-            <pre><code><span class="output">C:\Users\Student&gt;</span><span class="user-input">winver</span>
+            <div class="command-section">
+                <h2>winver</h2>
+                <p>Displays the "About Windows" dialog box, showing the specific Windows version and build number.</p>
+                <p><strong>Syntax:</strong> <code>winver</code></p>
+                <p><strong>Example:</strong> Check the exact version of Windows.</p>
+                <pre><code><span class="output">C:\Users\Student&gt;</span><span class="user-input">winver</span>
 <span class="output">[A dialog box appears with "Microsoft Windows", Version, and OS Build information]</span></code></pre>
-        </div>
+            </div>
 
-        <div class="command-section">
-            <h2>dir</h2>
-                   <p>Lists files and directories. It can also be used to search for files with specific extensions.</p>
+            <div class="command-section">
+                <h2>dir</h2>
+                <p>Lists files and directories. It can also be used to search for files with specific extensions.</p>
                 <p>Example: Find all Control Panel applets (<code>.cpl</code> files) in the System32 directory.</p>
                 <pre><code><span class="output">C:\WINDOWS\system32&gt;</span><span class="user-input">dir *.cpl</span>
 <span class="output"> Volume in drive C has no label.
@@ -212,7 +92,15 @@ Available Physical Memory: 3,456 MB
 07/12/2023  09:08 PM           500,736 inetcpl.cpl
                3 File(s)      1,248,768 bytes
                0 Dir(s)  123,456,789,012 bytes free</span></code></pre>
-        </div>
+            </div>
+        </main>
+        <footer class="main-footer">
+            <p>If there are any mistakes or wrong info, please feel free to contact me at <a
+                    href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/"
+                    target="_blank">BASILR00T</a>.</p>
+        </footer>
     </div>
 </body>
+
 </html>
