@@ -28,12 +28,16 @@
         <main>
             <section class="section">
                 <h2>RIP (Routing Information Protocol)</h2>
-                <p>RIP is a distance-vector routing protocol that uses hop count as its metric. It's simple to configure
+                <p>RIP is a distance-vector routing protocol that uses <strong>hop count</strong> as its metric (Max 15
+                    hops; 16 is unreachable). It has an <strong>Administrative Distance (AD)</strong> of 120. It's
+                    simple to configure
                     but is best suited for smaller networks.</p>
                 <pre><code class="comment">! Enter RIP configuration mode</code>
 <code class="output">Router(config)# </code><code class="user-input">router rip</code>
 <code class="comment">! Specify RIP version 2 (which is classless)</code>
 <code class="output">Router(config-router)# </code><code class="user-input">version 2</code>
+<code class="comment">! Disable automatic summarization (Essential for discontiguous networks)</code>
+<code class="output">Router(config-router)# </code><code class="user-input">no auto-summary</code>
 <code class="comment">! Advertise the directly connected networks</code>
 <code class="output">Router(config-router)# </code><code class="user-input">network 192.168.1.0</code>
 <code class="output">Router(config-router)# </code><code class="user-input">network 10.0.0.0</code></pre>
@@ -72,6 +76,9 @@
 O     192.168.2.0/24 [110/2] via 10.10.10.2, 00:05:32, Serial0/0/0
 R     172.16.0.0/16 [120/1] via 10.10.10.2, 00:00:15, Serial0/0/0
 ...</code>
+
+<code class="comment">! Verify RIP timers, version, and networks</code>
+<code class="output">Router# </code><code class="user-input">show ip protocols</code>
 
 <code class="comment">! Show information about OSPF neighbors</code>
 <code class="output">Router# </code><code class="user-input">show ip ospf neighbor</code>
