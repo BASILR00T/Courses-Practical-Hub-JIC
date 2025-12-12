@@ -1,230 +1,266 @@
-[
-  {
-    "id": 1,
-    "title": "PC Config & Troubleshooting Hub",
-    "url": "PCCT/PCCT.html",
-    "content": "PC Config & Troubleshooting System Information File Attributes Disk Management Drive Maintenance User Management System Recovery Device Management System Configuration Services & Processes Registry & Event Viewer systeminfo msinfo32 attrib format diskpart chkdsk defrag net user lusrmgr.msc sfc bootrec dism devmgmt.msc sysdm.cpl services.msc taskmgr.exe regedit.exe eventvwr.msc windows commands, command prompt, صيانة الكمبيوتر, اوامر ويندوز"
-  },
-  {
-    "id": 2,
-    "title": "Network Operating Systems Hub",
-    "url": "NOSs/NOSs.html",
-    "content": "Network Operating Systems Environment Setup Domain Controller Setup File Server Setup Disk Volume RAID Config Active Directory Management Joining a Client to Domain Hyper-V Static IP AD DS M014.com SMB Share Spanned Striped RAID 0 Mirrored RAID 1 OU Organizational Unit windows server, active directory users and groups, اعدادات السيرفر, إدارة المستخدمين"
-  },
-  {
-    "id": 3,
-    "title": "Network 2 Hub",
-    "url": "Network2/Network2.html",
-    "content": "Network 2 Hub Basic Cisco IOS CLI Switch Access Security Switch Port Security VLSM & IP Addressing VLANs, Trunks, and VTP EtherChannel Inter-VLAN Routing Static & Default Routing Dynamic Routing Network Services NAT Configuration Remote Access passwords port security bpduguard subnet VLAN 802.1q VTP PAgP LACP load-balancing Router-on-a-Stick ROAS SVI ip route RIP OSPF EIGRP DHCP DNS PAT Overload Telnet SSH cisco commands, packet tracer, اوامر سيسكو, شبكات"
-  },
-  {
-    "id": 4,
-    "title": "Programming Hub",
-    "url": "Programming/Programming.html",
-    "content": "Programming Python Basics JavaScript Basics C++ Basics variables data types control flow loops functions, learn programming, code examples, اساسيات البرمجة, بايثون"
-  },
-  {
-    "id": 5,
-    "title": "System Information Commands",
-    "url": "PCCT/system_info_commands.html",
-    "content": "System Information Commands systeminfo msinfo32 dxdiag winver dir Provides a detailed summary of the computer's hardware and software configuration. Opens the System Information graphical utility. Launches the DirectX DiagNOSstic Tool, used to troubleshoot video and sound card problems. Displays the About Windows dialog box. Lists files and directories. *.cpl. how to check pc specs, my computer information, مواصفات جهازي, معرفة نسخة الويندوز"
-  },
-  {
-    "id": 6,
-    "title": "File & Directory Commands",
-    "url": "PCCT/file_attributes_commands.html",
-    "content": "File & Directory Commands File & Directory Management mkdir md echo attrib Displays or changes file attributes. You can manage Read-only (R), Archive (A), System (S), and Hidden (H) attributes. /s /d. Make Directory. Creates a new folder. Creates a new text file. how to create a folder in cmd, make file hidden, change file attributes, انشاء مجلد, اخفاء ملف"
-  },
-  {
-    "id": 7,
-    "title": "Disk Management Commands",
-    "url": "PCCT/disk_management_commands.html",
-    "content": "Disk Management Commands General CMD Commands format vol label Diskpart General Disk Management List & Select Create & Format Partitions Modify & Delete Partitions Information Commands Diskpart VHD Management create vdisk select vdisk attach vdisk expand vdisk detach vdisk Creating a Bootable USB Drive active clean convert gpt convert mbr fs=ntfs fs=fat32 quick assign letter extend shrink remove delete partition detail disk filesystems how to create VHD, make a bootable USB, format disk command, partition a drive, convert to gpt, what is diskpart, assign drive letter, تجهيز فلاش للاقلاع, فورمات, تقسيم القرص"
-  },
-  {
-    "id": 8,
-    "title": "Drive Maintenance Commands",
-    "url": "PCCT/drive_maintenance_commands.html",
-    "content": "Drive Maintenance Commands chkdsk defrag Checks a disk for file system errors and bad sectors and attempts to repair them. /f Fixes errors. /r Locates bad sectors. Analyzes and defragments files on local volumes to improve system performance. how to check disk for errors, fix hard drive, defragment, فحص القرص الصلب, اصلاح الباد سيكتور"
-  },
-  {
-    "id": 9,
-    "title": "User Management Commands",
-    "url": "PCCT/user_management_commands.html",
-    "content": "User Management Commands net user lusrmgr.msc Adds, modifies, and removes user accounts. elevated Command Prompt. /add /delete * to change password. Opens the Local Users and Groups GUI. how to add a user in cmd, delete user account, change password command prompt, إضافة مستخدم, حذف مستخدم"
-  },
-  {
-    "id": 10,
-    "title": "System Recovery Commands",
-    "url": "PCCT/system_recovery_commands.html",
-    "content": "System Recovery Commands sfc bootrec dism rstrui.exe mdsched.exe shutdown /r /o System File Checker. Scans and repairs protected system files. /scannow. repair boot-related issues like MBR or BCD. /fixmbr /fixboot /rebuildbcd. Deployment Image Servicing and Management. /online /cleanup-image /restorehealth. Launches System Restore. Launches Windows Memory DiagNOSstic. Restarts into Advanced Startup. how to repair windows, fix boot problems, system restore from cmd, اصلاح الويندوز, مشاكل الاقلاع"
-  },
-  {
-    "id": 11,
-    "title": "Device Management",
-    "url": "PCCT/device_management.html",
-    "content": "Device Manager devmgmt.msc A tool to manage hardware devices and their drivers. You can update, roll back, disable, or uninstall drivers. Yellow exclamation mark indicates a problem. how to update drivers, driver problem, uninstall device, تحديث التعريفات, إدارة الأجهزة"
-  },
-  {
-    "id": 12,
-    "title": "System Configuration",
-    "url": "PCCT/system_config.html",
-    "content": "System Configuration sysdm.cpl Opens the System Properties window. Advanced tab, Performance settings, Virtual Memory pagefile.sys. System Protection tab, manage System Restore points. how to change virtual memory, create a restore point, system properties, تغيير الذاكرة الافتراضية, نقطة استعادة النظام"
-  },
-  {
-    "id": 13,
-    "title": "System Services & Processes",
-    "url": "PCCT/services_processes.html",
-    "content": "System Services & Processes services.msc taskmgr.exe Opens the Services management console to start, stop, and configure system services. Startup type: Automatic, Manual, Disabled. Opens the Task Manager to view and manage running applications, background processes, and system performance. End task. how to open task manager, stop a service, manage startup programs, إدارة المهام, ايقاف الخدمات"
-  },
-  {
-    "id": 14,
-    "title": "Windows Registry & Event Viewer",
-    "url": "PCCT/registry_event_viewer.html",
-    "content": "Windows Registry & Event Viewer regedit.exe eventvwr.msc Opens the Registry Editor to view and edit system-wide configuration settings. Export to backup. Opens the Event Viewer to browse and manage system logs. Application, Security, Setup, System logs. Levels: Information, Warning, Error, Critical. how to open registry editor, check event logs, troubleshoot crashes, فتح الريجستري, عارض الأحداث"
-  },
-  {
-    "id": 15,
-    "title": "Environment Setup",
-    "url": "NOSs/environment_setup.html",
-    "content": "Environment Setup in Hyper-V Creating Virtual Machines Assigning Static IP Addresses DC-Server File-Server Client-PC Subnet Mask Default Gateway Preferred DNS. how to create a vm in hyper-v, set static ip, virtual machine setup, اعداد جهاز وهمي"
-  },
-  {
-    "id": 16,
-    "title": "Domain Controller Setup",
-    "url": "NOSs/dc_setup.html",
-    "content": "Create a Domain Controller DC Add the AD DS Role Promote Server to a Domain Controller M014.com Add a new forest Root domain name DSRM Directory Services Restore Mode password. how to make a domain controller, active directory setup, promote to dc, اعداد المتحكم بالمجال"
-  },
-  {
-    "id": 17,
-    "title": "File Server Setup",
-    "url": "NOSs/fileserver_setup.html",
-    "content": "Create a File Server Add the File Server Role Create a Shared Folder SMB Share - Quick New Share File and Storage Services Shares. how to setup a file server, create a shared folder, smb share configuration, اعداد سيرفر ملفات, مشاركة الملفات"
-  },
-  {
-    "id": 18,
-    "title": "RAID Configuration",
-    "url": "NOSs/raid_config.html",
-    "content": "Configure Disk Volumes RAID Spanned Volume Striped Volume RAID 0 Mirrored Volume RAID 1 Combine multiple physical disks into a single logical volume for performance or redundancy. Disk Management. how to configure raid 1, what is raid 0, create a striped volume, اعدادات الريد"
-  },
-  {
-    "id": 19,
-    "title": "Active Directory Management",
-    "url": "NOSs/ad_management.html",
-    "content": "Manage OUs, Users, and Groups Create an OU Organizational Unit Create a Group Create a User Add User to Group Active Directory Users and Computers. how to create a user in active directory, add user to group, create an ou, انشاء مستخدم في الدليل النشط"
-  },
-  {
-    "id": 20,
-    "title": "Join Client to Domain",
-    "url": "NOSs/join_domain.html",
-    "content": "Join a Client PC to the Domain Connect client machine to the domain for centralized login and management. Advanced system settings Computer Name Member of Domain. how to join a computer to a domain, connect to domain, اضافة جهاز للمجال"
-  },
-  {
-    "id": 21,
-    "title": "Basic Cisco IOS CLI",
-    "url": "Network2/basic_cisco_cli.html",
-    "content": "Basic Cisco IOS CLI User EXEC Mode Privileged EXEC Mode Global configuration mode enable configure terminal interface hostname banner motd copy running-config startup-config erase startup-config delete flash:vlan.dat show running-config show ip interface brief show version clock set exit end no shutdown. cisco basic commands, how to save cisco config, factory reset cisco switch, اوامر سيسكو الاساسية"
-  },
-  {
-    "id": 22,
-    "title": "VLSM & IP Addressing",
-    "url": "Network2/vlsm_addressing.html",
-    "content": "VLSM & IP Addressing Variable Length Subnet Masking subnet design strategy slash notation CIDR /24 /25 /26 /27 /30 Network ID Broadcast Address. what is vlsm, how to subnet, ip addressing basics, تقسيم الشبكات"
-  },
-  {
-    "id": 23,
-    "title": "Switch Access Security",
-    "url": "Network2/Switch_Access_Security.html",
-    "content": "Switch Security Basic Switch Security Console and VTY Passwords Enable Secret Password Password Encryption line console 0 login local username admin password service password-encryption. how to set password on cisco switch, enable secret vs enable password, secure cisco cli, تأمين سويتش سيسكو"
-  },
-  {
-    "id": 24,
-    "title": "VLANs, Trunks, and VTP",
-    "url": "Network2/vlans_and_trunks.html",
-    "content": "VLANs, Trunks, and VTP Creating VLANs switchport mode access switchport access vlan Creating Trunk Ports switchport mode trunk 802.1q VTP VLAN Trunking Protocol vtp mode server client transparent vtp domain password Native VLAN Voice VLAN. how to configure vlan, what is a trunk port, vtp configuration, اعداد الفيلان"
-  },
-  {
-    "id": 25,
-    "title": "EtherChannel (Link Aggregation)",
-    "url": "Network2/etherchannel.html",
-    "content": "EtherChannel Link Aggregation PAgP LACP Manual channel-group mode desirable auto active passive on Layer 3 EtherChannel no switchport load-balancing port-channel. how to configure etherchannel, lacp vs pagp, link aggregation cisco, تجميع الروابط"
-  },
-  {
-    "id": 26,
-    "title": "Inter-VLAN Routing",
-    "url": "Network2/inter-vlan_routing.html",
-    "content": "Inter-VLAN Routing Router-on-a-Stick ROAS encapsulation dot1q subinterface Layer 3 Switch SVI Switched Virtual Interface ip routing. how to route between vlans, router on a stick configuration, svi setup, التوجيه بين الشبكات المحلية الافتراضية"
-  },
-  {
-    "id": 27,
-    "title": "Static & Default Routing",
-    "url": "Network2/static_routing.html",
-    "content": "Static & Default Routing Static Routing ip route Default Route Gateway of Last Resort ip route 0.0.0.0 0.0.0.0 next_hop_ip_address. how to configure static route, what is a default route, gateway of last resort, اعدادات التوجيه اليدوي"
-  },
-  {
-    "id": 28,
-    "title": "Dynamic Routing (RIP, OSPF, EIGRP)",
-    "url": "Network2/dynamic_routing.html",
-    "content": "Dynamic Routing Protocols RIP Routing Information Protocol router rip version 2 network OSPF Open Shortest Path First router ospf network area wildcard mask EIGRP. cisco rip configuration, how to setup ospf, dynamic routing protocols explained, بروتوكولات التوجيه الديناميكي"
-  },
-  {
-    "id": 29,
-    "title": "Network Services (DHCP, DNS, HTTP, FTP)",
-    "url": "Network2/network_services.html",
-    "content": "Network Services DHCP Server DNS Server ip helper-address ip dhcp excluded-address ip dhcp pool default-router dns-server ip name-server TFTP copy running-config tftp:. how to configure dhcp on cisco router, set dns server, اعداد DHCP على راوتر سيسكو"
-  },
-  {
-    "id": 30,
-    "title": "NAT Configuration",
-    "url": "Network2/nat_config.html",
-    "content": "NAT Configuration Static NAT ip nat inside source static Dynamic NAT ip nat pool access-list PAT Port Address Translation Overload ip nat inside source list pool overload ip nat inside ip nat outside access-list show ip nat translations. how to configure nat overload, pat configuration cisco, what is nat, اعدادات النات"
-  },
-  {
-    "id": 31,
-    "title": "Remote Access (Telnet & SSH)",
-    "url": "Network2/remote_access.html",
-    "content": "Remote Access Telnet line vty login SSH Secure Shell ip domain-name crypto key generate rsa login local transport input ssh. how to enable ssh on cisco router, configure telnet, secure remote access, تفعيل SSH"
-  },
-  {
-    "id": 32,
-    "title": "Python Hub",
-    "url": "Programming/Python/Python_language.html",
-    "content": "Python Basics Introduction Control Flow Functions Data Structures File & Error Handling print variables data types string integer float boolean operators input if elif else for loop while loop functions def list dictionary tuple set string methods upper lower strip replace split f-strings error handling try except file io open read write. python for beginners, python tutorial, تعلم بايثون"
-  },
-  {
-    "id": 33,
-    "title": "Switch Port Security",
-    "url": "Network2/switch_port_security.html",
-    "content": "Securing the switch with port security from unauthorized Pcs and Switches Security switchport port-security mac-address sticky violation shutdown restrict protect spanning-tree bpduguard enable portfast err-disabled. how to configure port security, mac address sticky, bpdu guard explained, تأمين منافذ السويتش"
-  },
-  {
-    "id": 34,
-    "title": "Introduction to Python",
-    "url": "Programming/Python/python_introduction.html",
-    "content": "Introduction to Python Variables and Data Types String Methods Formatted Strings f-strings name age height is_student str int float bool type() upper() strip() replace() split(). python variables, python data types, f-strings in python, المتغيرات في بايثون"
-  },
-  {
-    "id": 35,
-    "title": "Python Control Flow",
-    "url": "Programming/Python/python_control_flow.html",
-    "content": "Python Control Flow Conditional Statements if elif else Loops for while range in. python if statement, for loop python, while loop python, الحلقات التكرارية في بايثون"
-  },
-  {
-    "id": 36,
-    "title": "Python Functions",
-    "url": "Programming/Python/python_functions.html",
-    "content": "Python Functions Defining and Using Functions def return parameters arguments. how to define a function in python, python function examples, الدوال في بايثون"
-  },
-  {
-    "id": 37,
-    "title": "Python Data Structures",
-    "url": "Programming/Python/python_data_structures.html",
-    "content": "Python Data Structures Lists Dictionaries Tuples Sets append() pop() del key:value immutable unique items add() remove(). python lists, python dictionaries explained, what is a tuple in python, القوائم والقواميس في بايثون"
-  },
-  {
-    "id": 38,
-    "title": "File & Error Handling in Python",
-    "url": "Programming/Python/python_file_error_handling.html",
-    "content": "File & Error Handling in Python Error Handling try except ValueError ZeroDivisionError Exception as e File I/O Input/Output with open() 'w' write 'r' read 'a' append. python try except, how to read a file in python, write to file python, معالجة الأخطاء في بايثون, التعامل مع الملفات"
-  }
+﻿[
+    {
+        "content":  "",
+        "title":  "Courses Practical Hub",
+        "url":  "index.html",
+        "id":  0
+    },
+    {
+        "content":  "",
+        "title":  "Intro to Web Design",
+        "url":  "Intro_to_web_design/Web_design.html",
+        "id":  1
+    },
+    {
+        "content":  "",
+        "title":  "Network 1",
+        "url":  "Network1/Network1.html",
+        "id":  2
+    },
+    {
+        "content":  "",
+        "title":  "Basic Cisco IOS CLI",
+        "url":  "Network2/basic_cisco_cli.html",
+        "id":  3
+    },
+    {
+        "content":  "",
+        "title":  "Dynamic Routing",
+        "url":  "Network2/dynamic_routing.html",
+        "id":  4
+    },
+    {
+        "content":  "",
+        "title":  "EtherChannel",
+        "url":  "Network2/etherchannel.html",
+        "id":  5
+    },
+    {
+        "content":  "",
+        "title":  "Inter-VLAN Routing",
+        "url":  "Network2/inter-vlan_routing.html",
+        "id":  6
+    },
+    {
+        "content":  "",
+        "title":  "NAT Configuration",
+        "url":  "Network2/nat_config.html",
+        "id":  7
+    },
+    {
+        "content":  "",
+        "title":  "Network 2 Hub",
+        "url":  "Network2/Network2.html",
+        "id":  8
+    },
+    {
+        "content":  "",
+        "title":  "Network Services",
+        "url":  "Network2/network_services.html",
+        "id":  9
+    },
+    {
+        "content":  "",
+        "title":  "Remote Access",
+        "url":  "Network2/remote_access.html",
+        "id":  10
+    },
+    {
+        "content":  "",
+        "title":  "Static \u0026 Default Routing",
+        "url":  "Network2/static_routing.html",
+        "id":  11
+    },
+    {
+        "content":  "",
+        "title":  "Basic Switch Security",
+        "url":  "Network2/Switch_Access_Security.html",
+        "id":  12
+    },
+    {
+        "content":  "",
+        "title":  "Switch Port Security",
+        "url":  "Network2/switch_port_security.html",
+        "id":  13
+    },
+    {
+        "content":  "",
+        "title":  "VLANs, Trunks, and VTP",
+        "url":  "Network2/vlans_and_trunks.html",
+        "id":  14
+    },
+    {
+        "content":  "",
+        "title":  "VLSM \u0026 IP Addressing",
+        "url":  "Network2/vlsm_addressing.html",
+        "id":  15
+    },
+    {
+        "content":  "",
+        "title":  "AD Management",
+        "url":  "NOSs/ad_management.html",
+        "id":  16
+    },
+    {
+        "content":  "",
+        "title":  "Domain Controller Setup",
+        "url":  "NOSs/dc_setup.html",
+        "id":  17
+    },
+    {
+        "content":  "",
+        "title":  "DHCP Server Setup",
+        "url":  "NOSs/dhcp_server.html",
+        "id":  18
+    },
+    {
+        "content":  "",
+        "title":  "Environment Setup",
+        "url":  "NOSs/environment_setup.html",
+        "id":  19
+    },
+    {
+        "content":  "",
+        "title":  "File Server Setup",
+        "url":  "NOSs/fileserver_setup.html",
+        "id":  20
+    },
+    {
+        "content":  "",
+        "title":  "Join Client to Domain",
+        "url":  "NOSs/join_domain.html",
+        "id":  21
+    },
+    {
+        "content":  "",
+        "title":  "Network OS (Linux)",
+        "url":  "NOSs/linux.html",
+        "id":  22
+    },
+    {
+        "content":  "",
+        "title":  "Network Operating Systems Hub",
+        "url":  "NOSs/NOS.html",
+        "id":  23
+    },
+    {
+        "content":  "",
+        "title":  "Disk Volume (RAID) Config",
+        "url":  "NOSs/raid_config.html",
+        "id":  24
+    },
+    {
+        "content":  "",
+        "title":  "Device Management",
+        "url":  "PCCT/device_management.html",
+        "id":  25
+    },
+    {
+        "content":  "",
+        "title":  "Disk Management Commands",
+        "url":  "PCCT/disk_management_commands.html",
+        "id":  26
+    },
+    {
+        "content":  "",
+        "title":  "Drive Maintenance Commands",
+        "url":  "PCCT/drive_maintenance_commands.html",
+        "id":  27
+    },
+    {
+        "content":  "",
+        "title":  "File \u0026 Directory Commands",
+        "url":  "PCCT/file_attributes_commands.html",
+        "id":  28
+    },
+    {
+        "content":  "",
+        "title":  "Hardware Fault Troubleshooting",
+        "url":  "PCCT/Hardware_Fault_Troubleshooting.html",
+        "id":  29
+    },
+    {
+        "content":  "",
+        "title":  "PC Config \u0026 Troubleshooting Hub",
+        "url":  "PCCT/PCCT.html",
+        "id":  30
+    },
+    {
+        "content":  "",
+        "title":  "Registry \u0026 Event Viewer",
+        "url":  "PCCT/registry_event_viewer.html",
+        "id":  31
+    },
+    {
+        "content":  "",
+        "title":  "Services \u0026 Processes",
+        "url":  "PCCT/services_processes.html",
+        "id":  32
+    },
+    {
+        "content":  "",
+        "title":  "System Information Commands",
+        "url":  "PCCT/system_info_commands.html",
+        "id":  33
+    },
+    {
+        "content":  "",
+        "title":  "System Properties and startup",
+        "url":  "PCCT/system_properties_and_startup.html",
+        "id":  34
+    },
+    {
+        "content":  "",
+        "title":  "System Recovery \u0026 Backup",
+        "url":  "PCCT/system_recovery_commands.html",
+        "id":  35
+    },
+    {
+        "content":  "",
+        "title":  "User Management Commands",
+        "url":  "PCCT/user_management_commands.html",
+        "id":  36
+    },
+    {
+        "content":  "",
+        "title":  "Programming Hub",
+        "url":  "Programming/Programming.html",
+        "id":  37
+    },
+    {
+        "content":  "",
+        "title":  "Python Control Flow",
+        "url":  "Programming/Python/python_control_flow.html",
+        "id":  38
+    },
+    {
+        "content":  "",
+        "title":  "Python Data Structures",
+        "url":  "Programming/Python/python_data_structures.html",
+        "id":  39
+    },
+    {
+        "content":  "",
+        "title":  "File \u0026 Error Handling in Python",
+        "url":  "Programming/Python/python_file_error_handling.html",
+        "id":  40
+    },
+    {
+        "content":  "",
+        "title":  "Python Functions",
+        "url":  "Programming/Python/python_functions.html",
+        "id":  41
+    },
+    {
+        "content":  "",
+        "title":  "Introduction to Python",
+        "url":  "Programming/Python/python_introduction.html",
+        "id":  42
+    },
+    {
+        "content":  "",
+        "title":  "Python Basics Hub",
+        "url":  "Programming/Python/Python_language.html",
+        "id":  43
+    }
 ]

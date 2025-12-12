@@ -1,13 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
     let documents = [];
     let idx;
-
     // Determine the base path for fetching the JSON file
     let pathPrefix = '.';
-    if (window.location.pathname.includes('/PCCT/') || 
-        window.location.pathname.includes('/NOS/') || 
-        window.location.pathname.includes('/Network2/') || 
-        window.location.pathname.includes('/Programming/')) {
+    const path = window.location.pathname;
+
+    // Check for nested depth first (e.g. Programming/Python)
+    if (path.includes('/Programming/Python/')) {
+        pathPrefix = '../..';
+    }
+    // Check for standard depth
+    else if (path.includes('/PCCT/') ||
+        path.includes('/NOSs/') ||
+        path.includes('/Network1/') ||
+        path.includes('/Network2/') ||
+        path.includes('/Intro_to_web_design/') ||
+        path.includes('/Programming/')) {
         pathPrefix = '..';
     }
 
@@ -30,22 +38,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const searchInput = document.getElementById('search-input');
     const resultsContainer = document.getElementById('results-container');
-    const mainContent = document.getElementById('main-content'); 
+    const mainContent = document.getElementById('main-content');
 
     searchInput.addEventListener('keyup', function () {
         const query = this.value.trim();
-        resultsContainer.innerHTML = ''; 
+        resultsContainer.innerHTML = '';
 
         if (query === '') {
             resultsContainer.style.display = 'none';
-            if(mainContent) mainContent.style.display = 'grid'; 
+            if (mainContent) mainContent.style.display = 'grid';
             return;
         }
 
         try {
             const results = idx.search(`*${query}*`); // Use wildcards for partial matches
 
-            if(mainContent) mainContent.style.display = 'none';
+            if (mainContent) mainContent.style.display = 'none';
             resultsContainer.style.display = 'block';
 
             if (results.length > 0) {
@@ -53,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     const item = documents.find(doc => doc.id == result.ref);
                     const resultElement = document.createElement('div');
                     resultElement.className = 'search-result-item';
-                    
+
                     // Construct the correct relative URL
                     const resultUrl = `${pathPrefix}/${item.url}`;
 

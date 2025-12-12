@@ -29,8 +29,11 @@
 
             <section class="section">
                 <h2>How to create partition and format using CMD</h2>
-                <p class="danger">NOTE: you cannot assign letter using CMD without diskpart , so we should assign while
-                    creating the volume</p>
+                <div class="warning-box">
+                    <p class="danger">NOTE: you cannot assign letter using CMD without diskpart , so we should assign
+                        while
+                        creating the volume</p>
+                </div>
                 <div class="video-container">
                     <iframe width="1920" height="1080" src="https://www.youtube.com/embed/dxYws4V1O-c"
                         title="How to create partition and format it using CMD" frameborder="0"
@@ -44,8 +47,10 @@
                 <p>These commands are run directly in the Command Prompt, not inside the `diskpart` utility.</p>
 
                 <h3>format</h3>
-                <p>Prepares a storage drive for use by creating a new file system. <strong class="danger">Warning: This
-                        erases all data on the specified drive.</strong></p>
+                <p>Prepares a storage drive for use by creating a new file system.</p>
+                <div class="warning-box">
+                    <p><strong class="danger">Warning: This erases all data on the specified drive.</strong></p>
+                </div>
                 <pre><code><span class="output">C:\></span><span class="user-input">format D: /fs:ntfs /q /v:Data</span>
 <span class="output">The type of the file system is RAW.
 The new file system is NTFS.
@@ -184,8 +189,10 @@ DiskPart successfully formatted the volume.</span>
             </section>
             <section class="section">
                 <h2>Creating a Bootable USB Drive</h2>
-                <p>Use Diskpart to prepare a USB flash drive to be a bootable Windows installation medium. <strong
-                        class="danger">Warning: This will erase all data on the USB drive.</strong></p>
+                <p>Use Diskpart to prepare a USB flash drive to be a bootable Windows installation medium.</p>
+                <div class="warning-box">
+                    <p><strong class="danger">Warning: This will erase all data on the USB drive.</strong></p>
+                </div>
                 <pre><code><span class="comment">// 1. Identify your USB drive (e.g., Disk 2)</span>
 <span class="output">DISKPART&gt; </span><span class="user-input">list disk</span>
 <span class="output">  Disk ###  Status         Size     Free     Dyn  Gpt
@@ -224,9 +231,11 @@ DiskPart successfully formatted the volume.</span>
 <span class="comment">// 8. Exit diskpart</span>
 <span class="output">DISKPART&gt; </span><span class="user-input">exit</span>
 <span class="output">Leaving DiskPart...</span></code></pre>
-                <p><strong class="danger">Warning: After completing these steps, you must copy all files and folders
-                        from your Windows installation ISO or DVD directly onto the root of the newly prepared USB
-                        drive..</strong></p>
+                <div class="warning-box">
+                    <p><strong class="danger">Warning: After completing these steps, you must copy all files and folders
+                            from your Windows installation ISO or DVD directly onto the root of the newly prepared USB
+                            drive..</strong></p>
+                </div>
             </section>
         </main>
         <footer class="main-footer">

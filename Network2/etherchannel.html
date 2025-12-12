@@ -99,7 +99,9 @@ Group  Port-channel  Protocol    Ports
                 <h2>Load balancing</h2>
                 <p>After you create a an etherchannel you enable Load balancing on both switches by doing the following:
                 </p>
-                <h5 class="comment">Note: If a question asked you for a specific type select it.</h5>
+                <div class="warning-box">
+                    <p class="danger">Note: If a question asked you for a specific type select it.</p>
+                </div>
                 <pre><code class="output">Switch1(config)# </code><code class="user-input">port-channel load-balance ?</code>
 <code class="output">
  dst-ip       Dst IP Addr

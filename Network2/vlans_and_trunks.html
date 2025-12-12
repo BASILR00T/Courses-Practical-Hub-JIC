@@ -107,9 +107,12 @@ Gig0/1      1-4094
 <span class="output">VTP_Client(config)#</span><span class="user-input">vtp mode client</span>
 <span class="output">VTP_Client(config)#</span><span class="user-input">vtp password cisco</span></code></pre>
 
-                <h3 class="note">Note: if Vlans doesn't shows up on client switches do this on all L2 switches</h3>
-                <h4 class="note">First make sure all links between switches in trunk mode , then enable trunk mode on
-                    etherchannel interface</h4>
+                <div class="warning-box">
+                    <p class="danger">Note: if Vlans doesn't shows up on client switches do this on all L2 switches</p>
+                    <p class="danger">First make sure all links between switches in trunk mode , then enable trunk mode
+                        on
+                        etherchannel interface</p>
+                </div>
                 <pre>
 <code class="output">SW1(config)# </code><code class="user-input">interface port-channel 1</code>
 <code class="output">SW2(config-if)# </code><code class="user-input">switchport mode trunk</code>

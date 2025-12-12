@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Properties and startup | PCCT Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
+    <a href="PCCT.html" class="back-button">&larr; Back to PCCT Hub</a>
+    <div class="container">
+        <header class="main-header">
+            <h1>System Properties and startup</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>System Properties (sysdm.cpl)</h2>
+                <p>The System Properties dialog is a central hub for many advanced settings. It can be accessed quickly
+                    by running the command <code>sysdm.cpl</code>.</p>
+                <p><strong>To open System Properties:</strong> Press <code>Windows Logo + R</code>, type
+                    <code>sysdm.cpl</code>, and press Enter.
+                </p>
+                <h3>Managing Virtual Memory</h3>
+                <p>Virtual memory (the paging file) is a space on your hard disk that Windows uses as if it were RAM.
+                    You can manage its size and location for performance tuning.</p>
+                <ol>
+                    <li>Open System Properties (<code>sysdm.cpl</code>).</li>
+                    <li>Go to the <strong>Advanced</strong> tab.</li>
+                    <li>Under the "Performance" section, click <strong>Settings...</strong>.</li>
+                    <li>In the Performance Options window, go to the <strong>Advanced</strong> tab.</li>
+                    <li>Under the "Virtual memory" section, click <strong>Change...</strong>.</li>
+                    <li>From here you can uncheck "Automatically manage..." to set a custom size or move the
+                        <code>pagefile.sys</code> to a different drive.
+                    </li>
+                </ol>
+            </section>
+
+            <section class="section">
+                <h2>Configuring Startup Applications</h2>
+
+                <h3>I. Using Startup Folders (GUI Method)</h3>
+                <p>This method involves placing a shortcut to the desired application inside a designated Startup
+                    folder.</p>
+
+
+                <h4>User Scope: All Users</h4>
+                <p><strong>Folder Path:</strong>
+                    <code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup</code>
+                </p>
+                <p><strong>Key Action:</strong></p>
+                <ol>
+                    <li>Create a Shortcut of the application.</li>
+                    <li>Put the Shortcut in the Startup Folder listed above.</li>
+                </ol>
+
+                <h4>User Scope: Current User / Specific User</h4>
+                <p><strong>Folder Path:</strong>
+                    <code>%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup</code><br>
+                    (e.g.,
+                    <code>C:\Users\Student-Admin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup</code>)
+                </p>
+                <p><strong>Key Action:</strong> Add the Shortcut to this folder.</p>
+                <p><em>Note: For "Specific User", you must have Admin privileges to access their folder.</em></p>
+
+                <h3>II. Using the Windows Registry (Advanced Method)</h3>
+                <p>This method involves adding a registry string value that points to the application's executable file.
+                </p>
+
+                <h4>User Scope: All Users</h4>
+                <p><strong>Registry Key:</strong>
+                    <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</code>
+                </p>
+                <p><strong>Key Action:</strong></p>
+                <ol>
+                    <li>Copy the full file path of the application (e.g., <code>C:\Windows\System32\cmd.exe</code>).
+                    </li>
+                    <li>Navigate to the registry key above.</li>
+                    <li>Add a new <strong>String Value</strong>.</li>
+                    <li>Paste the application path as the value data.</li>
+                </ol>
+
+                <h4>User Scope: Current User</h4>
+                <p><strong>Registry Key:</strong>
+                    <code>HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</code>
+                </p>
+                <p><strong>Key Action:</strong> Follow the same steps as for "All Users", but in the Current User hive.
+                </p>
+
+                <div class="warning-box">
+                    <p class="danger">Important Notes:</p>
+                    <ul>
+                        <li><strong class="danger">WARNING:</strong> Always back up the registry key by exporting it
+                            before
+                            making changes.</li>
+                        <li>Ensure the App name is included in the Path/Value name for clarity.</li>
+                        <li>Verify success by checking <strong>Task Manager > Startup</strong> to see if the icon
+                            appears.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        <footer class="main-footer">
+            <p>If there are any mistakes or wrong info, please feel free to contact me at <a
+                    href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/"
+                    target="_blank">BASILR00T</a>.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

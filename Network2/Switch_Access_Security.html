@@ -79,8 +79,11 @@
                     <code>service password-encryption</code> command encrypts these passwords in the configuration file,
                     adding a basic layer of security.
                 </p>
-                <p><strong>Note:</strong> This uses a weak encryption algorithm and is not a substitute for using
-                    `enable secret`, but it's good practice to enable it.</p>
+                <div class="warning-box">
+                    <p><strong class="danger">Note:</strong> This uses a weak encryption algorithm and is not a
+                        substitute for using
+                        `enable secret`, but it's good practice to enable it.</p>
+                </div>
                 <pre><code><span class="comment">! Enable encryption for all plain-text passwords</span>
 <span class="output">Switch(config)#</span><span class="user-input">service password-encryption</span>
 
