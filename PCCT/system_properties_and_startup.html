@@ -112,6 +112,41 @@
                     </ul>
                 </div>
             </section>
+
+            <section class="section">
+                <h2>Microsoft Management Console (MMC)</h2>
+                <h3>5.1 What is the MMC?</h3>
+                <ul>
+                    <li><strong>Microsoft Management Console (MMC):</strong> An application that simplifies many
+                        administrative tasks by allowing the collection of many tools (called snap-ins) inside a single
+                        console.</li>
+                    <li><strong>Function:</strong> It is an application framework that hosts administrative tools
+                        ("snap-ins") and allows administrators to create a single, custom, and portable interface.</li>
+                </ul>
+
+                <h3>5.2 Key Benefits of the MMC</h3>
+                <ul>
+                    <li><strong>Tool Consolidation:</strong> You can collect numerous snap-ins (like Event Viewer, Disk
+                        Management, Device Manager) into a single console, improving efficiency.</li>
+                    <li><strong>Remote Management:</strong> Many snap-ins can be configured to connect to and manage
+                        remote computers, enhancing the administrator's reach across the network.</li>
+                </ul>
+
+                <h3>5.3 Guide to Creating a Custom Console</h3>
+                <ol>
+                    <li>Run the Microsoft Management Console (MMC) by executing <code>mmc.exe</code>.</li>
+                    <li>Click <strong>File &gt; Add/Remove Snap-in...</strong> from the menu bar.</li>
+                    <li>In the dialog, select a desired tool from the list of available snap-ins and click <strong>Add
+                            &gt;</strong>.</li>
+                    <li>Repeat for all desired tools.</li>
+                    <li>Click <strong>OK</strong> to add the snap-ins to the console.</li>
+                    <li>To save the custom console, click <strong>File &gt; Save As...</strong> and provide a
+                        descriptive name and location.</li>
+                </ol>
+                <p><em>Note: Saved console files have the <code>.msc</code> extension. You can also set console modes
+                        (Author/User) under <strong>File &gt; Options</strong> to control what users can do with the
+                        console.</em></p>
+            </section>
         </main>
         <footer class="main-footer">
             <p>If there are any mistakes or wrong info, please feel free to contact me at <a
