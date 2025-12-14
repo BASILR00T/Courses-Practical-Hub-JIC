@@ -86,6 +86,20 @@
                         </tbody>
                     </table>
                 </div>
+
+                <h3>VI Editor Basics</h3>
+                <p>Simple guide to write, edit, delete, and save using <code>vi</code>.</p>
+                <ul>
+                    <li><strong>Open File:</strong> <code>vi filename</code></li>
+                    <li><strong>Write (Insert):</strong> Press <code>i</code> to start typing.</li>
+                    <li><strong>Delete:</strong> Press <code>Esc</code> then <code>x</code> (delete character) or
+                        <code>dd</code> (delete line).
+                    </li>
+                    <li><strong>Save & Quit:</strong> Press <code>Esc</code> then type <code>:wq</code> and hit Enter.
+                    </li>
+                    <li><strong>Quit without Saving:</strong> Press <code>Esc</code> then type <code>:q!</code> and hit
+                        Enter.</li>
+                </ul>
             </section>
 
             <section class="section">
@@ -243,26 +257,74 @@ Number of days of warning before password expires       : 7</span></code></pre>
                 </div>
 
                 <h3>3.3 Changing Permissions</h3>
-                <p><strong><code>chmod</code> (change mode):</strong> Changes mode (permissions) of files or
-                    directories.</p>
-                <p>Takes two arguments: Criteria used to change permissions, and Filenames to change.</p>
-                <p>Use the <strong>"a"</strong> character to refer to all categories (user, group, other) if changes are
-                    identical.</p>
-                <p><strong>Default Permissions (New Files):</strong> Given <code>rw-rw-rw-</code> permissions by
-                    default.</p>
+                <p>The command <strong><code>chmod</code></strong> (Change Mode) is used to modify file permissions.</p>
 
-                <pre><code><span class="comment"># Symbolic Method</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod u+x script.sh</span>  <span class="comment"># Add execute permission for User</span>
+                <h4>Method 1: Symbolic Mode (Letters)</h4>
+                <p>Formula: <code>chmod [Who][Operator][Permission] filename</code></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Who</th>
+                                <th>Operator</th>
+                                <th>Permission</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>u</code>: User (Owner)</td>
+                                <td><code>+</code>: Add permission</td>
+                                <td><code>r</code>: Read</td>
+                            </tr>
+                            <tr>
+                                <td><code>g</code>: Group</td>
+                                <td><code>-</code>: Remove permission</td>
+                                <td><code>w</code>: Write</td>
+                            </tr>
+                            <tr>
+                                <td><code>o</code>: Others</td>
+                                <td><code>=</code>: Set exact permission</td>
+                                <td><code>x</code>: Execute</td>
+                            </tr>
+                            <tr>
+                                <td><code>a</code>: All (u,g,o)</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <pre><code><span class="comment"># Examples</span>
+<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod u+x script.sh</span>    <span class="comment"># Give User execute permission</span>
+<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod g-w file.txt</span>     <span class="comment"># Remove write permission from Group</span>
+<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod a=r file.txt</span>     <span class="comment"># Set Read-only for Everyone</span>
 <span class="prompt">[root@comp1 ~]#</span> <span class="user-input">ls -l script.sh</span>
-<span class="output">-rwxr--r-- 1 root root 0 Mar 15 10:00 script.sh</span>
+<span class="output">-rwxr--r-- 1 root root 0 Mar 15 10:00 script.sh</span></code></pre>
 
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod g-w file.txt</span>   <span class="comment"># Remove write permission for Group</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod a=r file.txt</span>   <span class="comment"># Set read-only for All</span>
+                <h4>Method 2: Numeric Mode (Numbers)</h4>
+                <p>Use numbers to represent permission sets. Sum the values to get the desired mode.</p>
+                <ul>
+                    <li><code>4</code> (Read)</li>
+                    <li><code>2</code> (Write)</li>
+                    <li><code>1</code> (Execute)</li>
+                    <li><code>0</code> (No Permission)</li>
+                </ul>
+                <p>Example: <code>755</code> = 7(u), 5(g), 5(o)</p>
+                <ul>
+                    <li>User (7) = 4+2+1 (rwx)</li>
+                    <li>Group (5) = 4+0+1 (r-x)</li>
+                    <li>Other (5) = 4+0+1 (r-x)</li>
+                </ul>
 
-<span class="comment"># Numeric Method (r=4, w=2, x=1)</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod 755 script.sh</span>
+                <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod 755 script.sh</span>
 <span class="prompt">[root@comp1 ~]#</span> <span class="user-input">ls -l script.sh</span>
 <span class="output">-rwxr-xr-x 1 root root 0 Mar 15 10:00 script.sh</span></code></pre>
+
+                <div class="note" style="border-left: 3px solid var(--blue); padding-left: 1rem; margin-top: 1rem;">
+                    <strong>Default Permissions:</strong> New files usually get <code>rw-rw-rw-</code> (666) minus the
+                    umask.
+                </div>
 
                 <h3>3.4 UMASK</h3>
                 <ul>
