@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Intro to Web Design | JIC</title>
+    <title>Intro to Web Design Hub | JIC</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <script src="https://unpkg.com/lunr/lunr.min.js"></script>
 </head>
 
 <body>
@@ -22,24 +23,40 @@
     </div>
     <a href="../index.html" class="back-button">&larr; Back to Main Hub</a>
     <div class="container">
-        <div class="main-header">
+        <header class="main-header">
             <h1>Intro to Web Design</h1>
-            <p>Learn the basics of HTML, CSS, and Web Design principles.</p>
-        </div>
+            <p>Resources for learning HTML, CSS, and modern web design principles.</p>
+            <div class="search-wrapper">
+                <input type="search" id="search-input" placeholder="Search for any topic..." autocomplete="off">
+            </div>
+        </header>
 
-        <div class="section" style="text-align: center; padding: 4rem 2rem;">
-            <h2 style="border: none; margin-top: 0;">🚧 Coming Soon 🚧</h2>
-            <p>This section is currently under development for Version 2.</p>
-            <p>Good luck with your finals!</p>
-        </div>
+        <div id="results-container"></div>
+
+        <main class="modules-grid" id="main-content">
+            <a href="HTML_Basics.html" class="module-card">
+                <h2>HTML Basics</h2>
+                <p>The structure of the web. Tags, elements, and attributes.</p>
+            </a>
+            <a href="CSS_Basics.html" class="module-card">
+                <h2>CSS Basics</h2>
+                <p>Styling your pages. Colors, fonts, and the Box Model.</p>
+            </a>
+            <a href="Site_Structure.html" class="module-card">
+                <h2>Site Design & Structure</h2>
+                <p>How to organize folders and link multiple pages together.</p>
+            </a>
+            <!-- Future cards can be added here -->
+        </main>
 
         <footer class="main-footer">
             <p>If there are any mistakes or wrong info please feel free to contact me on <a
                     href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
-            <p>Built as a reference for JIC students. Inspired by <a href="https://basilr00t.github.io/BASILR00T/"
+            <p>Built as a reference for JIC students. Inspired by <a href="https://greenbsa.github.io/BASILR00T/"
                     target="_blank">BASILR00T</a>.</p>
         </footer>
     </div>
+    <script src="../search.js"></script>
 </body>
 
 </html>

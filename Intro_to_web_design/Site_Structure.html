@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Structure | JIC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
+    <a href="Web_Design_Hub.html" class="back-button">&larr; Back to Web Design Hub</a>
+    <div class="container">
+        <div class="main-header">
+            <h1>Designing a Multi-Page Site</h1>
+            <p>How to structure and link multiple pages effectively.</p>
+        </div>
+
+        <div class="section">
+            <h2>Site Structure</h2>
+            <p>A real website consists of multiple pages linked together. Here is how to structure it properly.</p>
+
+            <h3>1. Folder Structure</h3>
+            <p>Keep your project organized. Don't dump everything in one folder.</p>
+            <pre><code>/MyWebsite
+    index.html          (Your Home Page)
+    about.html          (About Page)
+    contact.html        (Contact Page)
+    /css
+        style.css       (One style file for ALL pages)
+    /images
+        logo.png
+        banner.jpg</code></pre>
+
+            <h3>2. Linking Pages</h3>
+            <p>On your <strong>index.html</strong>, you link to other pages using relative paths:</p>
+            <pre><code>&lt;nav&gt;
+    &lt;a href="index.html"&gt;Home&lt;/a&gt;
+    &lt;a href="about.html"&gt;About&lt;/a&gt;
+    &lt;a href="contact.html"&gt;Contact&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+
+            <h3>3. Sub-pages (e.g., about.html)</h3>
+            <p>When creating a sub-page, copy the basic structure from your index.html so the header, footer, and links
+                remain consistent. Link to the <strong>same</strong> CSS file to maintain the design.</p>
+            <pre><code>&lt;head&gt;
+    ...
+    &lt;!-- Use ../ if the css folder is one level up --&gt;
+    &lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/head&gt;</code></pre>
+        </div>
+
+        <footer class="main-footer">
+            <p>If there are any mistakes or wrong info please feel free to contact me on <a
+                    href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://greenbsa.github.io/BASILR00T/"
+                    target="_blank">BASILR00T</a>.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

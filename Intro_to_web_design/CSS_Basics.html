@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Basics | JIC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div
+        style="background: linear-gradient(90deg, #8b5cf6 0%, #3b82f6 100%); color: white; padding: 12px; text-align: center; font-family: 'Cairo', sans-serif; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <p style="margin: 0; font-size: 15px; color: white; direction: rtl;">
+            🎓 <strong>ركز في اختبارك الآن.. والمستقبل علينا!</strong> &nbsp;|&nbsp;
+            <a href="https://kawnhub.com/" target="_blank"
+                style="color: white; text-decoration: underline; font-weight: bold;">نجهز لكم منصة جديدة كلياً للفصل
+                القادم (V2)</a> .. بالتوفيق !
+        </p>
+    </div>
+    <a href="Web_Design_Hub.html" class="back-button">&larr; Back to Web Design Hub</a>
+    <div class="container">
+        <div class="main-header">
+            <h1>CSS Basics</h1>
+            <p>Learn how to style your web pages with CSS.</p>
+        </div>
+
+        <div class="section">
+            <h2>The Style</h2>
+            <p>CSS (Cascading Style Sheets) controls how your HTML looks. It handles colors, fonts, layout, and spacing.
+            </p>
+
+            <h3>1. Syntax</h3>
+            <p>CSS works by selecting an element and applying styles to it:</p>
+            <pre><code>selector {
+    property: value;
+}</code></pre>
+
+            <h3>2. Simple Examples</h3>
+            <pre><code>/* Select by Tag Name */
+p {
+    color: blue;
+    font-size: 16px;
+}
+
+/* Select by Class (starts with .) */
+.my-button {
+    background-color: red;
+    border-radius: 5px;
+}
+
+/* Select by ID (starts with #) */
+#main-header {
+    text-align: center;
+}</code></pre>
+
+            <h3>3. The Box Model</h3>
+            <p>Every element in web design is a box. It consists of:</p>
+            <ul>
+                <li><strong>Content:</strong> The actual text or image.</li>
+                <li><strong>Padding:</strong> Space <em>inside</em> the border (around content).</li>
+                <li><strong>Border:</strong> The line around the padding.</li>
+                <li><strong>Margin:</strong> Space <em>outside</em> the border (separates elements).</li>
+            </ul>
+        </div>
+
+        <footer class="main-footer">
+            <p>If there are any mistakes or wrong info please feel free to contact me on <a
+                    href="mailto:BSA717@outlook.sa" target="_blank">BSA717@outlook.sa</a>.</p>
+            <p>Built as a reference for JIC students. Inspired by <a href="https://greenbsa.github.io/BASILR00T/"
+                    target="_blank">BASILR00T</a>.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
