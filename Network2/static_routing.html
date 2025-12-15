@@ -28,6 +28,7 @@
         <main>
             <section class="section">
                 <h2>Static Routing</h2>
+
                 <p>A static route is a manually configured entry in a router's routing table. It tells the router how to
                     reach a specific network that is not directly connected.</p>
                 <p>The command syntax is:
@@ -38,6 +39,16 @@
 
 <code class="comment">! On Router2, to reach the 10.0.0.0/8 network, the next hop is 192.168.1.1</code>
 <code class="output">Router2(config)# </code><code class="user-input">ip route 10.0.0.0 255.0.0.0 192.168.1.1</code></pre>
+                <div class="warning-box" style="direction: rtl; text-align: right; margin-bottom: 1.5rem;">
+                    <p class="danger" style="margin-bottom: 0.5rem;">⚠️ تنبيه هام:</p>
+                    <ul
+                        style="margin-bottom: 0; color: var(--text-primary); padding-right: 1.5rem; list-style-position: inside;">
+                        <li><strong>لا تعتمد على تبويب الـ Config:</strong> قد يكون مقفلاً أثناء الاختبار، لذا يجب
+                            <strong>حفظ الأوامر</strong>.</li>
+                        <li><strong>الغرض من هذه الطريقة:</strong> التوضيح وتسهيل الفهم فقط.</li>
+                        <li><strong>الأوامر المطلوبة:</strong> مشروحة بالكامل ضمن محتوى الدرس في هذه الصفحة.</li>
+                    </ul>
+                </div>
                 <div class="video-container">
                     <iframe width="1260" height="709" src="https://www.youtube.com/embed/73kX1oP3dJU"
                         title="Static Routing Configuration | 3 Router 3 Switch" frameborder="0"
