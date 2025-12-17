@@ -20,7 +20,7 @@
                 القادم (V2)</a> .. بالتوفيق !
         </p>
     </div>
-    <a href="NOS.html" class="back-button">&larr; Back to Hub</a>
+    <a href="NOS.html" class="back-button">&larr; Back to NOS Hub</a>
     <div class="container">
         <header class="main-header">
             <h1>Network Operating Systems (Linux)</h1>
@@ -28,7 +28,6 @@
         <main>
             <section class="section">
                 <h2>1. File and Directory Management Essentials</h2>
-                <p>Common commands used for navigating and managing files and directories.</p>
                 <div class="table-container">
                     <table>
                         <thead>
@@ -40,48 +39,47 @@
                         <tbody>
                             <tr>
                                 <td><code>cd</code></td>
-                                <td>Change Directory. e.g., <code>cd /home</code></td>
+                                <td>Change Directory</td>
                             </tr>
                             <tr>
                                 <td><code>ls</code></td>
-                                <td>List directory contents. e.g., <code>ls -l</code> (long listing), <code>ls -a</code>
-                                    (hidden files).</td>
+                                <td>List directory contents (with parameters)</td>
                             </tr>
                             <tr>
                                 <td><code>pwd</code></td>
-                                <td>Print Working Directory. Show current path.</td>
+                                <td>Print Working Directory</td>
                             </tr>
                             <tr>
                                 <td><code>cat</code></td>
-                                <td>Display file content. e.g., <code>cat file.txt</code></td>
+                                <td>Display file content</td>
                             </tr>
                             <tr>
                                 <td><code>touch</code></td>
-                                <td>Create new file or update timestamp. e.g., <code>touch newfile.txt</code></td>
+                                <td>Create new file or update timestamp</td>
                             </tr>
                             <tr>
                                 <td><code>vi editor</code></td>
-                                <td>Text editing using the <code>vi</code> editor. e.g., <code>vi filename</code></td>
+                                <td>Text editing using the <code>vi</code> editor</td>
                             </tr>
                             <tr>
                                 <td><code>mkdir</code></td>
-                                <td>Make Directory. e.g., <code>mkdir NewFolder</code></td>
+                                <td>Make Directory</td>
                             </tr>
                             <tr>
                                 <td><code>rm</code></td>
-                                <td>Remove files. e.g., <code>rm file.txt</code></td>
+                                <td>Remove files</td>
                             </tr>
                             <tr>
                                 <td><code>rmdir</code></td>
-                                <td>Remove empty directories. e.g., <code>rmdir EmptyFolder</code></td>
+                                <td>Remove empty directories</td>
                             </tr>
                             <tr>
                                 <td><code>cp</code></td>
-                                <td>Copy files and directories. e.g., <code>cp source dest</code></td>
+                                <td>Copy files and directories</td>
                             </tr>
                             <tr>
                                 <td><code>mv</code></td>
-                                <td>Move or rename files and directories. e.g., <code>mv oldname newname</code></td>
+                                <td>Move or rename files and directories</td>
                             </tr>
                         </tbody>
                     </table>
@@ -95,42 +93,43 @@
                     <li><strong>Delete:</strong> Press <code>Esc</code> then <code>x</code> (delete character) or
                         <code>dd</code> (delete line).
                     </li>
-                    <li><strong>Save & Quit:</strong> Press <code>Esc</code> then type <code>:wq</code> and hit Enter.
+                    <li><strong>Save & Quit:</strong> Press <code>Esc</code> then type <code>:wq</code> and hit
+                        Enter.
                     </li>
-                    <li><strong>Quit without Saving:</strong> Press <code>Esc</code> then type <code>:q!</code> and hit
+                    <li><strong>Quit without Saving:</strong> Press <code>Esc</code> then type <code>:q!</code> and
+                        hit
                         Enter.</li>
                 </ul>
-            </section>
 
-            <section class="section">
                 <h2>2. User and Group Management</h2>
-                <p>Administrative commands used for user and group lifecycle management.</p>
 
                 <h3>2.1 User Administration</h3>
                 <p><em>(Commands requiring elevated privileges)</em></p>
 
                 <div class="command-block">
                     <h4>Create User</h4>
-                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">useradd [options] username</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">id username</span>
-<span class="output">uid=1001(username) gid=1001(username) groups=1001(username)</span></code></pre>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">useradd &lt;option&gt; &lt;username&gt;</span></code></pre>
                     <strong>Options:</strong>
                     <ul>
                         <li><code>-u</code>: Set UID</li>
                         <li><code>-g</code>: Set Primary group name/GID</li>
-                        <li><code>-o</code>: Override (allow duplicates)</li>
+                        <li><code>-o</code>: Override</li>
                         <li><code>-G</code>: Set Secondary group</li>
                         <li><code>-c</code>: Add Comment</li>
                         <li><code>-d</code>: Set Home directory</li>
                         <li><code>-s</code>: Set Shell</li>
                     </ul>
+                    <div class="info-box">
+                        <strong>Verification (Confirmation only):</strong>
+                        <p>You can verify creation with:</p>
+                        <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">id username</span>
+<span class="output">uid=1001(username) gid=1001(username) groups=1001(username)</span></code></pre>
+                    </div>
                 </div>
 
                 <div class="command-block">
                     <h4>Modify User</h4>
-                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">usermod -L username</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">passwd -S username</span>
-<span class="output">username LK 2023-01-01 0 99999 7 -1 (Password locked.)</span></code></pre>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">usermod &lt;options&gt; &lt;username&gt;</span></code></pre>
                     <strong>Options:</strong>
                     <ul>
                         <li><code>-l</code>: Change login name</li>
@@ -141,64 +140,69 @@
 
                 <div class="command-block">
                     <h4>Delete User</h4>
-                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">userdel [options] username</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">id username</span>
-<span class="output">id: username: no such user</span></code></pre>
-                    <strong>Options:</strong>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">userdel &lt;options&gt; &lt;username&gt;</span></code></pre>
+                    <strong>Option:</strong>
                     <ul>
                         <li><code>-r</code>: Delete home directory and mail spool</li>
                     </ul>
                 </div>
 
                 <div class="command-block">
-                    <h4>Change User Settings</h4>
-                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chage -l username</span>
-<span class="output">Last password change                                    : Jan 01, 2023
-Password expires                                        : never
-Password inactive                                       : never
-Account expires                                         : never
-Minimum number of days between password change          : 0
-Maximum number of days between password change          : 99999
-Number of days of warning before password expires       : 7</span></code></pre>
+                    <h4>Change User Settings (Password Expiration)</h4>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chage &lt;username&gt;</span></code></pre>
                 </div>
 
                 <h3>2.2 Group Administration</h3>
 
                 <div class="command-block">
                     <h4>Create Group</h4>
-                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">groupadd [options] groupname</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">tail -1 /etc/group</span>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">groupadd &lt;options&gt; &lt;groupname&gt;</span></code></pre>
+                    <strong>Options:</strong>
+                    <ul>
+                        <li><code>-g</code></li>
+                        <li><code>-o</code></li>
+                    </ul>
+                    <div class="info-box">
+                        <strong>Verification (Confirmation only):</strong>
+                        <p>You can verify with:</p>
+                        <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">tail -1 /etc/group</span>
 <span class="output">groupname:x:1001:</span></code></pre>
-                    <strong>Options:</strong> <code>-g</code> (GID), <code>-o</code> (Override).
+                    </div>
                 </div>
 
                 <div class="command-block">
                     <h4>Modify Group</h4>
-                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">groupmod [options] groupname</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">grep groupname /etc/group</span>
-<span class="output">groupname:x:1002:</span></code></pre>
-                    <strong>Options:</strong> <code>-g</code> (Set GID), <code>-o</code> (Override), <code>-n</code>
-                    (Change group name).
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">groupmod &lt;options&gt; &lt;groupname&gt;</span></code></pre>
+                    <strong>Options:</strong>
+                    <ul>
+                        <li><code>-g</code>: Set GID</li>
+                        <li><code>-o</code>: Override</li>
+                        <li><code>-n</code>: To change the group name</li>
+                    </ul>
                 </div>
 
                 <div class="command-block">
                     <h4>Delete Group</h4>
-                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">groupdel groupname</span></code></pre>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">groupdel &lt;groupname&gt;</span></code></pre>
                 </div>
 
                 <div class="command-block">
                     <h4>Group Membership Settings</h4>
-                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">gpasswd -a user1 group1</span>
-<span class="output">Adding user user1 to group group1</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">grep group1 /etc/group</span>
-<span class="output">group1:x:1001:user1</span></code></pre>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">gpasswd &lt;options&gt; &lt;groupname&gt;</span></code></pre>
                     <strong>Options:</strong>
                     <ul>
                         <li><code>-a</code>: Add a user</li>
                         <li><code>-d</code>: Delete a user from group</li>
                         <li><code>-M</code>: Creating multiple members</li>
                     </ul>
+                    <div class="info-box">
+                        <strong>Verification (Confirmation only):</strong>
+                        <p>You can verify membership with:</p>
+                        <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">grep groupname /etc/group</span>
+<span class="output">groupname:x:1001:user1</span></code></pre>
+                    </div>
                 </div>
+
             </section>
 
             <section class="section">
@@ -206,27 +210,32 @@ Number of days of warning before password expires       : 7</span></code></pre>
 
                 <h3>3.1 Ownership Commands</h3>
                 <ul>
-                    <li><strong><code>chown</code> (change owner):</strong> Changes ownership of a file or directory.
-                        <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chown newowner filename</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">ls -l filename</span>
-<span class="output">-rw-r--r--. 1 newowner root 0 Mar 15 10:00 filename</span>
-
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chown -R newowner directory</span> <span class="comment"># Recursive</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">ls -ld directory</span>
-<span class="output">drwxr-xr-x. 2 newowner root 4096 Mar 15 10:00 directory</span></code></pre>
+                    <li><strong><code>chown</code> (change owner):</strong> Changes ownership of a file or
+                        directory.
+                        <ul>
+                            <li>Requires two arguments: New owner and File or directory to change.</li>
+                            <li><strong>Recursive Option:</strong> Can use the <code>-R</code> option to change
+                                permissions recursively throughout the directory tree.</li>
+                        </ul>
                     </li>
-                    <li><strong><code>chgrp</code> (change group):</strong> Changes group owner of a file or directory.
-                        <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chgrp newgroup filename</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">ls -l filename</span>
-<span class="output">-rw-r--r--. 1 root newgroup 0 Mar 15 10:00 filename</span></code></pre>
+                    <li style="margin-top: 10px;"><strong><code>chgrp</code> (change group):</strong> Changes group
+                        owner of a file or directory.
+                        <ul>
+                            <li>Uses the same arguments and options as <code>chown</code>.</li>
+                        </ul>
                     </li>
                 </ul>
 
                 <h3>3.2 Permission Concepts</h3>
-                <p><strong>Categories:</strong> User (owner), Group (group owner), Other (everyone on system).</p>
-                <p><strong>Regular Permissions:</strong> Read (r), Write (w), Execute (x). The inode section storing
-                    this is called the <strong>Mode</strong>.</p>
+                <ul>
+                    <li><strong>Permissions Categories:</strong> User (owner), Group (group owner), Other (everyone
+                        on
+                        system).</li>
+                    <li><strong>Regular Permissions:</strong> Read (r), Write (w), Execute (x).</li>
+                    <li>The inode section that stores permissions is called the <strong>Mode</strong>.</li>
+                </ul>
 
+                <p><strong>Access Mode Functions:</strong></p>
                 <div class="table-container">
                     <table>
                         <thead>
@@ -257,89 +266,59 @@ Number of days of warning before password expires       : 7</span></code></pre>
                 </div>
 
                 <h3>3.3 Changing Permissions</h3>
-                <p>The command <strong><code>chmod</code></strong> (Change Mode) is used to modify file permissions.</p>
+                <ul>
+                    <li><strong><code>chmod</code> (change mode):</strong> Changes mode (permissions) of files or
+                        directories.
+                        <ul>
+                            <li>Takes two arguments minimum: Criteria used to change permissions, and Filenames to
+                                change.</li>
+                            <li>Use the <strong>"a"</strong> character to refer to all categories (user, group,
+                                other)
+                                if changes are identical.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Default Permissions:</strong>
+                        <ul>
+                            <li><strong>New Files:</strong> Given <code>rw-rw-rw-</code> permissions by default.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
 
-                <h4>Method 1: Symbolic Mode (Letters)</h4>
-                <p>Formula: <code>chmod [Who][Operator][Permission] filename</code></p>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Who</th>
-                                <th>Operator</th>
-                                <th>Permission</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>u</code>: User (Owner)</td>
-                                <td><code>+</code>: Add permission</td>
-                                <td><code>r</code>: Read</td>
-                            </tr>
-                            <tr>
-                                <td><code>g</code>: Group</td>
-                                <td><code>-</code>: Remove permission</td>
-                                <td><code>w</code>: Write</td>
-                            </tr>
-                            <tr>
-                                <td><code>o</code>: Others</td>
-                                <td><code>=</code>: Set exact permission</td>
-                                <td><code>x</code>: Execute</td>
-                            </tr>
-                            <tr>
-                                <td><code>a</code>: All (u,g,o)</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="command-block">
+                    <h4>Examples (Symbolic Mode)</h4>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod u+x script.sh</span>
+<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod u=-rwx,g=-rwx,o=-rwx file1.txt</span>
+<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod a=rwx file1.txt</span></code></pre>
+                    <div class="info-box">
+                        <strong>Verification (Confirmation only):</strong>
+                        <p>You can verify the permissions with:</p>
+                        <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">ls -l file1.txt</span>
+<span class="output">-rwxrwxrwx 1 root root 0 Mar 15 10:00 file1.txt</span></code></pre>
+                    </div>
                 </div>
 
-                <pre><code><span class="comment"># Examples</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod u+x script.sh</span>    <span class="comment"># Give User execute permission</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod g-w file.txt</span>     <span class="comment"># Remove write permission from Group</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod a=r file.txt</span>     <span class="comment"># Set Read-only for Everyone</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">ls -l script.sh</span>
-<span class="output">-rwxr--r-- 1 root root 0 Mar 15 10:00 script.sh</span></code></pre>
-
-                <h4>Method 2: Numeric Mode (Numbers)</h4>
-                <p>Use numbers to represent permission sets. Sum the values to get the desired mode.</p>
-                <ul>
-                    <li><code>4</code> (Read)</li>
-                    <li><code>2</code> (Write)</li>
-                    <li><code>1</code> (Execute)</li>
-                    <li><code>0</code> (No Permission)</li>
-                </ul>
-                <p>Example: <code>755</code> = 7(u), 5(g), 5(o)</p>
-                <ul>
-                    <li>User (7) = 4+2+1 (rwx)</li>
-                    <li>Group (5) = 4+0+1 (r-x)</li>
-                    <li>Other (5) = 4+0+1 (r-x)</li>
-                </ul>
-
-                <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod 755 script.sh</span>
-<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">ls -l script.sh</span>
-<span class="output">-rwxr-xr-x 1 root root 0 Mar 15 10:00 script.sh</span></code></pre>
-
-                <div class="note" style="border-left: 3px solid var(--blue); padding-left: 1rem; margin-top: 1rem;">
-                    <strong>Default Permissions:</strong> New files usually get <code>rw-rw-rw-</code> (666) minus the
-                    umask.
+                <div class="command-block">
+                    <h4>Examples (Numeric Mode)</h4>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">chmod 755 script.sh</span></code></pre>
                 </div>
 
                 <h3>3.4 UMASK</h3>
                 <ul>
                     <li><strong>Purpose:</strong> A mask value (<code>022</code>) is used to mask some bits from the
                         default directory permission.</li>
-                    <li><strong>Calculation Example:</strong> Default directory permission is <code>777</code>. After
-                        masking with <code>022</code>, result is <code>755</code> (777 - 022 = 755).</li>
+                    <li><strong>Default Calculation Example:</strong> The default directory permission is 777. After
+                        masking with 022, the result is 755 (777 - 022 = 755).</li>
                     <li><strong>View UMASK Value:</strong>
-                        <br>Command: <code>umask</code>
-                        <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">umask</span>
-<span class="output">0022</span></code></pre>
-                        <br>View from file: <code>vi /etc/bashrc</code>
+                        <ul>
+                            <li>Command: <code>umask</code></li>
+                            <li>View from file: <code>vi /etc/bashrc</code></li>
+                        </ul>
                     </li>
                 </ul>
+
             </section>
+
             <section class="section">
                 <h2>4. System Power Commands</h2>
                 <pre><code><span class="comment"># Shutdown</span>
@@ -351,6 +330,27 @@ Number of days of warning before password expires       : 7</span></code></pre>
 <span class="prompt">[root@comp1 ~]#</span> <span class="user-input">reboot</span>
 <span class="prompt">[root@comp1 ~]#</span> <span class="user-input">poweroff</span>
 <span class="prompt">[root@comp1 ~]#</span> <span class="user-input">halt</span>              <span class="comment"># Halts system (does not power off)</span></code></pre>
+
+            </section>
+
+            <section class="section">
+                <h2>5. Data Generation & Redirection (yes command)</h2>
+                <p>The <code>yes</code> command is used to output a string repeatedly until killed. It is often used
+                    for
+                    automating scripts or generating test data.</p>
+                <div class="command-block">
+                    <h4>Example: Generate 200 lines of "lol"</h4>
+                    <p>We use <code>yes</code> to generate the text "lol" repeatedly. We pipe (<code>|</code>) this
+                        output to <code>head -n 200</code>, which takes only the first 200 lines. Finally, we
+                        redirect
+                        (<code>></code>) the result to a file named <code>test.txt</code>.</p>
+                    <pre><code><span class="prompt">[root@comp1 ~]#</span> <span class="user-input">yes lol | head -n 200 > test.txt</span>
+                
+<span class="prompt">[root@comp1 ~]#</span> <span class="user-input">cat test.txt</span>
+<span class="output">lol
+lol
+... (200 times)</span></code></pre>
+                </div>
             </section>
 
         </main>
