@@ -87,7 +87,29 @@
             </section>
 
             <section class="section">
+                <h2>Verification</h2>
+                <pre><code class="comment">! Show the IP routing table to see routes learned via RIP (R) or OSPF (O)</code>
+<code class="output">Router# </code><code class="user-input">show ip route</code>
+<code class="output">...
+O     192.168.2.0/24 [110/2] via 10.10.10.2, 00:05:32, Serial0/0/0
+R     172.16.0.0/16 [120/1] via 10.10.10.2, 00:00:15, Serial0/0/0
+...</code>
+
+
+<code class="comment">! Show information about OSPF neighbors</code>
+<code class="output">Router# </code><code class="user-input">show ip ospf neighbor</code>
+<code class="output">
+Neighbor ID     Pri   State           Dead Time   Address         Interface
+192.168.2.1       1   FULL/BDR        00:00:38    10.10.10.2      Serial0/0/0
+</code></pre>
+            </section>
+
+            <section class="section">
                 <h2>EIGRP Configuration</h2>
+                <div class="image-container" style="text-align: center; margin-bottom: 20px;">
+                    <img src="image/EIGRP_ips.png" alt="EIGRP Topology"
+                        style="max-width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+                </div>
                 <div class="info-box" style="direction: rtl; text-align: right; margin-bottom: 1.5rem;">
                     <p style="margin: 0;"><strong>💡 ملاحظة:</strong> يمكنك مشاهدة فيديو شرح الـ RIP في الأعلى وتطبيق
                         نفس المنطق على الـ EIGRP.</p>
@@ -114,35 +136,27 @@
 <code class="output">Router3(config-router)# </code><code class="user-input">network 172.16.0.0</code>
 <code class="output">Router3(config-router)# </code><code class="user-input">exit</code></pre>
 
-                <h3>EIGRP Verification Commands</h3>
-                <ul>
-                    <li>To view the routing table: <br><code>Router# show ip route</code></li>
-                    <li>To view the neighbor table: <br><code>Router# show ip eigrp neighbors</code></li>
-                    <li>To view information about the EIGRP routing protocol operations:
-                        <br><code>Router# show ip protocols</code>
-                    </li>
-                </ul>
+
             </section>
 
             <section class="section">
                 <h2>Verification</h2>
-                <pre><code class="comment">! Show the IP routing table to see routes learned via RIP (R) or OSPF (O)</code>
+
+                <p>Show the IP routing table (D denotes EIGRP):</p>
+                <pre><code class="comment">! Show the IP routing table</code>
 <code class="output">Router# </code><code class="user-input">show ip route</code>
 <code class="output">...
-O     192.168.2.0/24 [110/2] via 10.10.10.2, 00:05:32, Serial0/0/0
-R     172.16.0.0/16 [120/1] via 10.10.10.2, 00:00:15, Serial0/0/0
-...</code>
+D     192.168.3.0/24 [90/2172416] via 10.0.0.2, 00:00:12, Serial0/0/0
+C     10.0.0.0/8 is directly connected, Serial0/0/0
+...</code></pre>
 
-<code class="comment">! Verify RIP timers, version, and networks</code>
-<code class="output">Router# </code><code class="user-input">show ip protocols</code>
-
-<code class="comment">! Show information about OSPF neighbors</code>
-<code class="output">Router# </code><code class="user-input">show ip ospf neighbor</code>
-<code class="output">
-Neighbor ID     Pri   State           Dead Time   Address         Interface
-192.168.2.1       1   FULL/BDR        00:00:38    10.10.10.2      Serial0/0/0
-</code></pre>
-            </section>
+                <p>Verify EIGRP neighbors:</p>
+                <pre><code class="comment">! Verify EIGRP neighbors</code>
+<code class="output">Router# </code><code class="user-input">show ip eigrp neighbors</code>
+<code class="output">EIGRP-IPv4 Neighbors for AS(13)
+H   Address                 Interface       Hold Uptime   SRTT   RTO  Q  Seq
+                                            (sec)         (ms)       Cnt Num
+0   10.0.0.2                Serial0/0/0       12 00:00:15   40   1000  0  3</code></pre>
         </main>
         <footer class="main-footer">
             <p>If there are any mistakes or wrong info, please feel free to contact me at <a
