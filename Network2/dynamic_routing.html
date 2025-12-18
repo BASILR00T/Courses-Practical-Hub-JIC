@@ -47,7 +47,8 @@
                     <ul
                         style="margin-bottom: 0; color: var(--text-primary); padding-right: 1.5rem; list-style-position: inside;">
                         <li><strong>لا تعتمد على تبويب الـ Config:</strong> قد يكون مقفلاً أثناء الاختبار، لذا يجب
-                            <strong>حفظ الأوامر</strong>.</li>
+                            <strong>حفظ الأوامر</strong>.
+                        </li>
                         <li><strong>الغرض من هذه الطريقة:</strong> التوضيح وتسهيل الفهم فقط.</li>
                         <li><strong>الأوامر المطلوبة:</strong> مشروحة بالكامل ضمن محتوى الدرس في هذه الصفحة.</li>
                     </ul>
@@ -83,6 +84,44 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
+            </section>
+
+            <section class="section">
+                <h2>EIGRP Configuration</h2>
+                <div class="info-box" style="direction: rtl; text-align: right; margin-bottom: 1.5rem;">
+                    <p style="margin: 0;"><strong>💡 ملاحظة:</strong> يمكنك مشاهدة فيديو شرح الـ RIP في الأعلى وتطبيق
+                        نفس المنطق على الـ EIGRP.</p>
+                </div>
+                <p>After assigning IP addresses on each router interface, you need to perform the following steps to
+                    configure EIGRP routing:</p>
+
+                <h3>On Router1</h3>
+                <pre><code class="output">Router1(config)# </code><code class="user-input">router eigrp 13</code>
+<code class="output">Router1(config-router)# </code><code class="user-input">network 10.0.0.0</code>
+<code class="output">Router1(config-router)# </code><code class="user-input">network 100.0.0.0</code>
+<code class="output">Router1(config-router)# </code><code class="user-input">exit</code></pre>
+
+                <h3>On Router2</h3>
+                <pre><code class="output">Router2(config)# </code><code class="user-input">router eigrp 13</code>
+<code class="output">Router2(config-router)# </code><code class="user-input">network 100.0.0.0</code>
+<code class="output">Router2(config-router)# </code><code class="user-input">network 192.168.1.0</code>
+<code class="output">Router2(config-router)# </code><code class="user-input">network 200.0.0.0</code>
+<code class="output">Router2(config-router)# </code><code class="user-input">exit</code></pre>
+
+                <h3>On Router3</h3>
+                <pre><code class="output">Router3(config)# </code><code class="user-input">router eigrp 13</code>
+<code class="output">Router3(config-router)# </code><code class="user-input">network 200.0.0.0</code>
+<code class="output">Router3(config-router)# </code><code class="user-input">network 172.16.0.0</code>
+<code class="output">Router3(config-router)# </code><code class="user-input">exit</code></pre>
+
+                <h3>EIGRP Verification Commands</h3>
+                <ul>
+                    <li>To view the routing table: <br><code>Router# show ip route</code></li>
+                    <li>To view the neighbor table: <br><code>Router# show ip eigrp neighbors</code></li>
+                    <li>To view information about the EIGRP routing protocol operations:
+                        <br><code>Router# show ip protocols</code>
+                    </li>
+                </ul>
             </section>
 
             <section class="section">
